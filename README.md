@@ -1,6 +1,6 @@
 # Vikings E-Commerce -- Frontend
 
-> Badges will go here.
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/atlp-rwanda/vikings-ec-fe/tree/chore%2Fsetup-circle-ci-184759894.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/atlp-rwanda/vikings-ec-fe/tree/chore%2Fsetup-circle-ci-184759894) [![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/vikings-ec-fe/badge.svg?branch=dev)](https://coveralls.io/github/atlp-rwanda/vikings-ec-fe?branch=dev)
 
 ## Usage description
 
@@ -11,7 +11,7 @@
 
 ## Tests setup and execution
 
-The project use JEST Library for testing.  
+The project use JEST Library for testing.
 All tests are located in `./src/tests/**.test.js`
 First of all run `npm install` to install all packages and then,
 To run tests run `npm run test`.
@@ -22,16 +22,16 @@ The project uses:
 
 ### Backend
 
-`Node Express` : the core back end technology  
+`Node Express` : the core back end technology
  `Render`: Used to host our app online
-`PostgreSQL` Is used as our database management tool  
+`PostgreSQL` Is used as our database management tool
  `Swagger` Used for API documentation.
 
 ### Frontend
 
-`Figma` : Used to prototype the User interface  
+`Figma` : Used to prototype the User interface
  `TailwindCSS`: Front end framework for styling
-`React Js`: Front end framework  
+`React Js`: Front end framework
  `Redux`: a predictable state container for JavaScript apps.
 
 ## Online app
