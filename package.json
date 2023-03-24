@@ -7,6 +7,8 @@
     "lint": "eslint src",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development --open --hot --port 8000",
     "build": "webpack --mode production",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "test": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "jest": {
@@ -42,6 +44,14 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "babel-jest": "^29.5.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^9.1.2",
     "coveralls": "^3.1.1",
     "css-loader": "^6.7.3",
