@@ -1,6 +1,6 @@
 # Vikings E-Commerce -- Frontend
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/atlp-rwanda/vikings-ec-fe/tree/dev.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/atlp-rwanda/vikings-ec-fe/tree/dev) [![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/vikings-ec-fe/badge.svg?branch=dev)](https://coveralls.io/github/atlp-rwanda/vikings-ec-fe?branch=dev)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/atlp-rwanda/vikings-ec-fe/tree/dev.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/atlp-rwanda/vikings-ec-fe/tree/dev) [![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/vikings-ec-fe/badge.svg?branch=dev)](https://coveralls.io/github/atlp-rwanda/vikings-ec-fe?branch=dev) [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 
 ## Usage description
 
