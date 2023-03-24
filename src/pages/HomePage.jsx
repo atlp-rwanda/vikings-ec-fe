@@ -13,7 +13,8 @@ function HomePage() {
     <div>
       <h1>Home Page</h1>
       <h2 className="underline">{data.message}</h2>
-      <Link to="/auth">Login</Link>
+      <Link to="/auth">Login</Link><br/>
+      <Link to="/redirect">Go to storybook</Link>
     </div>
   );
 }
