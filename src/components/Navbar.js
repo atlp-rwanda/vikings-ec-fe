@@ -1,0 +1,52 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
+import Logo from '../../public/images/logo.svg';
+
+const Navbar = () => {
+  const navItems = ['Home', 'About', 'Pages', 'Contact', 'SignIn', 'Register'];
+  return (
+    <nav className="py-2.5 flex items-center justify-between w-full">
+      <a href="/" className="flex items-center">
+        <img src={Logo} className="h-6 sm:h-9" alt="Vikings Logo" />
+        <span className="self-center text-xl font-semibold whitespace-nowrap">
+          Vikings
+        </span>
+      </a>
+      <button
+        data-collapse-toggle="navbar-default"
+        type="button"
+        className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        aria-controls="navbar-default"
+        aria-expanded="false"
+      >
+        <span className="sr-only">Open main menu</span>
+        <svg
+          className="w-6 h-6"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </button>
+      <ul className="md:flex hidden flex-1 flex-col p-4 mt-4 justify-between max-w-[54rem] rounded-lg bg-inherit bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+        {navItems.map((navItem) => (
+          <li key={navItem}>
+            <a
+              href="#"
+              className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            >
+              {navItem}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+export default Navbar;
