@@ -7,7 +7,14 @@ import Button from '../src/components/forms/Button';
 describe('My app', () => {
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth');
-    waitFor(() => {
+    await waitFor(() => {
+      expect(renderer.toJSON())
+        .toMatchSnapshot();
+    });
+  });
+  it('renders redirect-google correctly', async () => {
+    const renderer = renderRoute('/redirect-google');
+    await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });

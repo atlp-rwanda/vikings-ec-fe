@@ -6,6 +6,7 @@ import getMessage from '../features/actions/welcomeAction';
 const HomePage = () => {
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.message);
+  const { data: userData } = useSelector((state) => state.googleAuth);
   useEffect(() => {
     dispatch(getMessage());
   }, []);
@@ -18,6 +19,8 @@ const HomePage = () => {
       <Link to="https://www.chromatic.com/builds?appId=64218d727e570b64b94415f8">
         Go to storybook
       </Link>
+      <h1>{JSON.stringify(userData !== null ? userData.user : 'no user found')}</h1>
+      <Link to="/auth">Login</Link>
     </div>
   );
 };

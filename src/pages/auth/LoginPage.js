@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../../components/forms/LoginForm';
-import GoogleIcon from '../../components/forms/googleIcon';
 import middleImage from '../../../public/images/middleImage.svg';
 import bgImage from '../../../public/images/bgsvg.svg';
+import GoogleAuthButton from '../../components/GoogleAuthButton';
 
 const LoginPage = () => {
   const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
@@ -42,7 +42,7 @@ const LoginPage = () => {
           <hr className="flex-grow border-gray-300 border-t" />
         </div>
         <div className="flex items-center justify-center mt-4">
-          <GoogleIcon />
+          <GoogleAuthButton />
         </div>
       </div>
     </div>

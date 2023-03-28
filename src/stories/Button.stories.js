@@ -6,7 +6,9 @@ export default {
   argsTypes: { onClick: { action: 'handleSignIn' } },
 };
 
-const Template = (args) => <Button {...args} />;
+function Template(args) {
+  return <Button {...args} />;
+}
 
 export const Label = Template.bind({});
 

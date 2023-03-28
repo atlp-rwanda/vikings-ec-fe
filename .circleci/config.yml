@@ -6,23 +6,19 @@ jobs:
     docker:
       - image: node:latest
     working_directory: ~/repo
-
     steps:
       - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-
       - run: npm install
-
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
       - run: npm test
-
-      - coveralls/upload
-      
-      - run: npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes
+      - run:
+          name: Upload coverage to Coveralls
+          command: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+      - run: npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN
