@@ -24,3 +24,5 @@ jobs:
       - run: npm test
 
       - coveralls/upload
+      
+      - run: npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes
