@@ -9,7 +9,7 @@
     "start": "webpack serve --config ./webpack.config.js --mode production",
     "dev": "webpack-dev-server --config ./webpack.config.js --mode development --open --hot --port 8000 --env local=true",
     "build": "webpack --mode production",
-    "test": "jest tests/ --coverage --config jest.config.js -u",
+    "test": "jest tests/ --coverage --config jest.config.js -u --force-exit",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -48,9 +48,11 @@
     "react-hook-form": "^7.43.9",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
+    "react-tabs": "^6.0.0",
     "react-toastify": "^9.1.2",
     "redux": "^4.2.1",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
     "thunk": "^0.0.1",
     "yup": "^1.0.2"

@@ -2,8 +2,10 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { expect, describe, it } from '@jest/globals';
+import { Provider } from 'react-redux';
 import InputField from '../../src/components/forms/InputField';
 import Icon from '../../src/components/forms/googleIcon';
+import Account from '../../src/components/profile/Account';
 
 describe('InputField', () => {
   it(' Should render input with label ', () => {

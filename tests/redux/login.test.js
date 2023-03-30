@@ -25,7 +25,7 @@ describe('Login slice', () => {
         .includes(expectedActions[1].type),
     ).toBe(true);
   }, 10000);
-  
+
   it('should set loading true while action is pending', () => {
     const action = { type: login.pending };
     const State = loginSlice(initialState, action);

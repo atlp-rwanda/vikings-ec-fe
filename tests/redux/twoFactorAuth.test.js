@@ -42,6 +42,7 @@ describe('Two factor auth slice', () => {
     expect(State).toEqual({
       data: action.payload,
       isLoading: false,
+      isAuthenticated: true,
     });
   });
 

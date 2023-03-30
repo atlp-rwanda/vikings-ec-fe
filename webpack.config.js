@@ -31,7 +31,6 @@ module.exports = (env) => ({
       template: './public/index.html',
     }),
   ],
-
   module: {
     rules: [
       {

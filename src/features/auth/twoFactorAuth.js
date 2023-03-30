@@ -21,6 +21,7 @@ const twoFactorAuthSlice = createSlice({
   initialState: {
     data: null,
     isLoading: false,
+    isAuthenticated: false,
   },
   extraReducers: (builer) => {
     builer
@@ -30,6 +31,7 @@ const twoFactorAuthSlice = createSlice({
       .addCase(verifyAuth.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.data = payload;
+        state.isAuthenticated = true;
       })
       .addCase(verifyAuth.rejected, (state, { payload }) => {
         state.isLoading = false;
