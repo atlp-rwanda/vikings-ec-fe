@@ -16,6 +16,7 @@
     ],
     "no-unused-vars": ["error", { "varsIgnorePattern": "^React", "argsIgnorePattern": "^_" }],
     "import/no-unused-modules": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "no-param-reassign": "off"
   }
 }

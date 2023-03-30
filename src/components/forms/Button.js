@@ -1,10 +1,12 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-function Button({ label, onClick }) {
+function Button({
+  label, onClick, className,
+}) {
   return (
     <div>
-      <button onClick={onClick}>{label}</button>
+      <button onClick={onClick} className={className} type="submit">{label}</button>
     </div>
   );
 }
@@ -12,6 +14,11 @@ function Button({ label, onClick }) {
 Button.propTypes = {
   label: propTypes.string,
   onClick: propTypes.func,
+  className: propTypes.string,
 };
-
+Button.defaultProps = {
+  label: '',
+  onClick() {},
+  className: '',
+};
 export default Button;

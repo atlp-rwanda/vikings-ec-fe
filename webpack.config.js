@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -19,7 +18,6 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // new MiniCssExtractPlugin({filename:'variables.scss'}),
     new HTMLWebpackPlugin({
       template: './public/index.html',
     }),
@@ -61,5 +59,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+  },
+  devtool: 'eval-source-map',
+  watchOptions: {
+    ignored: '**/node_modules',
   },
 };

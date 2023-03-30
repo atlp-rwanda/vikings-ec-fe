@@ -1,14 +1,15 @@
 import axios from 'axios';
 
 const customAxios = axios.create({
-  baseURL: `https://vikings-ec-bn-mbhd.onrender.com/api/v1`,
+  // baseURL: 'https://vikings-ec-bn-mbhd.onrender.com/api/v1',
+  baseURL: 'http://localhost:5000/api/v1',
   timeout: 50000,
   headers: {},
 });
 
 const requestHandler = (request) => {
-  const token = localStorage.getItem('token')??'';
-  request.headers.Authorization = token;
+  const token = localStorage.getItem('token')||'';
+  request.headers.Authorization = `Bearer ${token}`;
   return request;
 };
 
