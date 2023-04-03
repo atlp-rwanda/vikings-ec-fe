@@ -10,13 +10,15 @@ import signupReducer from './features/auth/signupSlice';
 import twoFactorAuthReducer from './features/auth/twoFactorAuth';
 import forgotPasswordReducer from './features/auth/forgotPasswordSlice';
 import resetPasswordReducer from './features/auth/resetPasswordSlice';
-import profile from './features/profile/getProfileSlice';
-import updateProfile from './features/profile/updateProfileSlice';
+import profileReducer from './features/profile/getProfileSlice';
+import updateProfileReducer from './features/profile/updateProfileSlice';
 import verifyEmailReducer from './features/auth/VerifyEmailSlice';
 import updatePasswordReducer from './features/auth/updatePasswordSlice';
 import getProductsReducer from './features/product/getProductsSilice';
 import singleProductReducer from './features/product/singleProductSlice';
 import getRatingsReducer from './features/product/getRatingsSlice';
+import createProductReducer from './features/createProductSlice';
+import categoryReducer from './features/categorySlice';
 
 const middlewares = [];
 
@@ -41,12 +43,14 @@ const store = configureStore({
     forgotPassword: forgotPasswordReducer,
     resetPassword: resetPasswordReducer,
     verifyEmail: verifyEmailReducer,
-    profile,
-    updateProfile,
     updatePassword: updatePasswordReducer,
+    createProduct: createProductReducer,
     product: getProductsReducer,
     singleProduct: singleProductReducer,
     getRatings: getRatingsReducer,
+    updateProfile: updateProfileReducer,
+    profile: profileReducer,
+    category: categoryReducer,
   },
   middleware: [...middlewares, thunk],
 });

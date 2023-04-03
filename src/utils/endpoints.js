@@ -6,6 +6,7 @@ const Endpoints = {
   verifyEmail: '/users/verify-email',
   updatePassword: '/users/password_update',
   product: '/products',
+  createProduct: '/products',
 };
 
 export default Endpoints;

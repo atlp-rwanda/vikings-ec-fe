@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import AuthLayout from '../layout/AuthLayout';
+import CreateProductForm from '../components/forms/CreateProductForm';
 import LoginPage from '../pages/auth/LoginPage';
 import SignupPage from '../pages/auth/SignupPage';
 import HomePage from '../pages/HomePage';
@@ -33,6 +34,12 @@ export const getRoutes = () => [
     <Route path="forgot-password" element={<ForgotPassword />} />
     <Route path="reset-password" element={<ResetPassword />} />
     <Route path="verify-email/:token" element={<VerifyEmailPage />} />
+    <Route index element={<LoginPage />} />
+    <Route
+      key="key__verify__auth"
+      path="verify/:id"
+      element={<TwoFactorAuthPage />}
+    />
   </Route>,
   <Route
     key="key__redirect-google"
@@ -48,6 +55,11 @@ export const getRoutes = () => [
   <>
     <Route key="key_dashboard" path="/dashboard">
       <Route path="products" element={<Dashboard />} />
+      <Route
+        key="key_create_product"
+        path="/dashboard/products/create"
+        element={<CreateProductForm />}
+      />
     </Route>
     <Route path="/products" element={<SingProductPage />} />
     <Route key="key_product" path="products/:id" element={<HomeLayout />}>
@@ -57,6 +69,13 @@ export const getRoutes = () => [
     <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />
   </>,
 
+  <Route
+    key="key__redirect-google"
+    path="/redirect-google"
+    element={<GoogleRedirect />}
+  />,
+
+  <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
 ];
 const AppRoutes = () => (
   <BrowserRouter basename="/">

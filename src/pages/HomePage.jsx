@@ -34,12 +34,15 @@ const HomePage = () => {
   }, [dispatch]);
 
   const setPageNumberHandler = (nextPage) => {
-    const newPageNumber = nextPage ? parseInt(productsList.currentPage) + 1
+    const newPageNumber = nextPage
+      ? parseInt(productsList.currentPage) + 1
       : parseInt(productsList.currentPage) - 1;
     if (newPageNumber > 0 && newPageNumber <= productsList.totalPages) {
-      dispatch(getProductList({
-        pageNumber: newPageNumber,
-      }));
+      dispatch(
+        getProductList({
+          pageNumber: newPageNumber,
+        })
+      );
     }
   };
 
@@ -50,7 +53,7 @@ const HomePage = () => {
       <ProductCard
         key={row.id}
         product={row}
-        wish={(
+        wish={
           <ProductOperationButton
             className="mt-[20px] bg-[#f6f4f4] h-[32px] hover:bg-[#099f09] w-[32px] rounded-full flex justify-center items-center"
             icon={hover ? hoveredHurt : wishIcon}
@@ -59,8 +62,8 @@ const HomePage = () => {
             handleMouseEnter={handleMouseEnter}
             handleMouseLeave={handleMouseLeave}
           />
-)}
-        addCart={(
+        }
+        addCart={
           <ProductOperationButton
             className="mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center "
             icon={hoverAddCart ? HoveredShopIcon : shopIcon}
@@ -69,7 +72,7 @@ const HomePage = () => {
             handleMouseEnter={handleAddTocartMouseEnter}
             handleMouseLeave={handleAddTocartMouseLeave}
           />
-)}
+        }
       />
     ));
     pageCount = (
@@ -84,17 +87,18 @@ const HomePage = () => {
 
   return (
     <div className="min-h-72">
-      <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">OUR PRODUCTS</h1>
-      {isLoading ? <Loader />
-        : (
-          <div className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10">
-            {viewProducts}
-          </div>
-        )}
+      <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">
+        OUR PRODUCTS
+      </h1>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10">
+          {viewProducts}
+        </div>
+      )}
       <br />
-      <div className="pb-4">
-        {!isLoading ? pageCount : null}
-      </div>
+      <div className="pb-4">{!isLoading ? pageCount : null}</div>
     </div>
   );
 };
