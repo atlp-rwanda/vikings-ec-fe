@@ -5,7 +5,8 @@ import Avatar from './Avatar';
 import UserInfo from './UserInfo';
 import UserAddress from './UserAddress';
 
-function ProfileSummary({ data }) {
+const ProfileSummary = ({ data }) => {
+  console.log('Hello there');
   return (
     <div className="border border-grey-400 p-12">
       <div className="flex flex-row items-center gap-5 mb-6">
@@ -23,7 +24,7 @@ function ProfileSummary({ data }) {
       </div>
     </div>
   );
-}
+};
 
 ProfileSummary.propTypes = {
   data: PropTypes.object.isRequired,

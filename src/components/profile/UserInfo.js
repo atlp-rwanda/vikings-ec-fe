@@ -16,7 +16,6 @@ function UserInfo({
         /
         {phone}
       </p>
-
     </div>
   );
 }

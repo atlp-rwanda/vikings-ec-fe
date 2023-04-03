@@ -8,7 +8,7 @@ const customAxios = axios.create({
 });
 
 const requestHandler = (request) => {
-  const token = localStorage.getItem('token')||'';
+  const token = localStorage.getItem('token') || '';
   request.headers.Authorization = `Bearer ${token}`;
   return request;
 };
@@ -21,17 +21,15 @@ const responseHandler = (response) => {
   return response;
 };
 
-const errorHandler = (error) => {
-  return Promise.reject(error);
-};
+const errorHandler = (error) => Promise.reject(error);
 customAxios.interceptors.request.use(
   (request) => requestHandler(request),
-  (error) => errorHandler(error)
+  (error) => errorHandler(error),
 );
 
 customAxios.interceptors.response.use(
   (response) => responseHandler(response),
-  (error) => errorHandler(error)
+  (error) => errorHandler(error),
 );
 
 export default customAxios;

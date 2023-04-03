@@ -7,16 +7,45 @@
     "plugin:jsx-a11y/recommended",
     "plugin:react/jsx-runtime"
   ],
-  "plugins": ["react", "react-hooks", "import", "jsx-a11y"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "import",
+    "jsx-a11y"
+  ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
     "import/no-extraneous-dependencies": [
       "warn",
-      { "devDependencies": true, "includeInternal": true }
+      {
+        "devDependencies": true,
+        "includeInternal": true
+      }
     ],
-    "no-unused-vars": ["error", { "varsIgnorePattern": "^React", "argsIgnorePattern": "^_" }],
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^React",
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "import/no-unused-modules": "off",
     "react/jsx-props-no-spreading": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
   }
 }

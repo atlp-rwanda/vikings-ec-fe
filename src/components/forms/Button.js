@@ -1,12 +1,12 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-function Button({
-  label, onClick, className,
-}) {
+function Button({ label, onClick, className }) {
   return (
     <div>
-      <button onClick={onClick} className={className} type="submit">{label}</button>
+      <button onClick={onClick} className={className} type="submit">
+        {label}
+      </button>
     </div>
   );
 }

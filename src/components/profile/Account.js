@@ -1,97 +1,115 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch, useSelector } from 'react-redux';
+import getFormFromObject from '../../utils/getFormData';
 import Avatar from './Avatar';
 import InputField from './InputField';
 import Button from '../forms/Button';
-import { updateProfile } from '../../features/actions/profileAction';
+import { updateProfile } from '../../features/actions/updateProfileAction';
 
-function Account({ data }) {
+const fields = {
+  firstname: yup.string().required('First name is required'),
+  lastname: yup.string().required('Your last name is required'),
+  email: yup.string().email().required('Your email is required'),
+  gender: yup.string().required('Your gender is required'),
+  birthdate: yup.date().required('Your birthdate is required'),
+  phone: yup.string().required('Your phone number is required'),
+};
+const schema = yup.object(fields);
+
+const Account = ({ data }) => {
   const {
-    firstname, lastname, email, gender, birthdate, phone, avatar
-  } = data;
-  const [account, setAccount] = useState({
-    firstname,
-    lastname,
-    email,
-    gender,
-    birthdate,
-    phone,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      gender: data.gender,
+      birthdate: data.birthdate.slice(0, 10),
+      phone: data.phone,
+      avatar: data.avatar,
+    },
   });
-  const handleChange = (e) => {
-    const { name } = e.target;
-    const { value } = e.target;
-    setAccount({ ...account, [name]: value });
-  };
+  const avatar = useSelector((state) => state.profile.data.avatar);
+
   const dispatch = useDispatch();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (Object.values(account).every((value) => value)) {
-      dispatch(updateProfile({ ...account }));
-    }
+  const onSubmit = (userData) => {
+    const updateData = getFormFromObject(userData);
+    updateData.append('avatar', avatar);
+    dispatch(updateProfile(updateData));
+  };
+  let newAvatar;
+  const handleSelectFile = (e) => {
+    newAvatar = URL.createObjectURL(e.target.files[0]);
+    dispatch(updateProfile({ avatar: newAvatar }));
   };
   return (
     <>
       <div className="flex flex-row items-center gap-5 mb-6">
-        <Avatar {...data} />
-        <Button label="Change avatar" />
+        <Avatar avatar={avatar ?? newAvatar } />
+        <InputField type="file" {...register('avatar')} onChange={handleSelectFile} />
       </div>
-      <form>
+      <form
+        encType="multipart/form"
+        onSubmit={(event) => {
+          handleSubmit(onSubmit)(event);
+        }}
+      >
         <InputField
-          name="firstname"
           id="firstname"
           label="First name"
           type="text"
-          value={account.firstname}
-          onChange={handleChange}
+          placeholder="First name"
+          {...register('firstname')}
         />
         <InputField
-          name="lastname"
           id="lastname"
           label="Last name"
           type="text"
-          value={account.lastname}
-          onChange={handleChange}
+          placeholder="Last name"
+          {...register('lastname')}
         />
         <InputField
-          name="email"
           id="email"
           label="Email"
           type="email"
-          value={account.email}
-          onChange={handleChange}
+          placeholder="Email"
+          {...register('email')}
         />
         <InputField
-          name="birthdate"
           id="birthdate"
           label="Date of birth"
           type="date"
-          value={account.birthdate}
-          onChange={handleChange}
+          placeholder="Date of birth"
+          {...register('birthdate')}
         />
         <InputField
-          name="gender"
           id="gender"
           label="Gender"
           type="text"
-          value={account.gender}
-          onChange={handleChange}
+          placeholder="Gender"
+          {...register('gender')}
         />
         <InputField
-          name="phone"
           id="phone"
-          label="Phone Number"
+          label="Phone"
           type="tel"
-          value={account.phone}
-          onChange={handleChange}
+          placeholder="Phone"
+          {...register('phone')}
         />
         <Button
           label="Save"
           className="text-white bg-green-500 hover:bg-green-600 text-sm px-5 py-2.5 mt-4 ml-auto font-bold"
-          onClick={handleSubmit}
         />
       </form>
     </>
   );
-}
+};
 
 export default Account;
