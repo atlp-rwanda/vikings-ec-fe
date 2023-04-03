@@ -10,10 +10,12 @@ import { showErrorMessage, showSuccessMessage } from '../../utils/toast';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const { isLoading } = useSelector((state) => state.login);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -29,7 +31,9 @@ const LoginForm = () => {
       const response = await dispatch(login(userData)).unwrap();
       showSuccessMessage(response.message);
     } catch (error) {
-      showErrorMessage(error.data.message);
+      if (error.status == 403) {
+        navigate(`/auth/verify/${error.data.user.id}`);
+      } else showErrorMessage(error.data.message);
     }
   };
   const handleClickShowPassword = () => {
@@ -62,7 +66,10 @@ const LoginForm = () => {
               {...register('password')}
               error={errors?.password}
             />
-            <div className=" absolute right-4 top-4" onClick={handleClickShowPassword}>
+            <div
+              className=" absolute right-4 top-4"
+              onClick={handleClickShowPassword}
+            >
               {showPassword ? (
                 <FontAwesomeIcon icon={faEye} />
               ) : (
@@ -72,14 +79,22 @@ const LoginForm = () => {
           </div>
 
           <div>
-            <a href="" className=" flex justify-end text-[#338e03] text-[14px] my-2">
+            <a
+              href=""
+              className=" flex justify-end text-[#338e03] text-[14px] my-2"
+            >
               Forget password ?
             </a>
           </div>
           <div>
             {isLoading ? (
               <>
-                <Button type="submit" label="" className="" disabled={true}>
+                <Button
+                  type="submit"
+                  label=""
+                  className="rounded-md"
+                  disabled={true}
+                >
                   <svg
                     role="status"
                     className="inline mr-3 w-4 h-4 text-white animate-spin"
@@ -99,7 +114,12 @@ const LoginForm = () => {
                 </Button>
               </>
             ) : (
-              <Button type="submit" label="Signin" className="my-1" role="submit" />
+              <Button
+                type="submit"
+                label="Signin"
+                className="my-1 rounded-md"
+                role="submit"
+              />
             )}
           </div>
         </div>

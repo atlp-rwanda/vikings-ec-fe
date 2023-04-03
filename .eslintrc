@@ -13,6 +13,9 @@
     "import",
     "jsx-a11y"
   ],
+  "env": {
+    "browser": true
+  },
   "rules": {
     "react/jsx-filename-extension": [
       1,

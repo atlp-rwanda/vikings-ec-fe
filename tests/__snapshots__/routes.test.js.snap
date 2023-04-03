@@ -66,7 +66,7 @@ exports[`My app renders auth correctly 1`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Home"
+            href="#"
           >
             Home
           </a>
@@ -74,7 +74,7 @@ exports[`My app renders auth correctly 1`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/About"
+            href="#"
           >
             About
           </a>
@@ -82,7 +82,7 @@ exports[`My app renders auth correctly 1`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Pages"
+            href="#"
           >
             Pages
           </a>
@@ -90,7 +90,7 @@ exports[`My app renders auth correctly 1`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Contact"
+            href="#"
           >
             Contact
           </a>
@@ -98,21 +98,182 @@ exports[`My app renders auth correctly 1`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Signin"
+            href="#"
           >
-            Signin
+            SignIn
           </a>
         </li>
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Signup"
+            href="#"
           >
-            Signup
+            Register
           </a>
         </li>
       </ul>
     </nav>
+    <div
+      className="flex flex-col md:flex-row md:h-full lg:justify-between justify-center items-center xs:flex-grow bg-login"
+    >
+      <img
+        alt=""
+        className="absolute inset-x-0 bottom-0 pointer-events-none"
+        src=""
+      />
+      <div
+        className="flex flex-col xs:items-center xs:w-full xs:px-6 "
+      >
+        <h1
+          className="text-3xl lg:text-[50px] mb-[3rem] "
+        >
+          Sign In
+        </h1>
+        <p
+          className="text-xl  xs:w-full "
+        >
+          if you don’t have an account you can
+          <br />
+          <a
+            className="text-[#338E03] pt-2"
+            href="/auth/signup"
+          >
+            Register here!
+          </a>
+        </p>
+      </div>
+      <div
+        className="hidden sm:flex "
+      >
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+      <div
+        className="flex flex-col max-w-sm w-full "
+      >
+        <form
+          className="my-8 px-5"
+          onSubmit={[Function]}
+        >
+          <div
+            className="flex flex-col -space-y-px rounded-md shadow-sm"
+          >
+            <div>
+              <div
+                className="h-[80px]"
+              >
+                <label
+                  className="undefinedsr-only""
+                  htmlFor="email"
+                />
+                <input
+                  className=" w-full rounded-md px-2 py-3 placeholder:text-gray-400 sm:text-[12px] my-2 focus:bg-[#EAF0F7] bg-[#EAF0F7]"
+                  name="email"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="youremail@gmail.com"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              className=" relative"
+            >
+              <div
+                className="h-[80px]"
+              >
+                <label
+                  className="undefinedsr-only""
+                  htmlFor="password"
+                />
+                <input
+                  className=" w-full rounded-md px-2 py-3 placeholder:text-gray-400 sm:text-[12px] my-2 focus:bg-[#EAF0F7] bg-[#EAF0F7]"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Password"
+                  type="password"
+                />
+              </div>
+              <div
+                className=" absolute right-4 top-4"
+                onClick={[Function]}
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-eye-slash "
+                  data-icon="eye-slash"
+                  data-prefix="far"
+                  focusable="false"
+                  role="img"
+                  style={{}}
+                  viewBox="0 0 640 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zm151 118.3C226 97.7 269.5 80 320 80c65.2 0 118.8 29.6 159.9 67.7C518.4 183.5 545 226 558.6 256c-12.6 28-36.6 66.8-70.9 100.9l-53.8-42.2c9.1-17.6 14.2-37.5 14.2-58.7c0-70.7-57.3-128-128-128c-32.2 0-61.7 11.9-84.2 31.5l-46.1-36.1zM394.9 284.2l-81.5-63.9c4.2-8.5 6.6-18.2 6.6-28.3c0-5.5-.7-10.9-2-16c.7 0 1.3 0 2 0c44.2 0 80 35.8 80 80c0 9.9-1.8 19.4-5.1 28.2zm9.4 130.3C378.8 425.4 350.7 432 320 432c-65.2 0-118.8-29.6-159.9-67.7C121.6 328.5 95 286 81.4 256c8.3-18.4 21.5-41.5 39.4-64.8L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5l-41.9-33zM192 256c0 70.7 57.3 128 128 128c13.3 0 26.1-2 38.2-5.8L302 334c-23.5-5.4-43.1-21.2-53.7-42.3l-56.1-44.2c-.2 2.8-.3 5.6-.3 8.5z"
+                    fill="currentColor"
+                    style={{}}
+                  />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <a
+                className=" flex justify-end text-[#338e03] text-[14px] my-2"
+                href=""
+              >
+                Forget password ?
+              </a>
+            </div>
+            <div>
+              <div>
+                <button
+                  className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] my-1 rounded-md"
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Signin
+                   
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div
+          className="flex items-center justify-center gap-2"
+        >
+          <hr
+            className="flex-grow border-gray-300 border-t "
+          />
+          <span
+            className="px-4 text-[#ACADAC]"
+          >
+            Or continue with
+          </span>
+          <hr
+            className="flex-grow border-gray-300 border-t"
+          />
+        </div>
+        <div
+          className="flex items-center justify-center mt-4"
+        >
+          <a
+            className=" bg-white p-2 shadow shadow-gray-400 rounded-full"
+            href="/auth/undefined/users/auth/google"
+            onClick={[Function]}
+            type="button"
+          >
+            <img
+              alt="google"
+              src=""
+            />
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -183,7 +344,7 @@ exports[`My app renders auth correctly 2`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Home"
+            href="#"
           >
             Home
           </a>
@@ -191,7 +352,7 @@ exports[`My app renders auth correctly 2`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/About"
+            href="#"
           >
             About
           </a>
@@ -199,7 +360,7 @@ exports[`My app renders auth correctly 2`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Pages"
+            href="#"
           >
             Pages
           </a>
@@ -207,7 +368,7 @@ exports[`My app renders auth correctly 2`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Contact"
+            href="#"
           >
             Contact
           </a>
@@ -215,17 +376,17 @@ exports[`My app renders auth correctly 2`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Signin"
+            href="#"
           >
-            Signin
+            SignIn
           </a>
         </li>
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Signup"
+            href="#"
           >
-            Signup
+            Register
           </a>
         </li>
       </ul>
@@ -249,7 +410,7 @@ exports[`My app renders auth correctly 2`] = `
         <p
           className="text-xl  xs:w-full "
         >
-          already a user
+          already a user ?
           <br />
           <a
             className="text-[#338E03] pt-2"
@@ -489,7 +650,7 @@ exports[`My app renders auth correctly 3`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Home"
+            href="#"
           >
             Home
           </a>
@@ -497,7 +658,7 @@ exports[`My app renders auth correctly 3`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/About"
+            href="#"
           >
             About
           </a>
@@ -505,7 +666,7 @@ exports[`My app renders auth correctly 3`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Pages"
+            href="#"
           >
             Pages
           </a>
@@ -513,7 +674,7 @@ exports[`My app renders auth correctly 3`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Contact"
+            href="#"
           >
             Contact
           </a>
@@ -521,17 +682,17 @@ exports[`My app renders auth correctly 3`] = `
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Signin"
+            href="#"
           >
-            Signin
+            SignIn
           </a>
         </li>
         <li>
           <a
             className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
-            href="/auth/Signup"
+            href="#"
           >
-            Signup
+            Register
           </a>
         </li>
       </ul>
@@ -654,7 +815,7 @@ exports[`My app renders auth correctly 3`] = `
             <div>
               <div>
                 <button
-                  className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] my-1"
+                  className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] my-1 rounded-md"
                   onClick={[Function]}
                   type="submit"
                 >
@@ -769,4 +930,10 @@ exports[`My app renders redirect-google correctly 1`] = `
     </span>
   </div>
 </div>
+`;
+
+exports[`My app renders verify auth correctly 1`] = `
+<h2>
+  Page Not Found
+</h2>
 `;

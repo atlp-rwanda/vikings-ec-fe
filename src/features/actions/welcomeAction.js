@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import customAxios from '../api/customAxios';
 
-export const getMessage = createAsyncThunk(
+const getMessage = createAsyncThunk(
   'message/fetchMessage',
   async (page, { rejectWithValue }) => {
     try {

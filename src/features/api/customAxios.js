@@ -7,22 +7,19 @@ const customAxios = axios.create({
 });
 
 const requestHandler = (request) => {
-  // eslint-disable-next-line no-undef
   const token = localStorage.getItem('token') || '';
-  request.headers.Authorization = token;
+  request.headers.Authorization = `Bearer ${token}`;
   return request;
 };
 
-const responseHandler = (response) => {
-  if (response.status === 401) {
-    // eslint-disable-next-line no-undef
-    window.location = '/login';
+const responseHandler = (response) => response;
+
+const errorHandler = (error) => {
+  if (error.response.status === 401) {
+    return (location.href = `${process.env.REACT_APP_BASE_URL}/auth`);
   }
-
-  return response;
+  return Promise.reject(error);
 };
-
-const errorHandler = (error) => Promise.reject(error);
 customAxios.interceptors.request.use(
   (request) => requestHandler(request),
   (error) => errorHandler(error),
