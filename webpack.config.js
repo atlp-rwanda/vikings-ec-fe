@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
+module.exports = (env) => ({
   entry: path.resolve(__dirname, './src/index.js'),
 
   output: {
@@ -18,6 +19,9 @@ module.exports = {
   },
 
   plugins: [
+    new Dotenv({
+      path: `./environments/.env${env.file ? `.${env.file}` : ''}`,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     // new MiniCssExtractPlugin({filename:'variables.scss'}),
     new HTMLWebpackPlugin({
@@ -62,4 +66,4 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
-};
+});
