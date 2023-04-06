@@ -46,6 +46,8 @@ import createCategoryReducer from './createCategorySlice';
 import addToWishlistReducer from './features/wishlist/wishlistslice';
 import getWishlistReducer from './features/wishlist/getWishlistSlice';
 import deleteWishlistReducer from './features/wishlist/deleteWishlistSlice';
+import getBuyerOrdersReducer from './features/order/getBuyerOrderslice';
+import singleOrderReducer from './features/order/singleOrderslice';
 
 const middlewares = [];
 
@@ -119,7 +121,6 @@ const store = configureStore({
     removeFromCart: removeFromCartReducer,
     users: userReducer,
     roles: rolesReducer,
-    changeStatus: changeUserStatusReducer,
     logout: logoutReducer,
     provideRatings: provideRatingsReducer,
     recommendedProducts: recommendedProductsReducer,
@@ -138,6 +139,9 @@ const store = configureStore({
     addToWishlist: addToWishlistReducer,
     getWishlist: getWishlistReducer,
     deleteWishlist: deleteWishlistReducer,
+    changeStatus: changeUserStatusReducer,
+    fetchOrders: getBuyerOrdersReducer,
+    fetchSingleOrder: singleOrderReducer,
   },
   middleware: [...middlewares, thunk],
 });

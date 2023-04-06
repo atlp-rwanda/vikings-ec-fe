@@ -112,6 +112,9 @@ describe('My app', () => {
   });
   it('rends dashboard Correctly', async () => {
     const renderer = renderRoute('/seller-products');
+    });
+  it('renders Users data correctly', async () => {
+    const renderer = renderRoute('/dashboard/users');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
@@ -122,8 +125,14 @@ describe('My app', () => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
-  it('renders Users data correctly', async () => {
+  it('renders notification', async () => {
     const renderer = renderRoute('/notifications');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('renders orders data correctly', async () => {
+    const renderer = renderRoute('/dashboard/orders');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
