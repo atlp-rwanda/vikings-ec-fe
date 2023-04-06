@@ -19,11 +19,14 @@ module.exports = (env) => ({
   },
 
   plugins: [
-    new Dotenv({
-      path: `./environments/.env${env.file ? `.${env.file}` : ''}`,
-    }),
+    env.local
+      ? new Dotenv({
+        path: './.env',
+      })
+      : new Dotenv({
+        systemvars: true,
+      }),
     new webpack.HotModuleReplacementPlugin(),
-    // new MiniCssExtractPlugin({filename:'variables.scss'}),
     new HTMLWebpackPlugin({
       template: './public/index.html',
     }),

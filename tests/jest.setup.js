@@ -14,7 +14,6 @@ const mockStore = configureMockStore(middlewares);
 export const jestStore = mockStore({});
 
 beforeAll(() => {
-  // start up the mock server
   server.listen();
 });
 afterEach(() => server.resetHandlers());
