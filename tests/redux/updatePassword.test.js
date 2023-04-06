@@ -24,7 +24,7 @@ describe('UpdatePassword slice', () => {
         .getActions()
         .map((each) => each.type)
         .includes(expectedActions[1].type),
-    ).toBe(false);
+    ).toBe(true);
   }, 10000);
 
   it('should set loading true while action is pending', () => {

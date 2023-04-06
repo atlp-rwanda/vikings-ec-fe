@@ -24,7 +24,9 @@ import addToCartReducer from './features/cart/addToCartSlice';
 import removeFromCartReducer from './features/cart/removeProductFromCartSlice';
 import updateProductReducer from './features/product/updateProduct';
 import deleteProductReducer from './features/product/deleteProduct';
-
+import userReducer from './features/auth/userSlice';
+import rolesReducer from './features/auth/rolesSlice';
+import changeUserStatusReducer from './features/auth/changeUserStatusSlice';
 const middlewares = [];
 
 if (process.env.NODE_ENV === 'development') {
@@ -61,6 +63,10 @@ const store = configureStore({
     cart: cartReducer,
     addToCart: addToCartReducer,
     removeFromCart: removeFromCartReducer,
+    googleAuth: googleAuthReducer,
+    users: userReducer,
+    roles: rolesReducer,
+    changeStatus: changeUserStatusReducer,
   },
   middleware: [...middlewares, thunk],
 });

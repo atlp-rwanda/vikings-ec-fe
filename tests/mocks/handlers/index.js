@@ -9,6 +9,9 @@ import { updatePasswordHandler } from './updatePassword.handler';
 import { productHandler, singleProductHandler, getProductRatings } from './product.handler';
 import { getCategoriesHandler } from './categories.handler';
 import { cartHandler } from './cart.handler';
+import { userHandler } from './User.handler';
+import {rolesHandler} from './changeRole.handler'
+import { statusHandler } from './changeStatus.handler';
 
 const handlers = [
   ...loginHandler,
@@ -27,6 +30,9 @@ const handlers = [
   ...getCategoriesHandler,
   ...getProductRatings,
   ...cartHandler,
+  ...userHandler,
+  ...rolesHandler,
+  ...statusHandler
 ];
 
 export default handlers;
