@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ProductRatings from './ProductRatings';
 
-const ProductCard = ({ ...props }) => {
+const ProductCard = ({ getPersistCartSetter, ...props }) => {
   const [hovered, setHovered] = useState(false);
+  const [persistCart, setPersistCart] = useState(false);
+  useEffect(() => {
+    if (getPersistCartSetter) {
+      getPersistCartSetter((value) => {
+        setPersistCart(value);
+        if (value) setHovered(false);
+      });
+    }
+  }, [getPersistCartSetter]);
   const singleProduct = () => {
     if (props.wish) {
       window.location = `/products/${props.product.id}`;
@@ -33,7 +43,7 @@ const ProductCard = ({ ...props }) => {
           className="md:h-[270px] max-sm:h-[200px] w-full object-cover cursor-pointer"
           onClick={() => singleProduct()}
         />
-        {hovered && (
+        {(hovered || persistCart) && (
           <div className="absolute xs:ml-80 xs:-mt-40 sm:ml-96 sm:-mt-44  md:ml-64 md:-mt-40">
             {props.wish}
             {props.addCart}

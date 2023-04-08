@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import AuthLayout from '../layout/AuthLayout';
 import CreateProductForm from '../components/forms/CreateProductForm';
+import CartPage from '../pages/cart/CartPage';
 import LoginPage from '../pages/auth/LoginPage';
 import SignupPage from '../pages/auth/SignupPage';
 import HomePage from '../pages/HomePage';
@@ -52,6 +53,9 @@ export const getRoutes = () => [
     <Route path="update" element={<EditProfilePage />} />
     <Route path="password_update" element={<UpdatePasswordPage />} />
   </Route>,
+  <Route key="key__cart" path="/cart" element={<HomeLayout />}>
+    <Route index element={<CartPage />} />
+  </Route>,
   <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
   <>
     <Route key="key_dashboard" path="/dashboard">
@@ -82,6 +86,7 @@ export const getRoutes = () => [
 
   <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
 ];
+
 const AppRoutes = () => (
   <BrowserRouter basename="/">
     <ToastContainer />

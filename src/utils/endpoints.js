@@ -3,6 +3,7 @@ const Endpoints = {
   forgotPassword: '/users/forgot-password',
   resetPassword: '/users/reset-password',
   profile: '/users/profile',
+  cart: '/carts',
   verifyEmail: '/users/verify-email',
   updatePassword: '/users/password_update',
   product: '/products',

@@ -8,6 +8,7 @@ import configureMockStore from 'redux-mock-store';
 import { getRoutes } from '../src/routes/AppRoutes';
 import MainWrapper from '../src/MainWrapper';
 import server from './mocks/server';
+import 'regenerator-runtime/runtime';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -36,6 +37,14 @@ export const renderPath = (path) => render(
     </MemoryRouter>
   </MainWrapper>,
 );
+const Wrapper = ({ children }) => (
+  <MainWrapper>
+    <BrowserRouter>
+      <>{children}</>
+    </BrowserRouter>
+  </MainWrapper>
+);
+export const renderComponent = (component) => render(component, { wrapper: Wrapper });
 export const simpleRender = (component) => create(
   <MainWrapper>
     <BrowserRouter>

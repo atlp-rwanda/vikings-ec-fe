@@ -19,6 +19,9 @@ import singleProductReducer from './features/product/singleProductSlice';
 import getRatingsReducer from './features/product/getRatingsSlice';
 import createProductReducer from './features/createProductSlice';
 import categoryReducer from './features/categorySlice';
+import cartReducer from './features/cart/cartSlice';
+import addToCartReducer from './features/cart/addToCartSlice';
+import removeFromCartReducer from './features/cart/removeProductFromCartSlice';
 import updateProductReducer from './features/product/updateProduct';
 import deleteProductReducer from './features/product/deleteProduct';
 
@@ -55,6 +58,9 @@ const store = configureStore({
     category: categoryReducer,
     updateProduct: updateProductReducer,
     deleteProduct: deleteProductReducer,
+    cart: cartReducer,
+    addToCart: addToCartReducer,
+    removeFromCart: removeFromCartReducer,
   },
   middleware: [...middlewares, thunk],
 });

@@ -8,6 +8,7 @@ import { VerifyEmailHandler } from './verifyEmail.handler';
 import { updatePasswordHandler } from './updatePassword.handler';
 import { productHandler, singleProductHandler, getProductRatings } from './product.handler';
 import { getCategoriesHandler } from './categories.handler';
+import { cartHandler } from './cart.handler';
 
 const handlers = [
   ...loginHandler,
@@ -19,11 +20,13 @@ const handlers = [
   ...updateProfileHandler,
   ...VerifyEmailHandler,
   ...updatePasswordHandler,
-  ...updateProfileHandler, 
+  ...updateProfileHandler,
   ...productHandler,
   ...singleProductHandler,
   ...getProductRatings,
-  ...getCategoriesHandler
+  ...getCategoriesHandler,
+  ...getProductRatings,
+  ...cartHandler,
 ];
 
 export default handlers;

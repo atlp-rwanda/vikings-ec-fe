@@ -25,14 +25,15 @@ const Footer = () => {
             consectetur adipiscing elit, sed do eiusmod tempor
           </p>
           <ul className="flex">
-            { socialIcons.map((icon, index) => <li key={index}><a href="#"><img src={icon} alt="Social network icon" /></a></li>)}
+
+            { socialIcons.map((icon, index) => <li key={`footer_xs${index}`}><a href="#"><img src={icon} alt="Social network icon" /></a></li>)}
           </ul>
         </div>
         <div className="mb-10">
           <h1 className="mb-3 font-bold text-gray-600">Help</h1>
           <ul>
             {
-              helpLinks.map((link) => <li key={link} className="mb-2"><a href="#">{link}</a></li>)
+              helpLinks.map((link) => <li key={`vsxs${link}`} className="mb-2"><a href="#">{link}</a></li>)
             }
           </ul>
         </div>
@@ -40,7 +41,7 @@ const Footer = () => {
           <h1 className="mb-3 font-bold text-gray-600">Supports</h1>
           <ul>
             {
-                supportLinks.map((link) => <li key={link} className="mb-2"><a href="#">{link}</a></li>)
+                supportLinks.map((link) => <li key={`footer_11212${link}`} className="mb-2"><a href="#">{link}</a></li>)
               }
           </ul>
         </div>
@@ -52,7 +53,7 @@ const Footer = () => {
         <p>&copy; 2023 Vikings - All rights reserved</p>
         <ul className="flex gap-4 xs:flex-col xs:mt-2 xs:gap-0">
           {
-            additionalLinks.map((link) => <li><a href="#">{link}</a></li>)
+            additionalLinks.map((link) => <li key={`footer_0909${link}`}><a href="#">{link}</a></li>)
           }
         </ul>
       </div>

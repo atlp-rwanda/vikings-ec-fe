@@ -2,6 +2,8 @@ import React from 'react';
 
 const ProductOperationButton = ({ ...props }) => (
   <button
+    data-testid={props.testId}
+    onClick={props.onClick}
     className={props.className}
     type="button"
     title={props.title}
