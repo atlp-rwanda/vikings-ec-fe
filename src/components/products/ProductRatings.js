@@ -28,7 +28,6 @@ const ProductRatings = ({ rate }) => {
     count++;
   }
   const averageRatings = Math.floor(totalRatings / totalUsers) || 0;
-  console.log('averageRatings ====> ', averageRatings);
   return (
     <div className="flex">
       {[...Array(averageRatings)].map((_, index) => (

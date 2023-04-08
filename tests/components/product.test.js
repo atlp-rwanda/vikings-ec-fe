@@ -403,16 +403,17 @@ describe('DashboardPage', () => {
 
 describe('Reviewers component', () => {
   const reviewer = {
-    firstname: 'John',
-    lastname: 'Doe',
     feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    buyer: {
+      firstname: 'John',
+      lastname: 'Doe',
+      avatar: 'http://example.com/avatar.png',
+    }
   };
 
   it('renders the reviewer name', () => {
     const { getByText } = render(<Reviewers reviewer={reviewer} />);
-    expect(
-      getByText(`${reviewer.firstname} ${reviewer.lastname}`)
-    ).toBeInTheDocument();
+    expect(getByText(`${reviewer.buyer.firstname} ${reviewer.buyer.lastname}`)).toBeInTheDocument();
   });
 
   it('renders the reviewer feedback', () => {
@@ -421,10 +422,8 @@ describe('Reviewers component', () => {
   });
 
   it('renders the reviewer avatar when provided', () => {
-    const avatarUrl = 'http://example.com/avatar.png';
-    reviewer.avatar = avatarUrl;
     const { getByAltText } = render(<Reviewers reviewer={reviewer} />);
-    expect(getByAltText('profile')).toHaveAttribute('src', avatarUrl);
+    expect(getByAltText('profile')).toHaveAttribute('src', reviewer.buyer.avatar);
   });
 });
 

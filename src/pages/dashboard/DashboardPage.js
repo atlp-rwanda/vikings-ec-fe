@@ -88,9 +88,7 @@ const DashboardPage = () => {
 
   let viewProducts = null;
   let pageCount = null;
-  if (isLoading) {
-    viewProducts = 'Retrieving products...';
-  } else if (Array.isArray(productsList.rows) && productsList.rows.length > 0) {
+  if (Array.isArray(productsList.rows) && productsList.rows.length > 0) {
     if (productClicked) {
       viewProducts = productsList.rows
         .slice(0, 4)

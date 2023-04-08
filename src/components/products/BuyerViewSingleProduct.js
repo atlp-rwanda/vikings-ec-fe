@@ -9,7 +9,6 @@ const BuyerViewProduct = ({ ...props }) => {
   const dispatch = useDispatch();
   const { ratings, isLoading } = useSelector((state) => state.getRatings);
   const [reviews, setReviews] = useState([]);
-  const [isReviews, setIsReviews] = useState(false);
 
   useEffect(() => {
     if (props.products && props.products.id) {
@@ -24,7 +23,6 @@ const BuyerViewProduct = ({ ...props }) => {
         feedback: rate.feedback,
       }));
       setReviews(reviewers);
-      setIsReviews(true);
     }
   }, [ratings]);
   let reviewers = null;
