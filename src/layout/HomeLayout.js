@@ -28,7 +28,7 @@ const HomeLayout = () => {
           </div>
         )}
       <Outlet />
-      <div className="flex flex-col w-full mt-20">
+      <div className="flex flex-col w-full">
         <Footer />
       </div>
     </div>

@@ -15,6 +15,8 @@ import EditProfilePage from '../pages/profile/EditProfilePage';
 import UpdatePasswordPage from '../pages/auth/UpdatePasswordPage';
 import HomeLayout from '../layout/HomeLayout';
 import VerifyEmailPage from '../pages/auth/VerifyEmail';
+import Dashboard from '../pages/dashboard/DashboardPage';
+import SingProductPage from '../pages/SingleProductPage';
 
 export const getRoutes = () => [
   <Route key="key__" path="/" element={<HomeLayout />}>
@@ -43,6 +45,18 @@ export const getRoutes = () => [
     <Route path="password_update" element={<UpdatePasswordPage />} />
   </Route>,
   <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
+  <>
+    <Route key="key_dashboard" path="/dashboard">
+      <Route path="products" element={<Dashboard />} />
+    </Route>
+    <Route path="/products" element={<SingProductPage />} />
+    <Route key="key_product" path="products/:id" element={<HomeLayout />}>
+      <Route index element={<SingProductPage />} />
+    </Route>
+    ,
+    <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />
+  </>,
+
 ];
 const AppRoutes = () => (
   <BrowserRouter basename="/">

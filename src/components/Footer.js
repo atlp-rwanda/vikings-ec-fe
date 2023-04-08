@@ -12,8 +12,8 @@ const Footer = () => {
   const additionalLinks = ['Privacy', 'Security', 'Terms'];
   return (
     <>
-      <div className="px-24 flex mt-12 justify-between xs:flex-col">
-        <div className="w-[400px] mb-10">
+      <div className="px-24 flex mt-12 justify-between xs:flex-col xs:px-2">
+        <div className="w-[400px] xs:w-full mb-10">
           <a href="/" className="flex items-center mb-3">
             <img src={Logo} className="h-6 sm:h-9" alt="Vikings Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap text-gray-600">
@@ -45,10 +45,10 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="px-24">
+      <div className="px-24 xs:px-2">
         <hr className="h-px my-2 bg-gray-200 border-0" />
       </div>
-      <div className="px-24 flex justify-between xs:flex-col my-4">
+      <div className="px-24 xs:p-2 flex justify-between xs:flex-col my-4">
         <p>&copy; 2023 Vikings - All rights reserved</p>
         <ul className="flex gap-4 xs:flex-col xs:mt-2 xs:gap-0">
           {

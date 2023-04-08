@@ -1,28 +1,100 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import getMessage from '../features/actions/welcomeAction';
+import ProductCard from '../components/products/ProductCard';
+import { getProductList } from '../features/product/getProductsSilice';
+import ProductOperationButton from '../components/products/ProductOperationButton';
+import wishIcon from '../../public/images/wish.svg';
+import HoveredShopIcon from '../../public/images/shoping.svg';
+import shopIcon from '../../public/images/black-add-cart.svg';
+import hoveredHurt from '../../public/images/hoveredHurt.svg';
+import PageCount from '../components/products/PageCount';
+import Loader from '../components/Loader';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.message);
-  const { data: userData } = useSelector((state) => state.googleAuth);
+  const { productsList, isLoading } = useSelector((state) => state.product);
+  const [hover, setHover] = useState(false);
+  const [hoverAddCart, setHoverAddCart] = useState(false);
+  const handleMouseEnter = () => {
+    setHover(true);
+  };
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
+  const handleAddTocartMouseEnter = () => {
+    setHoverAddCart(true);
+  };
+  const handleAddTocartMouseLeave = () => {
+    setHoverAddCart(false);
+  };
   useEffect(() => {
     dispatch(getMessage());
-  }, []);
+    dispatch(getProductList({ pageNumber: 1 }));
+  }, [dispatch]);
+
+  const setPageNumberHandler = (nextPage) => {
+    const newPageNumber = nextPage ? parseInt(productsList.currentPage) + 1
+      : parseInt(productsList.currentPage) - 1;
+    if (newPageNumber > 0 && newPageNumber <= productsList.totalPages) {
+      dispatch(getProductList({
+        pageNumber: newPageNumber,
+      }));
+    }
+  };
+
+  let viewProducts = null;
+  let pageCount = null;
+  if (Array.isArray(productsList.rows) && productsList.rows.length > 0) {
+    viewProducts = productsList.rows.map((row) => (
+      <ProductCard
+        key={row.id}
+        product={row}
+        wish={(
+          <ProductOperationButton
+            className="mt-[20px] bg-[#f6f4f4] h-[32px] hover:bg-[#099f09] w-[32px] rounded-full flex justify-center items-center"
+            icon={hover ? hoveredHurt : wishIcon}
+            title="Wish product"
+            alt="wish"
+            handleMouseEnter={handleMouseEnter}
+            handleMouseLeave={handleMouseLeave}
+          />
+)}
+        addCart={(
+          <ProductOperationButton
+            className="mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center "
+            icon={hoverAddCart ? HoveredShopIcon : shopIcon}
+            title="Shop product"
+            alt="shop"
+            handleMouseEnter={handleAddTocartMouseEnter}
+            handleMouseLeave={handleAddTocartMouseLeave}
+          />
+)}
+      />
+    ));
+    pageCount = (
+      <PageCount
+        className=""
+        currentPage={productsList.currentPage}
+        totalPages={productsList.totalPages}
+        click={setPageNumberHandler}
+      />
+    );
+  }
+
   return (
-    <div className="h-[100vh] px-24">
-      <h1>Home Page</h1>
-      <h2 className="underline">{data.message}</h2>
-      <Link to="/auth/signin">Login</Link>
+    <div className="min-h-72">
+      <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">OUR PRODUCTS</h1>
+      {isLoading ? <Loader />
+        : (
+          <div className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10">
+            {viewProducts}
+          </div>
+        )}
       <br />
-      <Link to="/auth/signup">Signup</Link>
-      <br />
-      <Link to="https://www.chromatic.com/builds?appId=64218d727e570b64b94415f8">
-        Go to storybook
-      </Link>
-      <h1>{JSON.stringify(userData !== null ? userData.user : 'no user found')}</h1>
-      <Link to="/profile">Profile</Link>
+      <div className="pb-4">
+        {!isLoading ? pageCount : null}
+      </div>
     </div>
   );
 };
