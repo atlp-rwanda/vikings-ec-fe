@@ -24,7 +24,7 @@ const LoginPage = () => {
         <p className="text-xl  xs:w-full ">
           if you don’t have an account you can
           <br />
-          <a href="#signup" className="text-[#338E03] pt-2">
+          <a href="/auth/signup" className="text-[#338E03] pt-2">
             Register here!
           </a>
         </p>

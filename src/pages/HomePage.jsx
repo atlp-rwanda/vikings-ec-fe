@@ -14,13 +14,14 @@ const HomePage = () => {
     <div>
       <h1>Home Page</h1>
       <h2 className="underline">{data.message}</h2>
-      <Link to="/auth">Login</Link>
+      <Link to="/auth/signin">Login</Link>
+      <br />
+      <Link to="/auth/signup">Signup</Link>
       <br />
       <Link to="https://www.chromatic.com/builds?appId=64218d727e570b64b94415f8">
         Go to storybook
       </Link>
       <h1>{JSON.stringify(userData !== null ? userData.user : 'no user found')}</h1>
-      <Link to="/auth">Login</Link>
     </div>
   );
 };
