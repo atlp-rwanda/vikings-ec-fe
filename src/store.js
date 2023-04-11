@@ -13,6 +13,7 @@ import resetPasswordReducer from './features/auth/resetPasswordSlice';
 import profile from './features/profile/getProfileSlice';
 import updateProfile from './features/profile/updateProfileSlice';
 import verifyEmailReducer from './features/auth/VerifyEmailSlice';
+import updatePasswordReducer from './features/auth/updatePasswordSlice';
 
 const middlewares = [];
 
@@ -39,6 +40,8 @@ const store = configureStore({
     verifyEmail: verifyEmailReducer,
     profile,
     updateProfile,
+    updatePassword: updatePasswordReducer,
+
   },
   middleware: [...middlewares, thunk],
 });

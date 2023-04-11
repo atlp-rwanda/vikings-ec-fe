@@ -4,6 +4,7 @@ const Endpoints = {
   resetPassword: '/users/reset-password',
   profile: '/users/profile',
   verifyEmail: '/users/verify-email',
+  updatePassword: '/users/password_update',
 };
 
 export default Endpoints;

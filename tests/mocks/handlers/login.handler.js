@@ -6,7 +6,7 @@ export const loginHandler = [
     /*  */
     const response = {
       token:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlNGM2NWQwLWFiZTktNDA1YS1hMmY0LTViNzFhMjMzOGNkZCIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwibXVzdFVwZGF0ZVBhc3N3b3JkIjpudWxsLCJpYXQiOjE2ODA2Mzg4NTMsImV4cCI6MTcxMjE3NDg1M30.8WWqT1u_1WLbbZOcD8wtxVUv7U51vUDWCNmkw1QUe_E',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxM2JjMGZhLWMwNjktNDlhYi05ZjlmLTk2YTkxMmJhYzU3YyIsImVtYWlsIjoidmlraW5nc2F0bHBAZ21haWwuY29tIiwicm9sZSI6ImJ1eWVyIiwibXVzdFVwZGF0ZVBhc3N3b3JkIjpmYWxzZSwiaWF0IjoxNjgxNDY4MTE2LCJleHAiOjE3MTMwMDQxMTZ9.eGUBlyDIqRW4JIjsGaT66X5Zs9hmRM3GfSTYpiSasBM',
       message: 'Login successful',
       user: {
         id: '8e4c65d0-abe9-405a-a2f4-5b71a2338cdd',

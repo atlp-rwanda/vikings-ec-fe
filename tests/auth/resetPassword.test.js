@@ -15,7 +15,7 @@ describe('Reset password form', () => {
       target: { value: 'Password@100' },
     });
     fireEvent.change(renderer.getByPlaceholderText('Confirm password'), { target: { value: 'Password@100' } });
-    const btn = screen.getByRole('submit');
+    const btn = screen.getByRole('button', { label: 'Reset' });
     userEvent.click(btn);
 
     expect(mockSubmit).toBeDefined();

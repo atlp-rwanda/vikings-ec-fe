@@ -12,6 +12,7 @@ import ResetPassword from '../pages/auth/ResetPassword';
 import ProfileLayout from '../layout/ProfileLayout';
 import ProfilePage from '../pages/profile/ProfilePage';
 import EditProfilePage from '../pages/profile/EditProfilePage';
+import UpdatePasswordPage from '../pages/auth/UpdatePasswordPage';
 import HomeLayout from '../layout/HomeLayout';
 import VerifyEmailPage from '../pages/auth/VerifyEmail';
 
@@ -39,6 +40,7 @@ export const getRoutes = () => [
   <Route key="key__profile" path="/profile" element={<ProfileLayout />}>
     <Route index element={<ProfilePage />} />
     <Route path="update" element={<EditProfilePage />} />
+    <Route path="password_update" element={<UpdatePasswordPage />} />
   </Route>,
   <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
 ];
