@@ -112,7 +112,7 @@ const SignupForm = () => {
                 </Button>
               </>
             ) : (
-              <Button type="submit" label="Signin" className="my-1" role="submit" />
+              <Button type="submit" label="Signin" className="my-1" />
             )}
           </div>
         </div>

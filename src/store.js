@@ -6,6 +6,8 @@ import loginReducer from './features/auth/loginSlice';
 import googleAuthReducer from './features/auth/googleAuthSlice';
 import signupReducer from './features/auth/signupSlice';
 import twoFactorAuthReducer from './features/auth/twoFactorAuth';
+import forgotPasswordReducer from './features/auth/forgotPasswordSlice';
+import resetPasswordReducer from './features/auth/resetPasswordSlice';
 
 const middlewares = [];
 
@@ -20,6 +22,8 @@ const store = configureStore({
     googleAuth: googleAuthReducer,
     signup: signupReducer,
     twoFactorAuth: twoFactorAuthReducer,
+    forgotPassword: forgotPasswordReducer,
+    resetPassword: resetPasswordReducer,
   },
   middleware: [...middlewares, thunk],
 });
