@@ -8,8 +8,7 @@ describe('My app', () => {
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth');
     await waitFor(() => {
-      expect(renderer.toJSON())
-        .toMatchSnapshot();
+      expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
   it('renders redirect-google correctly', async () => {
@@ -41,6 +40,12 @@ describe('My app', () => {
 
     await waitFor(() => {
       expect(renderer.toJSON()).not.toBe(null);
+    });
+  });
+  it('renders verify auth correctly', async () => {
+    const renderer = renderRoute('/verify');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
 });
