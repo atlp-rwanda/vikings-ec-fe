@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { expect, describe, it } from '@jest/globals';
 import { waitFor } from '@testing-library/react';
-import renderRoute, { render } from './jest.setup';
+import renderRoute, { simpleRender } from './jest.setup';
 import Button from '../src/components/forms/Button';
 
 describe('My app', () => {
@@ -36,7 +36,7 @@ describe('My app', () => {
     expect(renderer.toJSON()).toMatchSnapshot();
   });
   it('renders button ', async () => {
-    const renderer = render(<Button onClick={() => {}}>text</Button>);
+    const renderer = simpleRender(<Button onClick={() => {}}>text</Button>);
 
     await waitFor(() => {
       expect(renderer.toJSON()).not.toBe(null);
@@ -44,6 +44,25 @@ describe('My app', () => {
   });
   it('renders verify auth correctly', async () => {
     const renderer = renderRoute('/verify');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+
+  it('renders resetPassword correctly', async () => {
+    const renderer = renderRoute('/auth/reset-password?token="some');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('renders landing', async () => {
+    const renderer = renderRoute('/auth/reset-password');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('renders forgot-password correctly', async () => {
+    const renderer = renderRoute('/auth/forgot-password');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });

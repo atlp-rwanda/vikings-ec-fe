@@ -3,6 +3,7 @@ import * as React from 'react';
 import { BrowserRouter, MemoryRouter, Routes } from 'react-router-dom';
 import { beforeAll, afterEach, afterAll } from '@jest/globals';
 import thunk from 'redux-thunk';
+import { render } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
 import { getRoutes } from '../src/routes/AppRoutes';
 import MainWrapper from '../src/MainWrapper';
@@ -26,7 +27,16 @@ const renderRoute = (path) => create(
     </MemoryRouter>
   </MainWrapper>,
 );
-export const render = (component) => create(
+export const renderPath = (path) => render(
+  <MainWrapper>
+    <MemoryRouter initialEntries={[path]}>
+      <Routes>
+        {getRoutes()}
+      </Routes>
+    </MemoryRouter>
+  </MainWrapper>,
+);
+export const simpleRender = (component) => create(
   <MainWrapper>
     <BrowserRouter>
       {component}

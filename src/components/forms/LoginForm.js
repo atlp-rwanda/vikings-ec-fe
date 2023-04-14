@@ -29,11 +29,11 @@ const LoginForm = () => {
   const onSubmit = async (userData) => {
     try {
       const response = await dispatch(login(userData)).unwrap();
-      showSuccessMessage(response.message);
+      showSuccessMessage(response?.message || "success");
     } catch (error) {
       if (error.status == 403) {
         navigate(`/auth/verify/${error.data.user.id}`);
-      } else showErrorMessage(error.data.message);
+      } else showErrorMessage(error?.data?.message || "error");
     }
   };
   const handleClickShowPassword = () => {
@@ -80,7 +80,7 @@ const LoginForm = () => {
 
           <div>
             <a
-              href=""
+              href="/auth/forgot-password"
               className=" flex justify-end text-[#338e03] text-[14px] my-2"
             >
               Forget password ?
@@ -118,7 +118,6 @@ const LoginForm = () => {
                 type="submit"
                 label="Signin"
                 className="my-1 rounded-md"
-                role="submit"
               />
             )}
           </div>

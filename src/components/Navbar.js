@@ -1,9 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../public/images/logo.svg';
 
 const Navbar = () => {
-  const navItems = ['Home', 'About', 'Pages', 'Contact', 'SignIn', 'Register'];
+  const navItems = [
+    { title: 'Home', path: '/' },
+    { title: 'About', path: '/' },
+    { title: 'Pages', path: '/' },
+    { title: 'Contact', path: '/' },
+    { title: 'SignIn', path: '/auth/signin' },
+    { title: 'Register', path: '/auth/signup' },
+  ];
   return (
     <nav className="py-2.5 flex items-center justify-between w-full">
       <a href="/" className="flex items-center">
@@ -36,13 +44,13 @@ const Navbar = () => {
       </button>
       <ul className="md:flex hidden flex-1 flex-col p-4 mt-4 justify-between max-w-[54rem] rounded-lg bg-inherit bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
         {navItems.map((navItem) => (
-          <li key={navItem}>
-            <a
-              href="#"
+          <li key={navItem.title}>
+            <Link
+              to={navItem.path}
               className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
             >
-              {navItem}
-            </a>
+              {navItem.title}
+            </Link>
           </li>
         ))}
       </ul>
