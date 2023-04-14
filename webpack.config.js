@@ -14,7 +14,9 @@ module.exports = (env) => ({
 
   devServer: {
     static: path.resolve(__dirname, './dist'),
-    historyApiFallback: true,
+    historyApiFallback: {
+      disableDotRule: true,
+    },
     hot: true,
   },
 

@@ -13,6 +13,7 @@ import ProfileLayout from '../layout/ProfileLayout';
 import ProfilePage from '../pages/profile/ProfilePage';
 import EditProfilePage from '../pages/profile/EditProfilePage';
 import HomeLayout from '../layout/HomeLayout';
+import VerifyEmailPage from '../pages/auth/VerifyEmail';
 
 export const getRoutes = () => [
   <Route key="key__" path="/" element={<HomeLayout />}>
@@ -21,11 +22,20 @@ export const getRoutes = () => [
   <Route key="key__auth" path="/auth" element={<AuthLayout />}>
     <Route path="signin" index element={<LoginPage />} />
     <Route path="signup" element={<SignupPage />} />
-    <Route key="key__verify__auth" path="verify/:id" element={<TwoFactorAuthPage />} />
+    <Route
+      key="key__verify__auth"
+      path="verify/:id"
+      element={<TwoFactorAuthPage />}
+    />
     <Route path="forgot-password" element={<ForgotPassword />} />
     <Route path="reset-password" element={<ResetPassword />} />
+    <Route path="verify-email/:token" element={<VerifyEmailPage />} />
   </Route>,
-  <Route key="key__redirect-google" path="/redirect-google" element={<GoogleRedirect />} />,
+  <Route
+    key="key__redirect-google"
+    path="/redirect-google"
+    element={<GoogleRedirect />}
+  />,
   <Route key="key__profile" path="/profile" element={<ProfileLayout />}>
     <Route index element={<ProfilePage />} />
     <Route path="update" element={<EditProfilePage />} />
@@ -33,7 +43,7 @@ export const getRoutes = () => [
   <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
 ];
 const AppRoutes = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/">
     <ToastContainer />
     <Routes>{getRoutes()}</Routes>
   </BrowserRouter>

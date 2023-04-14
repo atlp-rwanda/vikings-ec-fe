@@ -1,6 +1,8 @@
 import { describe, it, expect } from '@jest/globals';
 import { jestStore } from '../jest.setup';
-import forgotPasswordSlice, { forgotPassword } from '../../src/features/auth/forgotPasswordSlice';
+import forgotPasswordSlice, {
+  forgotPassword,
+} from '../../src/features/auth/forgotPasswordSlice';
 
 describe('Forgot Password Slice', () => {
   const initialState = {
@@ -18,7 +20,7 @@ describe('Forgot Password Slice', () => {
       jestStore
         .getActions()
         .map((each) => each.type)
-        .includes(expectedActions[1].type),
+        .includes(expectedActions[1].type)
     ).toBe(true);
   }, 10000);
   it('throw error', async () => {
@@ -30,10 +32,8 @@ describe('Forgot Password Slice', () => {
     expect(
       jestStore
         .getActions()
-        .map((each) => {
-          return each.type;
-        })
-        .includes(expectedActions[1].type),
+        .map((each) => each.type)
+        .includes(expectedActions[1].type)
     ).toBe(true);
   }, 10000);
 
@@ -46,7 +46,7 @@ describe('Forgot Password Slice', () => {
   it('should set user when action is fulfilled', () => {
     const action = {
       type: forgotPassword.fulfilled,
-      payload: { },
+      payload: {},
     };
     const State = forgotPasswordSlice(initialState, action);
     expect(State).toEqual({
