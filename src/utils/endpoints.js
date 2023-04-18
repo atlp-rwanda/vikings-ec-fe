@@ -9,6 +9,7 @@ const Endpoints = {
   product: '/products',
   createProduct: '/products',
   category: '/categories',
+  chats: '/chats',
 };
 
 export default Endpoints;

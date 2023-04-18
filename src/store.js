@@ -29,6 +29,8 @@ import rolesReducer from './features/auth/rolesSlice';
 import changeUserStatusReducer from './features/auth/changeUserStatusSlice';
 import provideRatingsReducer from './features/ratings/ratingsSlice';
 import recommendedProductsReducer from './features/product/recommededProducts';
+import sendMessageReducer from './features/chat/sendMessage';
+import getMessagesReducer from './features/chat/getMessages';
 
 const middlewares = [];
 
@@ -66,12 +68,13 @@ const store = configureStore({
     cart: cartReducer,
     addToCart: addToCartReducer,
     removeFromCart: removeFromCartReducer,
-    googleAuth: googleAuthReducer,
     users: userReducer,
     roles: rolesReducer,
     changeStatus: changeUserStatusReducer,
     provideRatings: provideRatingsReducer,
     recommendedProducts: recommendedProductsReducer,
+    sendMessage: sendMessageReducer,
+    getMessages: getMessagesReducer,
   },
   middleware: [...middlewares, thunk],
 });
