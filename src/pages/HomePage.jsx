@@ -11,7 +11,7 @@ const HomePage = () => {
     dispatch(getMessage());
   }, []);
   return (
-    <div>
+    <div className="h-[100vh] px-24">
       <h1>Home Page</h1>
       <h2 className="underline">{data.message}</h2>
       <Link to="/auth/signin">Login</Link>
@@ -22,6 +22,7 @@ const HomePage = () => {
         Go to storybook
       </Link>
       <h1>{JSON.stringify(userData !== null ? userData.user : 'no user found')}</h1>
+      <Link to="/profile">Profile</Link>
     </div>
   );
 };

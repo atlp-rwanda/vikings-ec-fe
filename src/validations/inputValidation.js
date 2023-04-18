@@ -38,3 +38,22 @@ export const registerSchema = yup.object().shape({
     .required('Password is required')
     .trim(),
 });
+
+export const accountSchema = yup.object().shape({
+  firstname: yup.string().min(3).trim().required(),
+  lastname: yup.string().min(3).trim().required(),
+  email: yup.string().email().lowercase().trim()
+    .required(),
+  gender: yup.string().required('Your gender is required'),
+  birthdate: yup.date().required('Your birthdate is required'),
+  phone: yup.string().matches(/^\+?[1-9][0-9]{7,14}$/),
+});
+
+export const addressSchema = yup.object().shape({
+  country: yup.string().required('Country is required'),
+  state: yup.string(),
+  province: yup.string(),
+  city: yup.string(),
+  streetAddress: yup.string().required('Street is required'),
+  zipCode: yup.string(),
+});

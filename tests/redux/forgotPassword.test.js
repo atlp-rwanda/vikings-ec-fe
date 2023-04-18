@@ -31,7 +31,6 @@ describe('Forgot Password Slice', () => {
       jestStore
         .getActions()
         .map((each) => {
-          console.log('eachType', each);
           return each.type;
         })
         .includes(expectedActions[1].type),
