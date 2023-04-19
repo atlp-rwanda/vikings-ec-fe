@@ -24,6 +24,4 @@ const InputField = forwardRef(({parentClassName, ...props}, ref) => {
       </div>
     )
 })
-
 export default InputField;
-

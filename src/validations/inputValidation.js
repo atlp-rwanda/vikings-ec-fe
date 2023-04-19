@@ -57,3 +57,15 @@ export const addressSchema = yup.object().shape({
   streetAddress: yup.string().required('Street is required'),
   zipCode: yup.string(),
 });
+export const updatePasswordSchema = yup.object().shape({
+  old_password: yup
+    .string()
+    .required('Password is required'),
+  new_password: yup
+    .string()
+    .min(8, 'Password must be at least 8 characters long')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase character')
+    .matches(/[0-9]/, 'Password must contain at least one numeric character')
+    .required('Password is required')
+    .trim(),
+});

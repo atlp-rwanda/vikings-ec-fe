@@ -5,6 +5,7 @@ import { forgotPasswordHandler } from './forgotPassword.handler';
 import { resetPasswordHandler } from './resetPassword.handler';
 import { getProfileHandler, updateProfileHandler } from './profile.handler';
 import { VerifyEmailHandler } from './verifyEmail.handler';
+import { updatePasswordHandler } from './updatePassword.handler';
 
 const handlers = [
   ...loginHandler,
@@ -15,6 +16,7 @@ const handlers = [
   ...getProfileHandler,
   ...updateProfileHandler,
   ...VerifyEmailHandler,
+  ...updatePasswordHandler,
 ];
 
 export default handlers;

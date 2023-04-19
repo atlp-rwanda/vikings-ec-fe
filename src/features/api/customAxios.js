@@ -5,7 +5,6 @@ const customAxios = axios.create({
   timeout: 50000,
   headers: {},
 });
-
 const requestHandler = (request) => {
   const token = localStorage.getItem('token') || '';
   request.headers.Authorization = `Bearer ${token}`;

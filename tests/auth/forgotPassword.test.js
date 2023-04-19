@@ -19,7 +19,7 @@ describe('Forgot password form', () => {
     fireEvent.change(renderer.getByPlaceholderText('your-email@gmail.com'), {
       target: { value: 'email@gmail.com' },
     });
-    const btn = screen.getByRole('submit');
+    const btn = screen.getByRole('button', { label: 'Send' });
     userEvent.click(btn);
     // await waitFor(() => expect(showSuccessMessage).toHaveBeenCalledTimes(1));
     expect(mockSubmit).toBeDefined();
