@@ -12,6 +12,7 @@ import forgotPasswordReducer from './features/auth/forgotPasswordSlice';
 import resetPasswordReducer from './features/auth/resetPasswordSlice';
 import profile from './features/profile/getProfileSlice';
 import updateProfile from './features/profile/updateProfileSlice';
+import verifyEmailReducer from './features/auth/VerifyEmailSlice';
 
 const middlewares = [];
 
@@ -35,6 +36,7 @@ const store = configureStore({
     twoFactorAuth: persistedTwoFactor,
     forgotPassword: forgotPasswordReducer,
     resetPassword: resetPasswordReducer,
+    verifyEmail: verifyEmailReducer,
     profile,
     updateProfile,
   },
