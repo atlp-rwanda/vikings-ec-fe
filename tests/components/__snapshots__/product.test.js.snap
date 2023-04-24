@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingProductPage should render SingProductPage component correctly 1`] = `
+<div>
+  <div
+    className="px-24 xs:px-2"
+  >
+    <div>
+      <div
+        className="md:flex lg:flex flex-wrap md:flex-nowrap w-[100%] mt-24 md:gap-10 lg:gap-4"
+      >
+        <div
+          className="md:w-[900px] xs:w-[108%] lg:w-1/2 sm:ml-[-13px] xs:ml-[0px] px-4 "
+        >
+          <img
+            alt="product"
+            className="xs:w-full lg:w-full sm:w-full xs:ml-[-16px] md:w-full md:h-[250px] object-cover"
+            src="image1.jpg"
+          />
+          <div
+            className="md:mt-[-190px]"
+          >
+            <div
+              className="relative flex sm:justify-between xs:gap-52 md:top-12 cursor-pointer xs:top-2 sm:top-2"
+            >
+              <button
+                className="bg-white hover:bg-[#0cc70c] w-[40px] h-[40] flex justify-center items-center rounded-full"
+                data-testid="right-button"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="left"
+                  src=""
+                />
+              </button>
+              <button
+                className="bg-white  hover:bg-[#0cc70c] w-[40px] h-[40px] flex justify-center items-center rounded-full"
+                data-testid="left-button"
+                onClick={[Function]}
+                type="button"
+              >
+                <img
+                  alt="right"
+                  src=""
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="w-full md:w-1/1"
+        >
+          <p
+            className="text-black font-bold text-[20px] pb-2"
+          >
+            Test Product
+          </p>
+          <p
+            className="text-[#464c55] text-[18px] font-bold pb-2"
+          >
+            $
+            100
+          </p>
+          <div
+            className="space-y-[-10px]"
+          >
+            <img
+              alt="Loader Spinner"
+              className="text-green-500 animate-spin w-[25px] text-center"
+              data-testid="spinner"
+              src=""
+            />
+            <div
+              className="flex space-x-[25px] pb-[40px]"
+            >
+              <button
+                className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center"
+                title="Wish product"
+                type="button"
+              >
+                <img
+                  alt="wish"
+                  src=""
+                />
+              </button>
+              <button
+                className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center "
+                title="Shop product"
+                type="button"
+              >
+                <img
+                  alt="shop"
+                  src=""
+                />
+              </button>
+            </div>
+            <div
+              className="lg:flex lg:gap-3 md:flex md:gap-3 pb-2 grid sm:grid-cols-3 xs:grid-cols-3 sm:space-y-2 xs:space-y-2"
+            >
+              <img
+                alt="product"
+                className="w-24 h-20 mt-2"
+                src="image2.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="w-[100%] md:space-y-3"
+      >
+        <p
+          className="text-[#393d3e] pt-8 font-bold text-[18px] italic"
+        >
+          Reviews
+        </p>
+        <div
+          className="md:space-y-3"
+        >
+          No reviews found
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

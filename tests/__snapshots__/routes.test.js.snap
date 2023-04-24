@@ -864,53 +864,29 @@ exports[`My app renders auth correctly 4`] = `
     </nav>
   </div>
   <div
-    className="h-[100vh] px-24"
+    className="min-h-72"
   >
-    <h1>
-      Home Page
+    <h1
+      className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600"
+    >
+      OUR PRODUCTS
     </h1>
-    <h2
-      className="underline"
-    >
-      welcome
-    </h2>
-    <a
-      href="/auth/signin"
-      onClick={[Function]}
-    >
-      Login
-    </a>
+    <div
+      className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10"
+    />
     <br />
-    <a
-      href="/auth/signup"
-      onClick={[Function]}
-    >
-      Signup
-    </a>
-    <br />
-    <a
-      href="https://www.chromatic.com/builds?appId=64218d727e570b64b94415f8"
-    >
-      Go to storybook
-    </a>
-    <h1>
-      "no user found"
-    </h1>
-    <a
-      href="/profile"
-      onClick={[Function]}
-    >
-      Profile
-    </a>
+    <div
+      className="pb-4"
+    />
   </div>
   <div
-    className="flex flex-col w-full mt-20"
+    className="flex flex-col w-full"
   >
     <div
-      className="px-24 flex mt-12 justify-between xs:flex-col"
+      className="px-24 flex mt-12 justify-between xs:flex-col xs:px-2"
     >
       <div
-        className="w-[400px] mb-10"
+        className="w-[400px] xs:w-full mb-10"
       >
         <a
           className="flex items-center mb-3"
@@ -1073,14 +1049,14 @@ exports[`My app renders auth correctly 4`] = `
       </div>
     </div>
     <div
-      className="px-24"
+      className="px-24 xs:px-2"
     >
       <hr
         className="h-px my-2 bg-gray-200 border-0"
       />
     </div>
     <div
-      className="px-24 flex justify-between xs:flex-col my-4"
+      className="px-24 xs:p-2 flex justify-between xs:flex-col my-4"
     >
       <p>
         © 2023 Vikings - All rights reserved
@@ -1353,10 +1329,10 @@ exports[`My app renders edit profile page correct 1`] = `
     className="flex flex-col w-full mt-20"
   >
     <div
-      className="px-24 flex mt-12 justify-between xs:flex-col"
+      className="px-24 flex mt-12 justify-between xs:flex-col xs:px-2"
     >
       <div
-        className="w-[400px] mb-10"
+        className="w-[400px] xs:w-full mb-10"
       >
         <a
           className="flex items-center mb-3"
@@ -1519,14 +1495,14 @@ exports[`My app renders edit profile page correct 1`] = `
       </div>
     </div>
     <div
-      className="px-24"
+      className="px-24 xs:px-2"
     >
       <hr
         className="h-px my-2 bg-gray-200 border-0"
       />
     </div>
     <div
-      className="px-24 flex justify-between xs:flex-col my-4"
+      className="px-24 xs:p-2 flex justify-between xs:flex-col my-4"
     >
       <p>
         © 2023 Vikings - All rights reserved
@@ -1799,10 +1775,10 @@ exports[`My app renders edit profile page correct 2`] = `
     className="flex flex-col w-full mt-20"
   >
     <div
-      className="px-24 flex mt-12 justify-between xs:flex-col"
+      className="px-24 flex mt-12 justify-between xs:flex-col xs:px-2"
     >
       <div
-        className="w-[400px] mb-10"
+        className="w-[400px] xs:w-full mb-10"
       >
         <a
           className="flex items-center mb-3"
@@ -1965,14 +1941,14 @@ exports[`My app renders edit profile page correct 2`] = `
       </div>
     </div>
     <div
-      className="px-24"
+      className="px-24 xs:px-2"
     >
       <hr
         className="h-px my-2 bg-gray-200 border-0"
       />
     </div>
     <div
-      className="px-24 flex justify-between xs:flex-col my-4"
+      className="px-24 xs:p-2 flex justify-between xs:flex-col my-4"
     >
       <p>
         © 2023 Vikings - All rights reserved
@@ -2623,10 +2599,10 @@ exports[`My app renders profile page 1`] = `
     className="flex flex-col w-full mt-20"
   >
     <div
-      className="px-24 flex mt-12 justify-between xs:flex-col"
+      className="px-24 flex mt-12 justify-between xs:flex-col xs:px-2"
     >
       <div
-        className="w-[400px] mb-10"
+        className="w-[400px] xs:w-full mb-10"
       >
         <a
           className="flex items-center mb-3"
@@ -2789,14 +2765,14 @@ exports[`My app renders profile page 1`] = `
       </div>
     </div>
     <div
-      className="px-24"
+      className="px-24 xs:px-2"
     >
       <hr
         className="h-px my-2 bg-gray-200 border-0"
       />
     </div>
     <div
-      className="px-24 flex justify-between xs:flex-col my-4"
+      className="px-24 xs:p-2 flex justify-between xs:flex-col my-4"
     >
       <p>
         © 2023 Vikings - All rights reserved

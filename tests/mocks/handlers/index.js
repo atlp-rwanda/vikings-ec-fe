@@ -6,6 +6,7 @@ import { resetPasswordHandler } from './resetPassword.handler';
 import { getProfileHandler, updateProfileHandler } from './profile.handler';
 import { VerifyEmailHandler } from './verifyEmail.handler';
 import { updatePasswordHandler } from './updatePassword.handler';
+import { productHandler, singleProductHandler, getProductRatings } from './product.handler';
 
 const handlers = [
   ...loginHandler,
@@ -17,6 +18,10 @@ const handlers = [
   ...updateProfileHandler,
   ...VerifyEmailHandler,
   ...updatePasswordHandler,
+  ...updateProfileHandler, 
+  ...productHandler,
+  ...singleProductHandler,
+  ...getProductRatings
 ];
 
 export default handlers;

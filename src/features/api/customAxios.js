@@ -15,7 +15,8 @@ const responseHandler = (response) => response;
 
 const errorHandler = (error) => {
   if (error.response.status === 401) {
-    return (location.href = `${process.env.REACT_APP_BASE_URL}/auth`);
+    localStorage.clear();
+    return (location.href = `${process.env.FRONT_END_URL}/auth/signin`);
   }
   return Promise.reject(error);
 };

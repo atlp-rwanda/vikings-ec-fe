@@ -14,6 +14,9 @@ import profile from './features/profile/getProfileSlice';
 import updateProfile from './features/profile/updateProfileSlice';
 import verifyEmailReducer from './features/auth/VerifyEmailSlice';
 import updatePasswordReducer from './features/auth/updatePasswordSlice';
+import getProductsReducer from './features/product/getProductsSilice';
+import singleProductReducer from './features/product/singleProductSlice';
+import getRatingsReducer from './features/product/getRatingsSlice';
 
 const middlewares = [];
 
@@ -41,7 +44,9 @@ const store = configureStore({
     profile,
     updateProfile,
     updatePassword: updatePasswordReducer,
-
+    product: getProductsReducer,
+    singleProduct: singleProductReducer,
+    getRatings: getRatingsReducer,
   },
   middleware: [...middlewares, thunk],
 });
