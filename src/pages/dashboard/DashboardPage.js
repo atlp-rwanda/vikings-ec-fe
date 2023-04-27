@@ -11,16 +11,33 @@ import editIcon from '../../../public/images/edit.svg';
 import ProductOperationButton from '../../components/products/ProductOperationButton';
 import PageCount from '../../components/products/PageCount';
 import Loader from '../../components/Loader';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import ConfirmDelete from '../../components/ConfirmDelete';
+import { deleteProduct } from '../../features/product/deleteProduct';
+import { showErrorMessage, showSuccessMessage } from '../../utils/toast';
 
 const DashboardPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { productsList, isLoading } = useSelector((state) => state.product);
+  const loading = useSelector((state) => state.deleteProduct?.isLoading);
   const [productClicked, setProductClicked] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
+  const [showModel, setShowModel] = useState(false);
+  const [productId, setProductId] = useState('');
 
+  const handleConfirm = async () => {
+    try {
+      const response = await dispatch(deleteProduct(productId)).unwrap();
+      showSuccessMessage(response?.message);
+      setShowModel(false);
+      await dispatch(getProductList({ pageNumber: 1 }));
+    } catch (error) {
+      showErrorMessage(error.data.message);
+      setShowModel(false);
+    }
+  };
   useEffect(() => {
     dispatch(getProductList({ pageNumber: 1 }));
   }, [dispatch]);
@@ -86,6 +103,10 @@ const DashboardPage = () => {
                 className="mt-[20px] bg-[#fd1919] hover:bg-[#5f0d0d] h-[32px] w-[32px] rounded-full flex justify-center items-center"
                 icon={deleteIcon}
                 title="Delete product"
+                onClick={() => {
+                  setShowModel(true);
+                  setProductId(row.id);
+                }}
                 alt="delete"
                 size="w-[16px] h-[22px]"
               />
@@ -95,6 +116,9 @@ const DashboardPage = () => {
                 className="mt-[20px] bg-[#fffdfd] hover:bg-[#b6b4b4] h-[32px] w-[32px] rounded-full flex justify-center items-center"
                 icon={editIcon}
                 title="Edit product"
+                onClick={() => {
+                  navigate(`/dashboard/products/${row.id}`);
+                }}
                 alt="edit"
                 size="w-[20px] h-[18px]"
               />
@@ -112,6 +136,10 @@ const DashboardPage = () => {
               className="mt-[20px] bg-[rgb(253,25,25)] hover:bg-[#5f0d0d] h-[32px] w-[32px] rounded-full flex justify-center items-center"
               icon={deleteIcon}
               title="Delete product"
+              onClick={() => {
+                setShowModel(true);
+                setProductId(row.id);
+              }}
               alt="delete"
               size="w-[16px] h-[22px]"
             />
@@ -121,6 +149,9 @@ const DashboardPage = () => {
               className="mt-[20px] bg-[#fffdfd] hover:bg-[#b6b4b4] h-[34px] w-[34px] rounded-full flex justify-center items-center"
               icon={editIcon}
               title="Edit product"
+              onClick={() => {
+                navigate(`/dashboard/products/${row.id}`);
+              }}
               alt="edit"
               size="w-[20px] h-[18px]"
             />
@@ -142,6 +173,16 @@ const DashboardPage = () => {
 
   return (
     <div>
+            {showModel && (
+        <ConfirmDelete
+          showModel={showModel}
+          message="Are you sure you want to delete this product?"
+          title="Confirm delete product"
+          onClick={handleConfirm}
+          setShowModel={setShowModel}
+          isLoading={loading}
+        />
+      )}
       <div className="flex space-x-2">
         <img src={left} alt="left" />
         <h2 onClick={() => setProductClicked(false)} className="cursor-pointer">
@@ -167,6 +208,10 @@ const DashboardPage = () => {
                   className="mt-[20px] hover:bg-[#5f0d0d] bg-[rgb(253,25,25)] h-[32px] w-[32px] rounded-full flex justify-center items-center"
                   icon={deleteIcon}
                   title="Delete product"
+                  onClick={() => {
+                    setShowModel(true);
+                    setProductId(selectedProduct.id);
+                  }}
                   alt="delete"
                   size="w-[16px] h-[22px]"
                 />
@@ -176,6 +221,11 @@ const DashboardPage = () => {
                   className="mt-[20px] bg-[#fffdfd] hover:bg-[#b6b4b4] h-[34px] w-[34px] rounded-full flex justify-center items-center"
                   icon={editIcon}
                   title="edit product"
+                  onClick={() => {
+                    navigate(
+                      `/dashboard/products/${selectedProduct.id}`
+                    );
+                  }}
                   alt="edit"
                   size="w-[20px] h-[18px]"
                 />

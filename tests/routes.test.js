@@ -101,4 +101,10 @@ describe('My app', () => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
+  it('renders update product correctly', async () => {
+    const renderer = renderRoute('/products/dashboard/b5e75a01-5e67-44ad-91bd-f36ab3564a48');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
 });
