@@ -17,8 +17,12 @@ const LoginPage = () => {
   });
 
   return (
-    <div className="flex flex-col md:flex-row md:h-full lg:justify-between justify-center items-center xs:flex-grow bg-login recursive">
-      <img src={bgImage} alt="" className="absolute inset-x-0 bottom-0 pointer-events-none" />
+    <div className="flex flex-col md:flex-row md:h-full lg:justify-between justify-center items-center xs:flex-grow bg-login">
+      <img
+        src={bgImage}
+        alt=""
+        className="absolute inset-x-0 bottom-0 pointer-events-none"
+      />
       <div className="flex flex-col xs:items-center xs:w-full xs:px-6 ">
         <h1 className="text-3xl lg:text-[50px] mb-[3rem] ">Sign In</h1>
         <p className="text-xl  xs:w-full ">

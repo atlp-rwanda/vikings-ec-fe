@@ -1,12 +1,10 @@
 import React from 'react';
-import {
-  render, screen, fireEvent, waitFor,
-} from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { expect, describe, it } from '@jest/globals';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import renderer from 'react-test-renderer';
 import axiosMock from 'axios';
@@ -14,7 +12,9 @@ import BuyerViewSingleProduct from '../../src/components/products/BuyerViewSingl
 import PageCount from '../../src/components/products/PageCount';
 import ProductOperationButton from '../../src/components/products/ProductOperationButton';
 import SwitchImages from '../../src/components/products/SwitchImages';
-import productCardMock, { mockProductsWithWishBtn } from '../mocks/products/product.mock';
+import productCardMock, {
+  mockProductsWithWishBtn,
+} from '../mocks/products/product.mock';
 import ProductCard from '../../src/components/products/ProductCard';
 import SellerViewSingleProduct from '../../src/components/products/SellerViewSingleProduct';
 import DashboardPage from '../../src/pages/dashboard/DashboardPage';
@@ -42,7 +42,7 @@ describe('ProductCard', () => {
       'product-image.jpg',
       100,
       1,
-      '12345',
+      '12345'
     );
   });
 
@@ -73,8 +73,10 @@ describe('DashboardPage', () => {
     const store = mockStore(initialState);
     render(
       <Provider store={store}>
-        <DashboardPage isLoading={isLoading} products={[]} />
-      </Provider>,
+        <BrowserRouter>
+          <DashboardPage isLoading={isLoading} products={[]} />
+        </BrowserRouter>
+      </Provider>
     );
   });
 });
@@ -108,7 +110,7 @@ describe('SingProductPage', () => {
           <MemoryRouter>
             <SingProductPage />
           </MemoryRouter>
-        </Provider>,
+        </Provider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -205,7 +207,9 @@ describe('ProductOperationButton', () => {
   });
 
   it('should render roductOperationButton  correctly', () => {
-    const { getByRole, getByAltText } = render(<ProductOperationButton {...defaultProps} />);
+    const { getByRole, getByAltText } = render(
+      <ProductOperationButton {...defaultProps} />
+    );
 
     const buttonElement = getByRole('button');
     const iconElement = getByAltText('Test Alt');
@@ -260,7 +264,11 @@ describe('HomePage Component', () => {
           totalPages: 2,
           rows: [
             {
-              id: 1, name: 'Product 1', images: ['image1.jpg', 'image2.jpg'], price: 100, quantity: 3,
+              id: 1,
+              name: 'Product 1',
+              images: ['image1.jpg', 'image2.jpg'],
+              price: 100,
+              quantity: 3,
             },
           ],
         },
@@ -283,11 +291,13 @@ describe('HomePage Component', () => {
         <MemoryRouter>
           <HomePage />
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
     const productCard = screen.getByText('Product 1');
     fireEvent.mouseEnter(productCard);
-    expect(productCard).toHaveClass('text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09]');
+    expect(productCard).toHaveClass(
+      'text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09]'
+    );
     expect(getByText('Product 1')).toBeInTheDocument();
   });
 
@@ -298,7 +308,7 @@ describe('HomePage Component', () => {
         <MemoryRouter>
           <HomePage />
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
   });
 });
@@ -340,8 +350,10 @@ describe('DashboardPage', () => {
   beforeEach(() => {
     render(
       <Provider store={store}>
-        <DashboardPage />
-      </Provider>,
+        <BrowserRouter>
+          <DashboardPage />
+        </BrowserRouter>
+      </Provider>
     );
   });
 
@@ -356,8 +368,10 @@ describe('DashboardPage', () => {
   it('sets selected product and product clicked state', () => {
     const { getAllByText } = render(
       <Provider store={store}>
-        <DashboardPage />
-      </Provider>,
+        <BrowserRouter>
+          <DashboardPage />
+        </BrowserRouter>
+      </Provider>
     );
     const product1Names = getAllByText('Product 1');
     fireEvent.click(product1Names[0]);
@@ -372,8 +386,14 @@ describe('DashboardPage', () => {
     };
     const { getAllByTestId } = render(
       <Provider store={store}>
-        <DashboardPage dispatch={dispatchMock} getProductList={getProductListMock} productsList={productsList} />
-      </Provider>,
+        <BrowserRouter>
+          <DashboardPage
+            dispatch={dispatchMock}
+            getProductList={getProductListMock}
+            productsList={productsList}
+          />
+        </BrowserRouter>
+      </Provider>
     );
     const testId = getAllByTestId('next-page');
     fireEvent.click(testId[0]);
@@ -390,7 +410,9 @@ describe('Reviewers component', () => {
 
   it('renders the reviewer name', () => {
     const { getByText } = render(<Reviewers reviewer={reviewer} />);
-    expect(getByText(`${reviewer.firstname} ${reviewer.lastname}`)).toBeInTheDocument();
+    expect(
+      getByText(`${reviewer.firstname} ${reviewer.lastname}`)
+    ).toBeInTheDocument();
   });
 
   it('renders the reviewer feedback', () => {

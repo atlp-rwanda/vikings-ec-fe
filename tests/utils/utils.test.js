@@ -1,8 +1,9 @@
 import React from 'react';
-import { describe, it, expect } from '@jest/globals';
+import { describe, test, it, expect } from '@jest/globals';
 import { showErrorMessage, showSuccessMessage } from '../../src/utils/toast';
 import getFormFromObject from '../../src/utils/getFormData';
 import switchCurrentImage from '../../src/utils/switchImage.utils';
+import convertDate from '../../src/utils/formatDate';
 
 describe('utils', () => {
   it('renders auth correctly', async () => {
@@ -11,6 +12,16 @@ describe('utils', () => {
     expect(true).toBe(true);
   });
 });
+
+describe('convertDate function', () => {
+  test('formats date string correctly', () => {
+    const dateStr = '2023-04-17T00:00:00.000Z';
+    const expectedOutput = '2023-04-17';
+    const formattedDate = convertDate(dateStr);
+    expect(formattedDate).toBe(expectedOutput);
+  });
+});
+
 describe('getFormFromObject', () => {
   it('should return null when called with no arguments', () => {
     expect(getFormFromObject()).toBeNull();
@@ -66,7 +77,12 @@ describe('switchCurrentImage', () => {
       currImg: 'image1.jpg',
     };
 
-    const result = switchCurrentImage(left, currentImage, products, selectedProduct);
+    const result = switchCurrentImage(
+      left,
+      currentImage,
+      products,
+      selectedProduct
+    );
 
     expect(result).toEqual(expectedOutput);
   });
@@ -80,7 +96,12 @@ describe('switchCurrentImage', () => {
       currImg: 'image2.jpg',
     };
 
-    const result = switchCurrentImage(left, currentImage, products, selectedProduct);
+    const result = switchCurrentImage(
+      left,
+      currentImage,
+      products,
+      selectedProduct
+    );
 
     expect(result).toEqual(expectedOutput);
   });
@@ -94,7 +115,12 @@ describe('switchCurrentImage', () => {
       currImg: 'image3.jpg',
     };
 
-    const result = switchCurrentImage(left, currentImage, products, selectedProduct);
+    const result = switchCurrentImage(
+      left,
+      currentImage,
+      products,
+      selectedProduct
+    );
 
     expect(result).toEqual(expectedOutput);
   });
@@ -108,7 +134,12 @@ describe('switchCurrentImage', () => {
       currImg: 'image1.jpg',
     };
 
-    const result = switchCurrentImage(left, currentImage, products, selectedProduct);
+    const result = switchCurrentImage(
+      left,
+      currentImage,
+      products,
+      selectedProduct
+    );
 
     expect(result).toEqual(expectedOutput);
   });
@@ -122,7 +153,12 @@ describe('switchCurrentImage', () => {
       currImg: 'image3.jpg',
     };
 
-    const result = switchCurrentImage(left, currentImage, products, selectedProduct);
+    const result = switchCurrentImage(
+      left,
+      currentImage,
+      products,
+      selectedProduct
+    );
 
     expect(result).toEqual(expectedOutput);
   });
@@ -136,7 +172,12 @@ describe('switchCurrentImage', () => {
       currImg: 'image3.jpg',
     };
 
-    const result = switchCurrentImage(left, currentImage, products, selectedProduct);
+    const result = switchCurrentImage(
+      left,
+      currentImage,
+      products,
+      selectedProduct
+    );
 
     expect(result).toEqual(expectedOutput);
   });

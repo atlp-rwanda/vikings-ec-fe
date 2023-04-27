@@ -5,6 +5,12 @@ import renderRoute, { simpleRender } from './jest.setup';
 import Button from '../src/components/forms/Button';
 
 describe('My app', () => {
+  it('renders home correctly', async () => {
+    const renderer = renderRoute('/');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth');
     await waitFor(() => {
@@ -42,6 +48,7 @@ describe('My app', () => {
       expect(renderer.toJSON()).not.toBe(null);
     });
   });
+
   it('renders verify auth correctly', async () => {
     const renderer = renderRoute('/verify');
     await waitFor(() => {
@@ -87,6 +94,9 @@ describe('My app', () => {
   });
   it('renders verify email correctly', async () => {
     const renderer = renderRoute('/auth/verify-email/token');
+  });
+  it('renders create product correctly', async () => {
+    const renderer = renderRoute('/dashboard/products/create');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
