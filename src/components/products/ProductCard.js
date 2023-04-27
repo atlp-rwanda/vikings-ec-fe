@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductRatings from './ProductRatings';
+import getDiscount from '../../utils/getDiscount';
 
 const ProductCard = ({ getPersistCartSetter, ...props }) => {
   const [hovered, setHovered] = useState(false);
@@ -19,11 +20,10 @@ const ProductCard = ({ getPersistCartSetter, ...props }) => {
       props.viewSingleProduct(
         props.product.name,
         props.product.images[0],
-
         props.product.price,
         props.product.quantity,
-
         props.product.id,
+        props.product.bonus,
       );
     }
   };
@@ -31,43 +31,54 @@ const ProductCard = ({ getPersistCartSetter, ...props }) => {
   return (
     <div
       data-testid="product-card"
-      className="flex-col"
+      className="flex-col border border-gray-100 shadow-sm relative"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
 
     >
-      <div className="">
+      {
+        props.product.bonus && (
+          <div className="bg-red-500 text-white absolute top-6 left-6 w-fit p-2 text-[12px]">
+            -
+            {getDiscount(props.product.price, props.product.bonus)}
+            {' '}
+            %
+          </div>
+        )
+      }
+      <div className="h-[200px] md:h-[300px] overflow-y-clip">
         <img
           src={props.product.images[0]}
           alt="product"
-          className="md:h-[270px] max-sm:h-[200px] w-full object-cover cursor-pointer"
+          className="w-full object-cover cursor-pointer h-full"
           onClick={() => singleProduct()}
         />
         {(hovered || persistCart) && (
-          <div className="absolute xs:ml-80 xs:-mt-40 sm:ml-96 sm:-mt-44  md:ml-64 md:-mt-40">
+          <div className="absolute bottom-16 right-4">
             {props.wish}
             {props.addCart}
           </div>
         )}
         {hovered && (
-        <div className="absolute pt-2 flex gap-4 mt-[-80px] ml-24">
+        <div className="absolute bottom-16 right-4 flex gap-2 md:bottom-24">
           {props.editBTN}
           {props.deleteBTN}
         </div>
         )}
       </div>
-      <div className="flex justify-between py-2items-center">
+      <div className="flex justify-between items-center bg-white p-2">
         <p
           data-testid="product-name"
-          className="text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09]"
+          className="text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09] truncate"
           onClick={() => singleProduct()}
         >
-          {props.product.name.length > 20 ? `${props.product.name.slice(0, 20)}...` : props.product.name}
+          {props.product.name}
         </p>
         <div className="flex justify-between mt-2 items-center">
-          <div className="text-[18px] text-[#099f09] font-bold">
-            $
+          <div className="text-[18px] text-[#099f09] font-bold truncate">
             {props.product.price}
+            {' '}
+            RWF
           </div>
         </div>
       </div>

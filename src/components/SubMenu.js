@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import LogoutIcon from '../../public/images/icons/sidebar/logout.svg';
+import Button from './forms/Button';
+import { logout } from '../features/auth/logoutSlice';
 
 const SubMenu = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const navItems = [
     {
       name: 'Home',
-      path: '/'
+      path: '/',
     },
-    { name: 'About', path: '/about-us' },
-    { name: 'Contact us', path: '/contact-us' },
+    { name: 'About', path: '/' },
+    { name: 'Contact us', path: '/' },
   ];
   const [showMenu, setShowMenu] = useState(false);
 
@@ -27,10 +34,23 @@ const SubMenu = () => {
   ));
 
   return (
-    <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2">
+    <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-[9999] justify-between xs:flex-row-reverse">
       <ul className="hidden md:flex flex-row gap-4">
         {menuItems}
       </ul>
+      <Button
+        onClick={async () => {
+          await dispatch(logout()).unwrap();
+          navigate('/auth');
+        }}
+        className="!my-0 !p-0 h-full !bg-gray-100 hover:text-[#ecffe7]"
+      >
+        <div className="flex text-gray-600">
+          <img src={LogoutIcon} alt="Logout Icon" className="w-[24px] h-[24px]" />
+          <div className="ml-2 xs:hidden">Logout</div>
+
+        </div>
+      </Button>
       <div className="md:hidden flex items-center">
         {showMenu ? (
           <>

@@ -3,6 +3,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
+import expireReducer from 'redux-persist-expire';
 import welcomeReducer from './features/auth/welcomeSlice';
 import loginReducer from './features/auth/loginSlice';
 import googleAuthReducer from './features/auth/googleAuthSlice';
@@ -27,6 +28,8 @@ import deleteProductReducer from './features/product/deleteProduct';
 import userReducer from './features/auth/userSlice';
 import rolesReducer from './features/auth/rolesSlice';
 import changeUserStatusReducer from './features/auth/changeUserStatusSlice';
+import logoutReducer from './features/auth/logoutSlice';
+
 import provideRatingsReducer from './features/ratings/ratingsSlice';
 import recommendedProductsReducer from './features/product/recommededProducts';
 import sendMessageReducer from './features/chat/sendMessage';
@@ -43,15 +46,49 @@ if (process.env.NODE_ENV === 'development') {
 const persistConfig = {
   key: 'root',
   storage,
+  transforms: [
+    expireReducer(loginReducer, {
+      persistedAtKey: '__persisted_at',
+      expireSeconds: 86400,
+      expiredState: {
+        data: null,
+        isLoading: false,
+        isAuthenticated: false,
+      },
+      autoExpire: false,
+    }),
+    expireReducer(twoFactorAuthReducer, {
+      persistedAtKey: '__persisted_at',
+      expireSeconds: 86400,
+      expiredState: {
+        data: null,
+        isLoading: false,
+        isAuthenticated: false,
+      },
+      autoExpire: false,
+    }),
+    expireReducer(googleAuthReducer, {
+      persistedAtKey: '__persisted_at',
+      expireSeconds: 86400,
+      expiredState: {
+        data: null,
+        isLoading: false,
+        isAuthenticated: false,
+      },
+      autoExpire: false,
+    }),
+  ],
 };
 
 const persistedLogin = persistReducer(persistConfig, loginReducer);
 const persistedTwoFactor = persistReducer(persistConfig, twoFactorAuthReducer);
+const persistedGoogleAuth = persistReducer(persistConfig, googleAuthReducer);
+
 const store = configureStore({
   reducer: {
     message: welcomeReducer,
     login: persistedLogin,
-    googleAuth: googleAuthReducer,
+    googleAuth: persistedGoogleAuth,
     signup: signupReducer,
     twoFactorAuth: persistedTwoFactor,
     forgotPassword: forgotPasswordReducer,
@@ -73,6 +110,7 @@ const store = configureStore({
     users: userReducer,
     roles: rolesReducer,
     changeStatus: changeUserStatusReducer,
+    logout: logoutReducer,
     provideRatings: provideRatingsReducer,
     recommendedProducts: recommendedProductsReducer,
     sendMessage: sendMessageReducer,

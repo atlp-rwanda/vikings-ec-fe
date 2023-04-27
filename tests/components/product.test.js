@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { expect, describe, it } from '@jest/globals';
 import { Provider } from 'react-redux';
@@ -17,7 +19,7 @@ import productCardMock, {
 } from '../mocks/products/product.mock';
 import ProductCard from '../../src/components/products/ProductCard';
 import SellerViewSingleProduct from '../../src/components/products/SellerViewSingleProduct';
-import DashboardPage from '../../src/pages/dashboard/DashboardPage';
+import Products from '../../src/pages/dashboard/Products';
 import SingProductPage from '../../src/pages/SingleProductPage';
 import HomePage from '../../src/pages/HomePage';
 import { getProductList } from '../../src/features/product/getProductsSilice';
@@ -41,7 +43,7 @@ describe('ProductCard', () => {
     render(<ProductCard {...productCardMock} />);
     expect(screen.getByAltText('product')).toBeInTheDocument();
     expect(screen.getByText('product name')).toBeInTheDocument();
-    expect(screen.getByText('$100')).toBeInTheDocument();
+    expect(screen.getByText('100 RWF')).toBeInTheDocument();
   });
 
   it('should call viewSingleProduct when clicking on product name', () => {
@@ -53,7 +55,8 @@ describe('ProductCard', () => {
       'product-image.jpg',
       100,
       1,
-      '12345'
+      '12345',
+      2000,
     );
   });
 
@@ -85,9 +88,9 @@ describe('DashboardPage', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <DashboardPage isLoading={isLoading} products={[]} />
+          <Products isLoading={isLoading} products={[]} />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
   });
 });
@@ -130,7 +133,7 @@ describe('SingProductPage', () => {
           <MemoryRouter>
             <SingProductPage />
           </MemoryRouter>
-        </Provider>
+        </Provider>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -166,10 +169,10 @@ describe('BuyerViewSingleProduct', () => {
     const { getByText } = render(
       <Provider store={mockStore}>
         <BuyerViewSingleProduct products={product} />
-      </Provider>
+      </Provider>,
     );
     expect(getByText('Product Name')).toBeInTheDocument();
-    expect(getByText('$100')).toBeInTheDocument();
+    expect(getByText('100 RWF')).toBeInTheDocument();
   });
 });
 
@@ -231,7 +234,7 @@ describe('ProductOperationButton', () => {
 
   it('should render roductOperationButton  correctly', () => {
     const { getByRole, getByAltText } = render(
-      <ProductOperationButton {...defaultProps} />
+      <ProductOperationButton {...defaultProps} />,
     );
 
     const buttonElement = getByRole('button');
@@ -316,12 +319,12 @@ describe('HomePage Component', () => {
         <MemoryRouter>
           <HomePage />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
     const productCard = screen.getByText('Product 1');
     fireEvent.mouseEnter(productCard);
     expect(productCard).toHaveClass(
-      'text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09]'
+      'text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09]',
     );
     expect(getByText('Product 1')).toBeInTheDocument();
   });
@@ -333,7 +336,7 @@ describe('HomePage Component', () => {
         <MemoryRouter>
           <HomePage />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
   });
 });
@@ -376,9 +379,9 @@ describe('DashboardPage', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <DashboardPage />
+          <Products />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
   });
 
@@ -394,9 +397,9 @@ describe('DashboardPage', () => {
     const { getAllByText } = render(
       <Provider store={store}>
         <BrowserRouter>
-          <DashboardPage />
+          <Products />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
     const product1Names = getAllByText('Product 1');
     fireEvent.click(product1Names[0]);
@@ -412,13 +415,9 @@ describe('DashboardPage', () => {
     const { getAllByTestId } = render(
       <Provider store={store}>
         <BrowserRouter>
-          <DashboardPage
-            dispatch={dispatchMock}
-            getProductList={getProductListMock}
-            productsList={productsList}
-          />
+          <Products dispatch={dispatchMock} getProductList={getProductListMock} productsList={productsList} />
         </BrowserRouter>
-      </Provider>
+      </Provider>,
     );
     const testId = getAllByTestId('next-page');
     fireEvent.click(testId[0]);

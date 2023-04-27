@@ -5,16 +5,19 @@ import LoginForm from '../../components/forms/LoginForm';
 import middleImage from '../../../public/images/middleImage.svg';
 import bgImage from '../../../public/images/bgsvg.svg';
 import GoogleAuthButton from '../../components/GoogleAuthButton';
+import getUserInfo from '../../utils/getUserInfo';
 
 const LoginPage = () => {
   const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/');
+    if (localStorage.getItem('token')) {
+      const info = getUserInfo();
+      if (info.role === 'admin' || info.role === 'seller') navigate('/dashboard');
+      else navigate('/');
     }
-  });
+  }, [isAuthenticated]);
 
   return (
     <div className="flex flex-col md:flex-row md:h-full lg:justify-between justify-center items-center xs:flex-grow bg-login">

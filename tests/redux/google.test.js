@@ -38,6 +38,7 @@ describe('googleRedirect', () => {
       data: { id: 1, name: 'John', age: 20 },
       error: null,
       isLoading: false,
+      isAuthenticated: true,
       message: '',
     });
   });

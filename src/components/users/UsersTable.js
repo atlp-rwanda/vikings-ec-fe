@@ -1,14 +1,13 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import UserRow from "./UserRow";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import UserRow from './UserRow';
 
-
-function UsersTable({ data }) {
+const UsersTable = ({ data }) => {
   const users = data.data.items;
 
   return (
-    <div className="relative overflow-x-auto">
-      <table className="mx-auto w-[50%] text-sm text-left text-black-500">
+    <div className="overflow-x-auto xs:w-screen md:px-24 xs:px-4 sm:px-4 mb-5">
+      <table className="w-full text-sm text-left text-black-500">
         <caption className="px-6 py-3 text-left text-green-600 font-bold text-[17px]">
           All Users
         </caption>
@@ -26,19 +25,19 @@ function UsersTable({ data }) {
             <th scope="col" className="px-6 py-3 text-center text-green-600">
               status
             </th>
-            <th scope="col" className="px-6 py-3"></th>
+            <th scope="col" className="px-6 py-3" />
           </tr>
         </thead>
 
         <tbody>
-          {users &&
-            users.map((user) => (
+          {users
+            && users.map((user) => (
               <UserRow key={user.id} user={user} />
             ))}
         </tbody>
       </table>
     </div>
   );
-}
+};
 
 export default UsersTable;

@@ -1,9 +1,12 @@
 import React from 'react';
-import { describe, test, it, expect } from '@jest/globals';
+import {
+  describe, test, it, expect,
+} from '@jest/globals';
 import { showErrorMessage, showSuccessMessage } from '../../src/utils/toast';
 import getFormFromObject from '../../src/utils/getFormData';
 import switchCurrentImage from '../../src/utils/switchImage.utils';
 import convertDate from '../../src/utils/formatDate';
+import getDiscount from '../../src/utils/getDiscount';
 
 describe('utils', () => {
   it('renders auth correctly', async () => {
@@ -81,7 +84,7 @@ describe('switchCurrentImage', () => {
       left,
       currentImage,
       products,
-      selectedProduct
+      selectedProduct,
     );
 
     expect(result).toEqual(expectedOutput);
@@ -100,7 +103,7 @@ describe('switchCurrentImage', () => {
       left,
       currentImage,
       products,
-      selectedProduct
+      selectedProduct,
     );
 
     expect(result).toEqual(expectedOutput);
@@ -119,7 +122,7 @@ describe('switchCurrentImage', () => {
       left,
       currentImage,
       products,
-      selectedProduct
+      selectedProduct,
     );
 
     expect(result).toEqual(expectedOutput);
@@ -138,7 +141,7 @@ describe('switchCurrentImage', () => {
       left,
       currentImage,
       products,
-      selectedProduct
+      selectedProduct,
     );
 
     expect(result).toEqual(expectedOutput);
@@ -157,7 +160,7 @@ describe('switchCurrentImage', () => {
       left,
       currentImage,
       products,
-      selectedProduct
+      selectedProduct,
     );
 
     expect(result).toEqual(expectedOutput);
@@ -176,9 +179,31 @@ describe('switchCurrentImage', () => {
       left,
       currentImage,
       products,
-      selectedProduct
+      selectedProduct,
     );
 
     expect(result).toEqual(expectedOutput);
+  });
+});
+
+describe('getDiscount', () => {
+  test('should return 0 when bonus is 0', () => {
+    expect(getDiscount(100, 0)).toEqual(0);
+  });
+
+  test('should return 50 when bonus is 50 and price is 100', () => {
+    expect(getDiscount(100, 50)).toEqual(50);
+  });
+
+  test('should return 20 when bonus is 20 and price is 200', () => {
+    expect(getDiscount(200, 20)).toEqual(10);
+  });
+
+  test('should return 100 when bonus is equal to price', () => {
+    expect(getDiscount(100, 100)).toEqual(100);
+  });
+
+  test('should return NaN when price is 0', () => {
+    expect(getDiscount(0, 50)).toEqual(NaN);
   });
 });

@@ -6,6 +6,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import { userEvent } from '@storybook/testing-library';
+import setimmediate from 'setimmediate';
 import UpdatePasswordPage from '../../src/pages/auth/UpdatePasswordPage';
 import store from '../../src/store';
 
@@ -21,7 +22,7 @@ describe('Update Password Page', () => {
       target: { value: 'Pass@123' },
     });
     fireEvent.change(getByLabelText('New password'), { target: { value: 'Pass@1234' } });
-   
+
     const btn = screen.getByRole('button', { label: 'Save' });
     userEvent.click(btn);
 

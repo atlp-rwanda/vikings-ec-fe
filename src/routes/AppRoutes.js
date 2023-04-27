@@ -6,7 +6,6 @@ import CreateProductForm from '../components/forms/CreateProductForm';
 import CartPage from '../pages/cart/CartPage';
 import LoginPage from '../pages/auth/LoginPage';
 import SignupPage from '../pages/auth/SignupPage';
-import UserDashboard from '../pages/dashboard/UsersDashboard';
 import HomePage from '../pages/HomePage';
 import GoogleRedirect from '../pages/auth/GoogleRedirect';
 import TwoFactorAuthPage from '../pages/auth/twoFactorAuthPage';
@@ -18,7 +17,12 @@ import EditProfilePage from '../pages/profile/EditProfilePage';
 import UpdatePasswordPage from '../pages/auth/UpdatePasswordPage';
 import HomeLayout from '../layout/HomeLayout';
 import VerifyEmailPage from '../pages/auth/VerifyEmail';
-import Dashboard from '../pages/dashboard/DashboardPage';
+import Products from '../pages/dashboard/Products';
+import DashboardLayout from '../layout/DashboardLayout';
+import Orders from '../pages/dashboard/Orders';
+import Users from '../pages/dashboard/Users';
+import Sales from '../pages/dashboard/Sales';
+import Dashboard from '../pages/dashboard';
 import UpdateProductForm from '../components/products/updateProduct';
 import SingleProductPage from '../pages/SingleProductPage';
 import PaymentSuccessPage from '../pages/payment/PaymentSuccessPage';
@@ -58,22 +62,23 @@ export const getRoutes = () => [
   <Route key="key__cart" path="/cart" element={<HomeLayout />}>
     <Route index element={<CartPage />} />
   </Route>,
-  <Route key="key__userDashboard" path='/dashboard/users' element={<UserDashboard />} />,
-  <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
+  <Route key="key__dashboard" path="/dashboard" element={<DashboardLayout />}>
+    <Route index element={<Dashboard />} />
+    <Route path="orders" element={<Orders />} />
+    <Route path="products" element={<Products />} />
+    <Route path="users" element={<Users />} />
+    <Route path="sales" element={<Sales />} />
+    <Route
+      path="products/create"
+      element={<CreateProductForm />}
+    />
+    <Route
+      path="products/:id"
+      element={<UpdateProductForm />}
+    />
+  </Route>,
   <>
-    <Route key="key_dashboard" path="/dashboard">
-      <Route path="products" element={<Dashboard />} />
-      <Route
-        key="key_create_product"
-        path="/dashboard/products/create"
-        element={<CreateProductForm />}
-      />
-      <Route
-        key="key__update-product"
-        path="products/:id"
-        element={<UpdateProductForm />}
-      />
-    </Route>
+    <Route path="/products" element={<SingleProductPage />} />
     <Route key="key_product" path="products/:id" element={<HomeLayout />}>
       <Route index element={<SingleProductPage />} />
     </Route>
@@ -83,13 +88,6 @@ export const getRoutes = () => [
     </Route>
     <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />
   </>,
-
-  <Route
-    key="key__redirect-google"
-    path="/redirect-google"
-    element={<GoogleRedirect />}
-  />,
-
   <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
 ];
 

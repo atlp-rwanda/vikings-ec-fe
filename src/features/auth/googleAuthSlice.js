@@ -20,6 +20,7 @@ const initialState = {
   data: null,
   error: null,
   isLoading: false,
+  isAuthenticated: false,
 };
 
 const googleAuthSlice = createSlice({
@@ -32,6 +33,7 @@ const googleAuthSlice = createSlice({
     [googleRedirect.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.data = payload;
+      state.isAuthenticated = true;
       // eslint-disable-next-line no-undef
       localStorage.setItem('token', payload.token);
       state.error = null;

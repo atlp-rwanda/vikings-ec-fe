@@ -11,28 +11,17 @@ import { fetchCategories } from '../../features/categorySlice';
 import getFormFromObject from '../../utils/getFormData';
 import convertDate from '../../utils/formatDate';
 import { formatDate } from '../../utils/formatDate';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import left from '../../../public/images/left.svg';
 
 const CreateProductForm = () => {
-const isAuthenticated =
-    useSelector((state) => state.login.isAuthenticated) === true
-      ? useSelector((state) => state.login.isAuthenticated)
-      : useSelector((state) => state.twoFactorAuth.isAuthenticated);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!isAuthenticated) {
-      showErrorMessage('You are not logged in');
-      return navigate('/');
-    }
-  }, [isAuthenticated]);
-
   const { isLoading } = useSelector((state) => state.createProduct);
   const dispatch = useDispatch();
 
   const [selectedImages, setSelectedImages] = useState([]);
 
   const today = formatDate(new Date());
-  
+
   const handleFileInputChange = (event) => {
     const files = Array.from(event.target.files);
     const images = files;
@@ -81,15 +70,15 @@ const isAuthenticated =
   };
 
   return (
-    <div className="xs:px-6">
-      <h1 className="sm:hidden text-center text-[25px] font-bold block py-10">
-        Add new product
-      </h1>
+    <div className="md:px-24 xs:px-4 sm:px-4">
+      <Link to="/dashboard/products" className="cursor-pointer mb-4 block">
+        <img src={left} alt="Back Icon" className="inline-flex mr-4"/>
+        All Products
+      </Link>
       <form
         onSubmit={(event) => {
           handleSubmit(onSubmit)(event);
         }}
-        className="my-8 md:px-8"
       >
         <div className="grid md:grid-cols-2 gap-10 sm:grid-flow-row">
           <div className="">
