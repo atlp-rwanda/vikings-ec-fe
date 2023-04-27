@@ -69,3 +69,10 @@ export const updatePasswordSchema = yup.object().shape({
     .required('Password is required')
     .trim(),
 });
+
+export const ratingSchema = yup.object().shape({
+  Feedback: yup
+    .string()
+    .min(2, 'Feedback must be at least 2 characters')
+    .required(),
+});

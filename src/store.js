@@ -27,6 +27,8 @@ import deleteProductReducer from './features/product/deleteProduct';
 import userReducer from './features/auth/userSlice';
 import rolesReducer from './features/auth/rolesSlice';
 import changeUserStatusReducer from './features/auth/changeUserStatusSlice';
+import provideRatingsReducer from './features/ratings/ratingsSlice';
+
 const middlewares = [];
 
 if (process.env.NODE_ENV === 'development') {
@@ -67,6 +69,7 @@ const store = configureStore({
     users: userReducer,
     roles: rolesReducer,
     changeStatus: changeUserStatusReducer,
+    provideRatings: provideRatingsReducer,
   },
   middleware: [...middlewares, thunk],
 });

@@ -102,6 +102,9 @@ describe('SingProductPage', () => {
       ratings: null,
       isLoading: false,
     },
+    provideRatings:{
+      isLoading: false,
+    },
   });
   it('should render SingProductPage component correctly', () => {
     const tree = renderer
@@ -137,6 +140,9 @@ describe('BuyerViewSingleProduct', () => {
       },
       getRatings: {
         ratings: null,
+        isLoading: false,
+      },
+      provideRatings:{
         isLoading: false,
       },
     });

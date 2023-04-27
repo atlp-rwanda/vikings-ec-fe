@@ -4,11 +4,16 @@ import ProductRatings from './ProductRatings';
 import Reviewers from './Reviewers';
 import loader from '../../../public/images/icons/loader.svg';
 import { getProductRatings } from '../../features/product/getRatingsSlice';
+import Button from '../forms/Button';
+import Ratings from '../ratings/Ratings';
 
 const BuyerViewProduct = ({ ...props }) => {
   const dispatch = useDispatch();
-  const { ratings, isLoading } = useSelector((state) => state.getRatings);
+  const { ratings } = useSelector((state) => state.getRatings);
   const [reviews, setReviews] = useState([]);
+  const [isReviews, setIsReviews] = useState(false);
+  const [showRatings, setShowRatings] = useState(false);
+  const handleOnClose = () => setShowRatings(false);
 
   useEffect(() => {
     if (props.products && props.products.id) {
@@ -25,6 +30,7 @@ const BuyerViewProduct = ({ ...props }) => {
       setReviews(reviewers);
     }
   }, [ratings]);
+
   let reviewers = null;
   if (Array.isArray(ratings) && ratings.length > 0) {
     reviewers = reviews.map((r, index) => (
@@ -38,13 +44,11 @@ const BuyerViewProduct = ({ ...props }) => {
       className="xs:w-full lg:w-full sm:w-full xs:ml-[-16px] md:w-full md:h-[250px] object-cover"
     />
   );
-  const otherImages =
-    props.products.images &&
-    props.products.images.map(
-      (image, i) =>
-        i !== props.fullImage && (
-          <img src={image} key={i} alt="product" className="w-24 h-20 mt-2" />
-        )
+  const otherImages = props.products.images
+    && props.products.images.map(
+      (image, i) => i !== props.fullImage && (
+      <img src={image} key={i} alt="product" className="w-24 h-20 mt-2" />
+      ),
     );
   return (
     <div>
@@ -58,7 +62,8 @@ const BuyerViewProduct = ({ ...props }) => {
             {props.products.name}
           </p>
           <p className="text-[#464c55] text-[18px] font-bold pb-2">
-            ${props.products.price}
+            $
+            {props.products.price}
           </p>
           <div className="space-y-[-10px]">
             {ratings ? (
@@ -82,10 +87,20 @@ const BuyerViewProduct = ({ ...props }) => {
         </div>
       </div>
       <div className="w-[100%] md:space-y-3">
-        <p className="text-[#393d3e] pt-8 font-bold text-[18px] italic">
-          Reviews
-        </p>
-        <div className="md:space-y-3">{reviewers || 'No reviews found'}</div>
+        <div className="py-3 sm:px-6 sm:flex ">
+          <p className="text-[#393d3e] pt-8 font-bold text-[18px] italic">Reviews</p>
+          <Ratings onClose={handleOnClose} visible={showRatings} productId={props.products.id} />
+          <Button
+            onClick={() => setShowRatings(true)}
+            label="Add review"
+            parentClassName="flex"
+            className="!w-fit text-white mx-[19rem] bg-green-500 hover:bg-green-600 px-5 py-2.5 font-bold rounded-none self-end xs:w-full"
+          />
+        </div>
+        <div className="md:space-y-3">
+          {reviewers || 'No reviews found'}
+        </div>
+
       </div>
     </div>
   );
