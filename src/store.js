@@ -38,7 +38,9 @@ import getOrderDetailsReducer from './features/order/orderSlice';
 import getSalesReducer from './features/sales/getSalesSlice';
 import changeSalesStatusReducer from './features/sales/changeSalesStatusSlice';
 import markProductReducer from './features/product/markProductSlice';
-
+import notificationsReducer from './features/notifications/getNotificationSlice';
+import markOneNotificationReducer from './features/notifications/markOneNotificationSlice';
+import markAllNotificationsReducer from './features/notifications/markAllNotificationsSlice';
 
 const middlewares = [];
 
@@ -123,6 +125,9 @@ const store = configureStore({
     sales: getSalesReducer,
     changeSaleStatus: changeSalesStatusReducer,
     markProduct: markProductReducer,
+    notifications: notificationsReducer,
+    markOneNotification: markOneNotificationReducer,
+    markAllNotifications: markAllNotificationsReducer,
   },
   middleware: [...middlewares, thunk],
 });

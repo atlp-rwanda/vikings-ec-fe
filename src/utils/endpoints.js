@@ -11,7 +11,8 @@ const Endpoints = {
   category: '/categories',
   chats: '/chats',
   pay: '/payments/create-checkout-session',
-  order: '/orders'
+  order: '/orders',
+  notifications: '/notifications',
 };
 
 export default Endpoints;

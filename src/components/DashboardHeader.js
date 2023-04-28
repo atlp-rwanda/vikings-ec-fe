@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../../public/images/logo.svg';
 import Avatar from './profile/Avatar';
-import bell from '../../public/images/icons/bell.svg';
+import Notifications from './Notification';
 import { getProfile } from '../features/profile/getProfileSlice';
 import Prof from '../../public/images/icons/prof.png';
 import { NavLink } from 'react-router-dom';
@@ -25,9 +25,8 @@ const DashboardHeader = () => {
       </div>
       <NavLink to="/dashboard" className="text-green-400 xs:hidden font-bold">Dashboard</NavLink>
       <div className="flex gap-1">
-        <a href="/notification" className="h-fit">
-          {' '}
-          <img src={bell} alt="Bell Icon" className="w-8 h-8" />
+        <a className="flex flex-col align-middle h-fit">
+          <Notifications />
         </a>
         <a href="/profile">
           {data?.avatar

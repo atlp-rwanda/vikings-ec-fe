@@ -2,10 +2,10 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Logo from '../../public/images/logo.svg';
 import account from '../../public/images/icons/account.svg';
-import bell from '../../public/images/icons/bell.svg';
 import dashboardIcon from '../../public/images/icons/dashboard_icon.svg';
 import Search from './products/Search';
 import ShoppingCart from './cart/ShoppingCart';
+import Notifications from './Notification';
 
 const TopMenu = () => {
   const { pathname } = useLocation();
@@ -31,8 +31,8 @@ const TopMenu = () => {
         <a href="/cart" className="flex flex-col align-middle h-fit">
           <ShoppingCart />
         </a>
-        <a href="/notification" className="flex flex-col align-middle h-fit">
-          <img src={bell} alt="Bell Icon" />
+        <a className="flex flex-col align-middle h-fit">
+          <Notifications />
         </a>
         <a href="/profile" className="flex flex-col align-middle h-fit">
           <img src={account} alt="Account Icon" />

@@ -30,36 +30,30 @@ describe('My app', () => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
-
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth/signin');
     waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
-
   it('renders button ', async () => {
     const renderer = simpleRender(<Button onClick={() => {}}>text</Button>);
-
     await waitFor(() => {
       expect(renderer.toJSON()).not.toBe(null);
     });
   });
-
   it('renders verify auth correctly', async () => {
     const renderer = renderRoute('auth/verify');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
-
   it('renders resetPassword correctly', async () => {
     const renderer = renderRoute('/auth/reset-password?token="some');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
-
   it('renders landing', async () => {
     const renderer = renderRoute('/auth/reset-password');
     await waitFor(() => {
@@ -121,6 +115,12 @@ describe('My app', () => {
   });
   it('renders Users data correctly', async () => {
     const renderer = renderRoute('/dashboard/users');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('renders Users data correctly', async () => {
+    const renderer = renderRoute('/notifications');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
