@@ -1041,151 +1041,19 @@ exports[`My app renders auth correctly 4`] = `
       OUR PRODUCTS
     </h1>
     <div
-      className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10"
+      className="flex justify-center mt-24 py-16"
     >
-      <div
-        className="flex-col"
-        data-testid="product-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-      >
-        <div
-          className=""
-        >
-          <img
-            alt="product"
-            className="md:h-[270px] max-sm:h-[200px] w-full object-cover cursor-pointer"
-            onClick={[Function]}
-            src="http://res.cloudinary.com/djg7yg23y/image/upload/v1676800915/projects/ecommerce/f258e7aa-b540-469d-b866-fd13747c81ce_1676800912.287.webp"
-          />
-        </div>
-        <div
-          className="flex justify-between py-2items-center"
-        >
-          <p
-            className="text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09]"
-            data-testid="product-name"
-            onClick={[Function]}
-          >
-            Beans
-          </p>
-          <div
-            className="flex justify-between mt-2 items-center"
-          >
-            <div
-              className="text-[18px] text-[#099f09] font-bold"
-            >
-              $
-              1500
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="flex-col"
-        data-testid="product-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-      >
-        <div
-          className=""
-        >
-          <img
-            alt="product"
-            className="md:h-[270px] max-sm:h-[200px] w-full object-cover cursor-pointer"
-            onClick={[Function]}
-            src="http://res.cloudinary.com/djg7yg23y/image/upload/v1676800915/projects/ecommerce/f258e7aa-b540-469d-b866-fd13747c81ce_1676800912.287.webp"
-          />
-        </div>
-        <div
-          className="flex justify-between py-2items-center"
-        >
-          <p
-            className="text-indigo-900 text-[20px] mt-3 cursor-pointer hover:text-[#099f09]"
-            data-testid="product-name"
-            onClick={[Function]}
-          >
-            Beans Cart
-          </p>
-          <div
-            className="flex justify-between mt-2 items-center"
-          >
-            <div
-              className="text-[18px] text-[#099f09] font-bold"
-            >
-              $
-              1500
-            </div>
-          </div>
-        </div>
-      </div>
+      <img
+        alt="Loader Spinner"
+        className="text-green-500 animate-spin w-[30px] text-center"
+        data-testid="spinner"
+        src=""
+      />
     </div>
     <br />
     <div
       className="pb-4"
-    >
-      <div
-        className=""
-        data-testid="page-number"
-      >
-        <div
-          className="flex xs:gap-[5px] md:gap-[140px]  justify-center items-center"
-        >
-          <div>
-            <button
-              className="flex justify-center items-center gap-2 md:px-4 md:py-2 lg:px-4 lf:py-2 xl:px-4 xl:py-2 xs:px-1 xs:py-1 hover:bg-[#045504] bg-[#10c510] text-[white] xs:w-[150px]"
-              data-testid="next-page"
-              onClick={[Function]}
-              type="button"
-            >
-              Next page
-              <img
-                alt="next page"
-                className="mt-2"
-                src=""
-              />
-            </button>
-          </div>
-          <div
-            className="flex gap-[30px]"
-          >
-            <p>
-              Page
-            </p>
-            <span
-              className="ml-[-20px]"
-            >
-              1
-            </span>
-            <p
-              className="ml-[-20px]"
-            >
-              of
-              <span
-                className="ml-[13px]"
-              >
-                2
-              </span>
-            </p>
-            <button
-              className="flex justify-center items-center gap-[20px] hover:bg-[#045504] bg-[#10c510] h-[23px] px-2 py-2"
-              type="button"
-            >
-              <img
-                alt="previous page"
-                onClick={[Function]}
-                src=""
-              />
-              <img
-                alt="next-page"
-                onClick={[Function]}
-                src=""
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    />
   </div>
   <div
     className="flex flex-col w-full"
@@ -1562,7 +1430,7 @@ exports[`My app renders create product correctly 1`] = `
               <input
                 className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
                 label="Expiry Date"
-                min="2023-04-27"
+                min="2023-04-28"
                 name="expiryDate"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -4256,6 +4124,12 @@ exports[`My app renders resetPassword correctly 2`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`My app renders update product correctly 1`] = `
+<h2>
+  Page Not Found
+</h2>
 `;
 
 exports[`My app renders verify auth correctly 1`] = `

@@ -5,6 +5,7 @@ const ProductOperationButton = ({ ...props }) => (
     className={props.className}
     type="button"
     title={props.title}
+    onClick={props.onClick}
     onMouseEnter={props.handleMouseEnter}
     onMouseLeave={props.handleMouseLeave}
   >

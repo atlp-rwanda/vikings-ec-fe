@@ -18,6 +18,7 @@ import HomeLayout from '../layout/HomeLayout';
 import VerifyEmailPage from '../pages/auth/VerifyEmail';
 import Dashboard from '../pages/dashboard/DashboardPage';
 import SingProductPage from '../pages/SingleProductPage';
+import UpdateProductForm from '../components/products/updateProduct';
 
 export const getRoutes = () => [
   <Route key="key__" path="/" element={<HomeLayout />}>
@@ -59,6 +60,11 @@ export const getRoutes = () => [
         key="key_create_product"
         path="/dashboard/products/create"
         element={<CreateProductForm />}
+      />
+      <Route
+        key="key__update-product"
+        path="products/:id"
+        element={<UpdateProductForm />}
       />
     </Route>
     <Route path="/products" element={<SingProductPage />} />

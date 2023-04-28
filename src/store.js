@@ -19,6 +19,8 @@ import singleProductReducer from './features/product/singleProductSlice';
 import getRatingsReducer from './features/product/getRatingsSlice';
 import createProductReducer from './features/createProductSlice';
 import categoryReducer from './features/categorySlice';
+import updateProductReducer from './features/product/updateProduct';
+import deleteProductReducer from './features/product/deleteProduct';
 
 const middlewares = [];
 
@@ -51,6 +53,8 @@ const store = configureStore({
     updateProfile: updateProfileReducer,
     profile: profileReducer,
     category: categoryReducer,
+    updateProduct: updateProductReducer,
+    deleteProduct: deleteProductReducer,
   },
   middleware: [...middlewares, thunk],
 });

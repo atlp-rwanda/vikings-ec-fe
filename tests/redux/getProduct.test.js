@@ -41,6 +41,13 @@ describe('Get all products', () => {
       isLoading: false,
     });
   });
+  it('should return error when action is rejected', () => {
+    const action = { type: getProductList.rejected };
+    const state = getProductsSilice(initialState, action);
+    expect(state).toEqual({
+      isLoading: false, errorMessage: action.payload, productsList: [],
+    });
+  });
 });
 
 describe('Get single product', () => {
