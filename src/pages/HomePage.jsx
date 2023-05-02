@@ -11,6 +11,8 @@ import hoveredHurt from '../../public/images/hoveredHurt.svg';
 import PageCount from '../components/products/PageCount';
 import Loader from '../components/Loader';
 import { showErrorMessage } from '../utils/toast';
+import Modal from '../components/Modal';
+import SetCartQuantity from '../components/cart/SetCartQuantity';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ const HomePage = () => {
   const handleMouseLeave = () => {
     setHover(false);
   };
+
   const handleAddTocartMouseEnter = () => {
     setHoverAddCart(true);
   };
@@ -52,7 +55,7 @@ const HomePage = () => {
       dispatch(
         getProductList({
           pageNumber: newPageNumber,
-        })
+        }),
       );
     }
   };
@@ -60,32 +63,67 @@ const HomePage = () => {
   let viewProducts = null;
   let pageCount = null;
   if (Array.isArray(productsList.rows) && productsList.rows.length > 0) {
-    viewProducts = productsList.rows.map((row) => (
-      <ProductCard
-        key={row.id}
-        product={row}
-        wish={
-          <ProductOperationButton
-            className="mt-[20px] bg-[#f6f4f4] h-[32px] hover:bg-[#099f09] w-[32px] rounded-full flex justify-center items-center"
-            icon={hover ? hoveredHurt : wishIcon}
-            title="Wish product"
-            alt="wish"
-            handleMouseEnter={handleMouseEnter}
-            handleMouseLeave={handleMouseLeave}
-          />
-        }
-        addCart={
-          <ProductOperationButton
-            className="mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center "
-            icon={hoverAddCart ? HoveredShopIcon : shopIcon}
-            title="Shop product"
-            alt="shop"
-            handleMouseEnter={handleAddTocartMouseEnter}
-            handleMouseLeave={handleAddTocartMouseLeave}
-          />
-        }
-      />
-    ));
+    viewProducts = productsList.rows.map((row) => {
+      let setPersistCart;
+      return (
+        <ProductCard
+          key={row.id}
+          getPersistCartSetter={(persistCart) => {
+            setPersistCart = persistCart;
+          }}
+          product={row}
+          wish={(
+            <ProductOperationButton
+              className="mt-[20px] bg-[#f6f4f4] h-[32px] hover:bg-[#099f09] w-[32px] rounded-full flex justify-center items-center"
+              icon={hover ? hoveredHurt : wishIcon}
+              title="Wish product"
+              alt="wish"
+              handleMouseEnter={handleMouseEnter}
+              handleMouseLeave={handleMouseLeave}
+            />
+          )}
+          addCart={(
+            <Modal
+              header={(
+                <h2 className="text-2xl mx-auto text-[#64B937]">
+                  Confirm to add &nbsp;
+                  {row.name}
+                  &nbsp;in the cart
+                </h2>
+              )}
+              notifyOnClose={() => {
+                if (setPersistCart) {
+                  setPersistCart(false);
+                }
+              }}
+              notifyOnOpen={() => {
+                if (setPersistCart) {
+                  setPersistCart(true);
+                }
+              }}
+              toggle={(
+                <ProductOperationButton
+                  className="mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center "
+                  icon={hoverAddCart ? HoveredShopIcon : shopIcon}
+                  title="Shop product"
+                  testId="add-to-cart"
+                  alt="shop"
+                  handleMouseEnter={handleAddTocartMouseEnter}
+                  handleMouseLeave={handleAddTocartMouseLeave}
+                />
+              )}
+            >
+              <SetCartQuantity
+                quantity={row.quantity}
+                price={row.price}
+                id={row.id}
+                name={row.name}
+              />
+            </Modal>
+          )}
+        />
+      );
+    });
     pageCount = (
       <PageCount
         className=""

@@ -83,13 +83,12 @@ describe('My app', () => {
   });
   it('renders profile page', async () => {
     const renderer = renderRoute('/profile');
-    screen.findByTestId('address_header');
+    // screen.findByTestId('address_header');
     expect(renderer.toJSON()).toMatchSnapshot();
   });
   it('renders edit profile page correct', async () => {
     const renderer = renderRoute('/profile/update');
     screen.findByTestId('tabs');
-    expect(renderer.toJSON()).toMatchSnapshot();
     expect(renderer.toJSON()).toMatchSnapshot();
   });
   it('renders verify email correctly', async () => {
@@ -103,6 +102,12 @@ describe('My app', () => {
   });
   it('renders update product correctly', async () => {
     const renderer = renderRoute('/products/dashboard/b5e75a01-5e67-44ad-91bd-f36ab3564a48');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('rends dashboard Correctly', async () => {
+    const renderer = renderRoute('/seller-products');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });

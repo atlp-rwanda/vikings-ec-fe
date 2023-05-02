@@ -9,12 +9,14 @@ import ProductOperationButton from '../components/products/ProductOperationButto
 import wishIcon from '../../public/images/wish.svg';
 import shopIcon from '../../public/images/black-add-cart.svg';
 import Loader from '../components/Loader';
+import SetCartQuantity from '../components/cart/SetCartQuantity';
+import Modal from '../components/Modal';
 
 const SingProductPage = () => {
   const dispatch = useDispatch();
   const { product, isLoading } = useSelector((state) => state.singleProduct);
   const [currentImage, setCurrentImage] = useState(0);
-  const { id } = useParams()
+  const { id } = useParams();
   useEffect(() => {
     dispatch(singleProduct(id));
   }, [dispatch]);
@@ -41,12 +43,30 @@ const SingProductPage = () => {
         />
 )}
       addCart={(
-        <ProductOperationButton
-          className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center "
-          icon={shopIcon}
-          title="Shop product"
-          alt="shop"
-        />
+        <Modal
+          header={(
+            <h2 className="text-2xl mx-auto text-[#64B937]">
+              Confirm to add &nbsp;
+              {product.name}
+              &nbsp;in the cart
+            </h2>
+          )}
+          toggle={(
+            <ProductOperationButton
+              className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center "
+              icon={shopIcon}
+              title="Shop product"
+              alt="shop"
+            />
+          )}
+        >
+          <SetCartQuantity
+            quantity={product.quantity}
+            price={product.price}
+            id={product.id}
+            name={product.name}
+          />
+        </Modal>
 )}
     />
   );

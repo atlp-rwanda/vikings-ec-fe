@@ -28,3 +28,4 @@ coverage/
 .env
 .env.development
 tests/__snapshots__
+tests/components/__snapshots__
