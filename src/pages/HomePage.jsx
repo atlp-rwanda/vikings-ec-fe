@@ -10,10 +10,11 @@ import shopIcon from '../../public/images/black-add-cart.svg';
 import hoveredHurt from '../../public/images/hoveredHurt.svg';
 import PageCount from '../components/products/PageCount';
 import Loader from '../components/Loader';
+import { showErrorMessage } from '../utils/toast';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { productsList, isLoading } = useSelector((state) => state.product);
+  const { productsList, isLoading, errorMessage } = useSelector((state) => state.product);
   const [hover, setHover] = useState(false);
   const [hoverAddCart, setHoverAddCart] = useState(false);
   const handleMouseEnter = () => {
@@ -32,6 +33,16 @@ const HomePage = () => {
     dispatch(getMessage());
     dispatch(getProductList({ pageNumber: 1 }));
   }, [dispatch]);
+
+  const productNotFound = true
+    ? (!isLoading && Array.isArray(productsList.rows) && productsList.rows.length === 0) : false;
+
+  if (errorMessage) {
+    showErrorMessage(errorMessage.data.error);
+    setTimeout(() => {
+      dispatch({ type: 'product/resetErrorMessage' });
+    }, 5000);
+  }
 
   const setPageNumberHandler = (nextPage) => {
     const newPageNumber = nextPage
@@ -87,16 +98,13 @@ const HomePage = () => {
 
   return (
     <div className="min-h-72">
-      <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">
-        OUR PRODUCTS
-      </h1>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10">
-          {viewProducts}
-        </div>
-      )}
+      <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">OUR PRODUCTS</h1>
+      {isLoading ? <Loader />
+        : (
+          <div className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10">
+            {!productNotFound ? viewProducts : <p className="text-gray-600 flex justify-center items-center w-full col-span-4 font-bold ">Product not found</p>}
+          </div>
+        )}
       <br />
       <div className="pb-4">{!isLoading ? pageCount : null}</div>
     </div>

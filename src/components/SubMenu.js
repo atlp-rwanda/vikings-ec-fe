@@ -27,7 +27,7 @@ const SubMenu = () => {
   ));
 
   return (
-    <div className="w-full flex flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2">
+    <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2">
       <ul className="hidden md:flex flex-row gap-4">
         {menuItems}
       </ul>

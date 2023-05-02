@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ProductRatings from './ProductRatings';
 
 const ProductCard = ({ ...props }) => {
   const [hovered, setHovered] = useState(false);

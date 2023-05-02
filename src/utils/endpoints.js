@@ -7,6 +7,7 @@ const Endpoints = {
   updatePassword: '/users/password_update',
   product: '/products',
   createProduct: '/products',
+  category: '/categories',
 };
 
 export default Endpoints;
