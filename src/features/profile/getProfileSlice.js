@@ -38,5 +38,5 @@ export const getProfileSlice = createSlice({
   },
 });
 
-export const getProfileActions = (state) => state.profile.data;
+export const getProfileActions = getProfileSlice.actions;
 export default getProfileSlice.reducer;

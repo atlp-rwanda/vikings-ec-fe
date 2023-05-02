@@ -16,7 +16,6 @@ describe('verifyEmail', () => {
     ];
     await jestStore.dispatch(verifyEmail('someToken'));
     expect(jestStore.getActions().map((each) => {
-      console.log(each, 'eachType');
       return each.type;
     })
       .includes(expectedActions[1].type)).toBe(true);

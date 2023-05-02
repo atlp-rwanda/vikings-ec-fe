@@ -144,7 +144,9 @@ const HomePage = () => {
           </div>
         )}
       <br />
-      <div className="pb-4">{!isLoading ? pageCount : null}</div>
+      <div className="pb-4">
+        {!isLoading ? pageCount : null}
+      </div>
     </div>
   );
 };

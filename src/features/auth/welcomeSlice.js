@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import getMessage from '../actions/welcomeAction';
 
 const initialState = {
-  data: { message: 'welcome' },
+  data: { message: 'Welcome' },
   isLoading: false,
 };
 

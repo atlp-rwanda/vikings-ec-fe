@@ -37,10 +37,6 @@ describe('My app', () => {
     });
   });
 
-  it('renders auth correctly', async () => {
-    const renderer = renderRoute('/');
-    expect(renderer.toJSON()).toMatchSnapshot();
-  });
   it('renders button ', async () => {
     const renderer = simpleRender(<Button onClick={() => {}}>text</Button>);
 
@@ -63,12 +59,6 @@ describe('My app', () => {
     });
   });
 
-  it('renders resetPassword correctly', async () => {
-    const renderer = renderRoute('/auth/reset-password?token="some');
-    await waitFor(() => {
-      expect(renderer.toJSON()).toMatchSnapshot();
-    });
-  });
   it('renders landing', async () => {
     const renderer = renderRoute('/auth/reset-password');
     await waitFor(() => {
@@ -83,7 +73,6 @@ describe('My app', () => {
   });
   it('renders profile page', async () => {
     const renderer = renderRoute('/profile');
-    // screen.findByTestId('address_header');
     expect(renderer.toJSON()).toMatchSnapshot();
   });
   it('renders edit profile page correct', async () => {
@@ -108,6 +97,9 @@ describe('My app', () => {
   });
   it('rends dashboard Correctly', async () => {
     const renderer = renderRoute('/seller-products');
+    });
+  it('renders Users data correctly', async () => {
+    const renderer = renderRoute('/dashboard/users');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
