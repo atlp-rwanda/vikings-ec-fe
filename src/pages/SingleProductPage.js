@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { singleProduct } from '../features/product/singleProductSlice';
 import BuyerViewProduct from '../components/products/BuyerViewSingleProduct';
@@ -11,16 +11,22 @@ import shopIcon from '../../public/images/black-add-cart.svg';
 import Loader from '../components/Loader';
 import SetCartQuantity from '../components/cart/SetCartQuantity';
 import Modal from '../components/Modal';
+import { getRecommendedProducts } from '../features/product/recommededProducts';
+import { getProductList } from '../features/product/getProductsSilice';
 
 const SingProductPage = () => {
   const dispatch = useDispatch();
   const { product, isLoading } = useSelector((state) => state.singleProduct);
+  const { recommendedProducts } = useSelector((state) => state.recommendedProducts);
+  let { productsList } = useSelector((state) => state.product);
   const [currentImage, setCurrentImage] = useState(0);
-  const { id } = useParams();
+  const { id } = useParams()
+  const navigate=useNavigate();
   useEffect(() => {
     dispatch(singleProduct(id));
-  }, [dispatch]);
-
+    dispatch(getRecommendedProducts());
+    dispatch(getProductList({ pageNumber: 1 }));
+  }, [dispatch,id]);
   const switchImage = (nextImage) => {
     const setImage = switchCurrentImagesUtil(nextImage, currentImage, [product], { id });
     if (nextImage && setImage.currIdx >= 0) {
@@ -70,11 +76,30 @@ const SingProductPage = () => {
 )}
     />
   );
-
   return (
-    <div>
+    <div data-test-id='recommended'>
       <div className="px-24 xs:px-2">
         {isLoading ? <Loader /> : viewProduct}
+      </div>
+      <div className='pb-4 mt-20'>
+      <h1 className='font-bold text-xl text-center'>Recommended For You</h1>
+     <div className=" flex justify-center flex-wrap gap-8 mt-8 ">
+        {recommendedProducts ? (
+         productsList.rows?.map((p) => {
+          if (recommendedProducts.includes(p?.id)) {
+            return (
+              <div className='bg-white h-auto w-48 xs:w-[90%]  border cursor-pointer' key={p?.id} onClick={()=>{navigate(`/products/${p?.id}`)}}>
+                <img src={p.images[0]} className='h-40 w-48 xs:h-auto xs:w-full object-cover'/>
+                <div className='flex justify-between'>
+                <h1 className='text-indigo-900'>{p?.name}</h1>
+                <h1 className='text-green-600'>${p?.price}</h1>
+                </div>
+              </div>
+            );
+          }
+        })
+        ):''}
+      </div>
       </div>
     </div>
   );

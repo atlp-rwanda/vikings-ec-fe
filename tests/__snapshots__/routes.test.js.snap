@@ -3074,9 +3074,225 @@ exports[`My app renders resetPassword correctly 1`] = `
 `;
 
 exports[`My app renders update product correctly 1`] = `
-<h2>
-  Page Not Found
-</h2>
+<div
+  className="grid sm:grid-cols-2 relative bg-[#f2edf3] max-h-[100%] max-w-[100%] p-[5%]"
+>
+  <h1
+    className="sm:hidden text-center text-[25px] font-bold block py-10"
+  >
+    Update product
+  </h1>
+  <form
+    className="relative md:ml-[12rem] px-5 sm:w-[60%] sm:ml-[15rem]"
+    onSubmit={[Function]}
+    role="update-product-form"
+  >
+    <div
+      className="flex flex-col -space-y-px rounded-md"
+    >
+      <div>
+        <div
+          className="h-[80px] undefined"
+        >
+          <label
+            className="undefined sr-only""
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <div
+            className="w-full"
+          >
+            <input
+              className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
+              label="Name"
+              name="name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              role="name"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className=""
+        >
+          <label
+            htmlFor="Category"
+          >
+            Category
+          </label>
+          <select
+            className=" w-full px-2 py-2 sm:text-[12px] my-2 focus:bg-white bg-white"
+            data-testid="select"
+            label="Category"
+            name="categoryId"
+            onBlur={[Function]}
+            onChange={[Function]}
+            options={[]}
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          className="h-[80px] undefined"
+        >
+          <label
+            className="undefined sr-only""
+            htmlFor="price"
+          >
+            Price
+          </label>
+          <div
+            className="w-full"
+          >
+            <input
+              className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
+              label="Price"
+              name="price"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="h-[80px] undefined"
+        >
+          <label
+            className="undefined sr-only""
+            htmlFor="bonus"
+          >
+            Bonus
+          </label>
+          <div
+            className="w-full"
+          >
+            <input
+              className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
+              label="Bonus"
+              name="bonus"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="h-[80px] undefined"
+        >
+          <label
+            className="undefined sr-only""
+            htmlFor="quantity"
+          >
+            Quantity
+          </label>
+          <div
+            className="w-full"
+          >
+            <input
+              className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
+              label="Quantity"
+              name="quantity"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="h-[80px] undefined"
+        >
+          <label
+            className="undefined sr-only""
+            htmlFor="expiryDate"
+          >
+            Expiry date
+          </label>
+          <div
+            className="w-full"
+          >
+            <input
+              className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
+              label="Expiry date"
+              min="2023-05-03"
+              name="expiryDate"
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="date"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="h-[80px] undefined"
+      >
+        <label
+          className="undefined sr-only""
+          htmlFor="oldImages"
+        />
+        <div
+          className="w-full"
+        >
+          <input
+            accept="image/x-png,image/gif,image/jpeg,image/webp"
+            className="hidden"
+            data-testid="upload-image-input"
+            id="images"
+            multiple={true}
+            name="oldImages"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="file"
+          />
+        </div>
+      </div>
+      <div>
+        <div>
+          <button
+            className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] left-0 rounded-none sm:relative !my-0 fixed z-[999] bottom-0 p-0 m-0"
+            onClick={[Function]}
+            role="button"
+            type="submit"
+          >
+            Save Changes
+             
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div
+    className="images md:z-50 sm:flex z-50"
+  >
+    <div
+      className="flex flex-row flex-wrap gap-4"
+    >
+      <label
+        htmlFor="images"
+      >
+        <div
+          className="cursor-pointer"
+          role="upload-image"
+        >
+          <img
+            alt="image"
+            className="lg:h-[250px] lg:w-[250px] sm:h-[180px] sm:w-[180px] xs:h-[150px] xs:w-[150px]  object-cover"
+            src=""
+          />
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`My app renders verify auth correctly 1`] = `
