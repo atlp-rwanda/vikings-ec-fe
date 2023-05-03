@@ -84,8 +84,8 @@ const Search = () => {
     let searched = '';
     if (name) searched += `${name}, `;
     searched += selectedOptions.category ? `Cat: ${selectedOptions.category}, ` : '';
-    searched += selectedOptions.minPrice ? `Min: $${selectedOptions.minPrice}, ` : '';
-    searched += selectedOptions.maxPrice ? `Max: $${selectedOptions.maxPrice}, ` : '';
+    searched += selectedOptions.minPrice ? `Min: ${selectedOptions.minPrice}RWF, ` : '';
+    searched += selectedOptions.maxPrice ? `Max: ${selectedOptions.maxPrice}RWF, ` : '';
     searched += selectedOptions.expireDate ? `Exp: ${selectedOptions.expireDate}, ` : '';
     searched = searched.slice(0, -2);
     setSearchedFor(`You're searching for ${searched}`);

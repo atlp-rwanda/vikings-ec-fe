@@ -1,8 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { createPaymentsSession } from '../../features/payments/PaymentsSlice';
+import loader from '../../../public/images/icons/loader.svg';
 
 const CheckoutDiv = () => {
+  const dispatch = useDispatch();
   const { data: cart } = useSelector((state) => state.cart);
+  const {data, isLoading} = useSelector((state) => state.payment);
+  const createCheckoutSession = () => {
+    dispatch(createPaymentsSession());
+  }
+  if(data) window.location = data.url;
 
   return (
     <div className="flex bg-white md:flex-col gap-3 max-w-xs w-full ">
@@ -13,7 +21,12 @@ const CheckoutDiv = () => {
           {cart?.total || 0}
         </p>
       </div>
-      <button type="button" className="bg-[#7AC751] w-full md:w-auto text-white py-2 rounded-lg"> Checkout</button>
+      <button type="button" disabled={isLoading} className="bg-[#7AC751] w-full md:w-auto text-white py-2 rounded-lg"
+      onClick={createCheckoutSession}> 
+      {isLoading ? <div className="flex justify-center mt-0 py-0">
+        <img src={loader} alt="Loader Spinner" className="text-green-500 animate-spin w-[20px] text-center" data-testid="spinner" />
+      </div> : 'Checkout'}
+      </button>
     </div>
   );
 };

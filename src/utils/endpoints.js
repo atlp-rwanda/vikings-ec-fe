@@ -10,6 +10,8 @@ const Endpoints = {
   createProduct: '/products',
   category: '/categories',
   chats: '/chats',
+  pay: '/payments/create-checkout-session',
+  order: '/orders'
 };
 
 export default Endpoints;

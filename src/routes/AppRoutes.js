@@ -21,6 +21,7 @@ import VerifyEmailPage from '../pages/auth/VerifyEmail';
 import Dashboard from '../pages/dashboard/DashboardPage';
 import UpdateProductForm from '../components/products/updateProduct';
 import SingleProductPage from '../pages/SingleProductPage';
+import PaymentSuccessPage from '../pages/payment/PaymentSuccessPage';
 
 export const getRoutes = () => [
   <Route key="key__" path="/" element={<HomeLayout />}>
@@ -77,6 +78,9 @@ export const getRoutes = () => [
       <Route index element={<SingleProductPage />} />
     </Route>
     ,
+    <Route key="key_success" path="payments/success/:id" element={<HomeLayout />}>
+      <Route index element={<PaymentSuccessPage />} />
+    </Route>
     <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />
   </>,
 
