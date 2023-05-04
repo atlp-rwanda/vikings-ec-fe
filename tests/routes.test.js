@@ -26,14 +26,14 @@ describe('My app', () => {
   });
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth/signup');
-    waitFor(() => {
+    await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
 
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth/signin');
-    waitFor(() => {
+    await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });

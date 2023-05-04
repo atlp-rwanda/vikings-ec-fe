@@ -13,4 +13,6 @@ module.exports = {
   moduleNameMapper: {
     '\\.(jpg|svg|jpeg|png|gif)$': '<rootDir>/__mocks__/fileMock.js',
   },
+  maxWorkers: 2,
+  forceExit: true,
 };

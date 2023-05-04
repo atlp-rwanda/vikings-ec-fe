@@ -74,18 +74,14 @@ const BuyerViewProduct = ({ ...props }) => {
         <div className="md:space-y-3">
           {reviewers || 'No reviews found'}
         </div>
-        <div className="py-3 sm:px-6 sm:flex ">
-          <p className="text-[#393d3e] pt-8 font-bold text-[18px] italic">Reviews</p>
-          <Ratings onClose={handleOnClose} visible={showRatings} productId={props.products.id} />
+        <Ratings onClose={handleOnClose} visible={showRatings} productId={props.products.id} />
+        <div className="py-3 px-3 sm:flex flex-wrap gap-2 pt-8 justify-between max-w-2xl">
+          <p className="text-[#393d3e] font-bold text-[18px] italic">Reviews</p>
+
           <Button
             onClick={() => setShowRatings(true)}
             label="Add review"
-            parentClassName="flex"
-            className="!w-fit text-white mx-[19rem] bg-green-500 hover:bg-green-600 px-5 py-2.5 font-bold rounded-none self-end xs:w-full"
           />
-        </div>
-        <div className="md:space-y-3">
-          {reviewers || 'No reviews found'}
         </div>
 
       </div>

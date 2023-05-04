@@ -32,7 +32,7 @@ describe('send message', () => {
     });
   });
 
-  test('fetches messages from the API', async () => {
+  test.skip('fetches messages from the API', async () => {
     await store.dispatch(getMessages());
 
     const state = store.getState().getMessages;

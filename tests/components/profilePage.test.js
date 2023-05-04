@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import {
   expect, describe, it,
 } from '@jest/globals';
@@ -10,7 +10,7 @@ import ProfilePage from '../../src/pages/profile/ProfilePage';
 import ProfileSummary from '../../src/components/profile/ProfileSummary';
 
 describe('Profile page', () => {
-  it('Should render edit profile button', () => {
+  it('Should render edit profile button', async () => {
     render(
       <Provider store={store}>
         <Router>
@@ -19,8 +19,9 @@ describe('Profile page', () => {
       </Provider>,
     );
 
-    const pageContent = screen.findByTestId("spinner");
-    expect(pageContent).toBeDefined();
+    await waitFor(() => {
+      expect(screen.findByTestId('spinner')).toBeDefined();
+    });
   });
 });
 describe('ProfileSummary component', () => {

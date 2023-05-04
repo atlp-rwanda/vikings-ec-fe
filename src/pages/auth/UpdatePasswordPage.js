@@ -29,7 +29,7 @@ const updatePasswordPage = () =>{
       localStorage.clear()
       return (location.href = `/auth/signin`);
     } catch (error) {
-      showErrorMessage(error.response.data.message);
+      showErrorMessage(error.response?.data?.message ||"An error occurred, please try again");
     }
   };
   return (
@@ -90,8 +90,8 @@ const updatePasswordPage = () =>{
     </form>
   </>
       </div>
-    
-   
+
+
   )
 }
 
