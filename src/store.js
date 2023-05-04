@@ -28,6 +28,7 @@ import userReducer from './features/auth/userSlice';
 import rolesReducer from './features/auth/rolesSlice';
 import changeUserStatusReducer from './features/auth/changeUserStatusSlice';
 import provideRatingsReducer from './features/ratings/ratingsSlice';
+import recommendedProductsReducer from './features/product/recommededProducts';
 
 const middlewares = [];
 
@@ -70,6 +71,7 @@ const store = configureStore({
     roles: rolesReducer,
     changeStatus: changeUserStatusReducer,
     provideRatings: provideRatingsReducer,
+    recommendedProducts: recommendedProductsReducer,
   },
   middleware: [...middlewares, thunk],
 });

@@ -24,8 +24,19 @@ import { getProductList } from '../../src/features/product/getProductsSilice';
 import getMessage from '../../src/features/actions/welcomeAction';
 import Reviewers from '../../src/components/products/Reviewers';
 import ProductRatings from '../../src/components/products/ProductRatings';
+import st from '../../src/store';
 
 describe('ProductCard', () => {
+  it('should render recommended products', () => {
+    const { getByText } = render(
+      <Provider store={st}>
+        <MemoryRouter>
+          <SingProductPage />
+        </MemoryRouter>
+      </Provider>
+    );
+    expect(getByText('Recommended For You')).toBeInTheDocument();
+  });
   it('should render product card with correct props', () => {
     render(<ProductCard {...productCardMock} />);
     expect(screen.getByAltText('product')).toBeInTheDocument();
@@ -102,7 +113,13 @@ describe('SingProductPage', () => {
       ratings: null,
       isLoading: false,
     },
-    provideRatings:{
+    provideRatings: {},
+    recommendedProducts: {
+      products: null,
+      isLoading: false,
+    },
+    product: {
+      productList: {},
       isLoading: false,
     },
   });
@@ -142,7 +159,7 @@ describe('BuyerViewSingleProduct', () => {
         ratings: null,
         isLoading: false,
       },
-      provideRatings:{
+      provideRatings: {
         isLoading: false,
       },
     });
@@ -414,12 +431,14 @@ describe('Reviewers component', () => {
       firstname: 'John',
       lastname: 'Doe',
       avatar: 'http://example.com/avatar.png',
-    }
+    },
   };
 
   it('renders the reviewer name', () => {
     const { getByText } = render(<Reviewers reviewer={reviewer} />);
-    expect(getByText(`${reviewer.buyer.firstname} ${reviewer.buyer.lastname}`)).toBeInTheDocument();
+    expect(
+      getByText(`${reviewer.buyer.firstname} ${reviewer.buyer.lastname}`)
+    ).toBeInTheDocument();
   });
 
   it('renders the reviewer feedback', () => {
@@ -429,7 +448,10 @@ describe('Reviewers component', () => {
 
   it('renders the reviewer avatar when provided', () => {
     const { getByAltText } = render(<Reviewers reviewer={reviewer} />);
-    expect(getByAltText('profile')).toHaveAttribute('src', reviewer.buyer.avatar);
+    expect(getByAltText('profile')).toHaveAttribute(
+      'src',
+      reviewer.buyer.avatar
+    );
   });
 });
 
