@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { expect, describe, it } from '@jest/globals';
-import { screen, waitFor } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
 import renderRoute, { simpleRender, renderPath } from './jest.setup';
 import Button from '../src/components/forms/Button';
 import 'setimmediate';
@@ -74,18 +74,35 @@ describe('My app', () => {
   });
   it('renders profile page', async () => {
     const renderer = renderRoute('/profile');
-    expect(renderer.toJSON()).toMatchSnapshot();
+    await waitFor(() => { expect(renderer.toJSON()).toMatchSnapshot(); });
   });
   it('renders edit profile page correct', async () => {
     const renderer = renderRoute('/profile/update');
-    screen.findByTestId('tabs');
-    expect(renderer.toJSON()).toMatchSnapshot();
+    await waitFor(() => { expect(renderer.toJSON()).toMatchSnapshot(); });
   });
   it('renders verify email correctly', async () => {
     const renderer = renderRoute('/auth/verify-email/token');
   });
   it('renders create product correctly', async () => {
     const renderer = renderRoute('/dashboard/products/create');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('renders dashboard', async () => {
+    const renderer = renderRoute('/dashboard');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('renders dashboard', async () => {
+    const renderer = renderRoute('/dashboard/orders');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
+  });
+  it('renders dashboard', async () => {
+    const renderer = renderRoute('/dashboard/sales');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
@@ -97,15 +114,15 @@ describe('My app', () => {
     });
   });
   it('rends dashboard Correctly', async () => {
-    const renderer = renderPath('/seller-products');
+    const renderer = renderRoute('/seller-products');
     await waitFor(() => {
-      expect(renderer).toBeDefined();
+      expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
   it('renders Users data correctly', async () => {
-    const renderer = renderPath('/dashboard/users');
+    const renderer = renderRoute('/dashboard/users');
     await waitFor(() => {
-      expect(renderer).toBeDefined();
+      expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
 });

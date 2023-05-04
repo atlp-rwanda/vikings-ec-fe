@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Logo from '../../public/images/logo.svg';
 import account from '../../public/images/icons/account.svg';
 import bell from '../../public/images/icons/bell.svg';
+import dashboardIcon from '../../public/images/icons/dashboard_icon.svg';
 import Search from './products/Search';
 import ShoppingCart from './cart/ShoppingCart';
 
@@ -23,11 +24,14 @@ const TopMenu = () => {
           <Search />
         </div>
       )}
-      <div className="flex flex-row align-middle gap-6 mt-1">
+      <div className="flex flex-row items-center gap-6 mt-1">
+        <a href="/dashboard" className="h-fit">
+          <img src={dashboardIcon} alt="Dashboard Icon" />
+        </a>
         <a href="/cart" className="flex flex-col align-middle h-fit">
           <ShoppingCart />
         </a>
-        <a href="/profile" className="flex flex-col align-middle h-fit">
+        <a href="/notification" className="flex flex-col align-middle h-fit">
           <img src={bell} alt="Bell Icon" />
         </a>
         <a href="/profile" className="flex flex-col align-middle h-fit">

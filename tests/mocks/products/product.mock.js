@@ -8,6 +8,7 @@ const mockProduct = {
     price: 100,
     quantity: 1,
     id: '12345',
+    bonus: 2000,
   },
   editBTN: <button>Edit</button>,
   deleteBTN: <button>Delete</button>,

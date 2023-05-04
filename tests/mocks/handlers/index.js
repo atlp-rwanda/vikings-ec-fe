@@ -10,8 +10,9 @@ import { productHandler, singleProductHandler, getProductRatings } from './produ
 import { getCategoriesHandler } from './categories.handler';
 import { cartHandler } from './cart.handler';
 import { userHandler } from './User.handler';
-import {rolesHandler} from './changeRole.handler'
+import { rolesHandler } from './changeRole.handler';
 import { statusHandler } from './changeStatus.handler';
+import { logoutHandler } from './logout.handler';
 import { orderHandler } from './order.handler';
 
 const handlers = [
@@ -34,7 +35,8 @@ const handlers = [
   ...userHandler,
   ...rolesHandler,
   ...statusHandler,
-  ...orderHandler
+  ...logoutHandler,
+  ...orderHandler,
 ];
 
 export default handlers;

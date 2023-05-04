@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import * as yup from 'yup';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,6 +32,7 @@ const Account = ({ data }) => {
       name: 'birthdate',
       label: 'Date of birth',
       type: 'date',
+      max: new Date().toISOString().slice(0, 10),
     },
     {
       name: 'gender',
@@ -107,6 +107,7 @@ const Account = ({ data }) => {
               className="w-3/5 px-2 py-1 border border-gray-300 text-[16px] text-gray-500 my-2 focus:text-gray-900 xs:w-auto"
               {...register(field.name)}
               error={errors?.[field.name]}
+              max={field.max}
             />)
           })
         }

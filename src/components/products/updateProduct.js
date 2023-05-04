@@ -13,10 +13,11 @@ import productSchema from '../../validations/product/productValidation';
 import { updateProduct } from '../../features/product/updateProduct';
 import rectangle from '../../../public/images/Group 237534.svg';
 import { singleProduct } from '../../features/product/singleProductSlice';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import formatDate from '../../utils/formatDate';
 import { fetchCategories } from '../../features/categorySlice';
 import Loader from '../Loader';
+import left from '../../../public/images/left.svg'
 
 const UpdateProductForm = () => {
   const data = useSelector((state) => state.singleProduct.product);
@@ -106,19 +107,20 @@ const UpdateProductForm = () => {
   };
   if (loading) return <Loader />;
   return (
-    <div className="grid sm:grid-cols-2 relative bg-[#f2edf3] max-h-[100%] max-w-[100%] p-[5%]">
-      <h1 className="sm:hidden text-center text-[25px] font-bold block py-10">
-        Update product
-      </h1>
+    <div className="md:px-24 xs:px-4 sm:px-4">
+      <Link to="/dashboard/products" className="cursor-pointer mb-4 block">
+        <img src={left} alt="Back Icon" className="inline-flex mr-4"/>
+        All Products
+      </Link>
+      <div className="flex flex-col md:flex-row justify-between gap-6">
       <form
         onSubmit={(event) => {
           handleSubmit(onSubmit)(event);
         }}
-        className="relative md:ml-[12rem] px-5 sm:w-[60%] sm:ml-[15rem]"
+        className="md:w-1/2"
         role="update-product-form"
       >
         <div className="flex flex-col -space-y-px rounded-md">
-          <div>
             <InputField
               type="text"
               label="Name"
@@ -127,8 +129,6 @@ const UpdateProductForm = () => {
               error={errors?.name}
               role="name"
             />
-          </div>
-          <div>
             <SelectBox
               label="Category"
               className=" w-full px-2 py-2 sm:text-[12px] my-2 focus:bg-white bg-white"
@@ -137,8 +137,6 @@ const UpdateProductForm = () => {
               category={data?.categoryId}
               error={errors?.categoryId}
             />
-          </div>
-          <div>
             <InputField
               type="number"
               label="Price"
@@ -146,8 +144,6 @@ const UpdateProductForm = () => {
               {...register('price')}
               error={errors?.price}
             />
-          </div>
-          <div>
             <InputField
               type="number"
               label="Bonus"
@@ -155,8 +151,6 @@ const UpdateProductForm = () => {
               {...register('bonus')}
               error={errors?.bonus}
             />
-          </div>
-          <div>
             <InputField
               type="number"
               label="Quantity"
@@ -164,8 +158,6 @@ const UpdateProductForm = () => {
               {...register('quantity')}
               error={errors?.quantity}
             />
-          </div>
-          <div>
             <InputField
               type="date"
               label="Expiry date"
@@ -174,10 +166,9 @@ const UpdateProductForm = () => {
               min={today}
               error={errors?.expiryDate}
             />
-          </div>
           <InputField
             type="file"
-            className="hidden"
+            parentClassName="hidden"
             id="images"
             name="files"
             data-testid="upload-image-input"
@@ -186,8 +177,6 @@ const UpdateProductForm = () => {
             accept="image/x-png,image/gif,image/jpeg,image/webp"
             multiple={true}
           />
-
-          <div>
             {isLoading ? (
               <>
                 <Button
@@ -219,18 +208,15 @@ const UpdateProductForm = () => {
                 type="submit"
                 label="Save Changes"
                 role="button"
-                className="left-0 rounded-none sm:relative !my-0 fixed z-[999] bottom-0 p-0 m-0"
+                className="rounded-none sm:relative"
               />
             )}
-          </div>
         </div>
       </form>
-
-      <div className="images md:z-50 sm:flex z-50">
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="images grid grid-cols-2 gap-8">
           {(preview?.length > 0 ? [...preview] : oldImages)?.map(
             (image, index) => (
-              <div key={index} className="border-gray-100 cursor-pointer">
+              <div key={index} className="cursor-pointer">
                 <span
                   className="absolute text-green-600 bg-yellow-400 px-5 sm:py-3 py-2 cursor-pointer"
                   onClick={() => handleRemoveImage(image, index)}
@@ -241,7 +227,7 @@ const UpdateProductForm = () => {
                 <Image
                   src={image}
                   alt="image"
-                  className="lg:h-[250px] lg:w-[250px] sm:h-[180px] sm:w-[180px] xs:h-[150px] xs:w-[150px]  object-cover"
+                  className="lg:h-[250px] lg:w-[250px] sm:h-[180px] sm:w-[180px] xs:h-[150px] xs:w-[150px]  object-cover border border-gray-100"
                 />
               </div>
             )
@@ -251,12 +237,12 @@ const UpdateProductForm = () => {
               <Image
                 src={rectangle}
                 alt="image"
-                className="lg:h-[250px] lg:w-[250px] sm:h-[180px] sm:w-[180px] xs:h-[150px] xs:w-[150px]  object-cover"
+                className="lg:h-[250px] lg:w-[250px] sm:h-[180px] sm:w-[180px] xs:h-[150px] xs:w-[150px]  object-cover border border-gray-100"
               />
             </div>
           </label>
         </div>
-      </div>
+    </div>
     </div>
   );
 };

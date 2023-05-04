@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
@@ -8,7 +8,8 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const HomeLayout = () => {
-  const isAuthenticated = useSelector((state) => state.login.isAuthenticated) === true ? useSelector((state) => state.login.isAuthenticated) : useSelector((state) => state.twoFactorAuth.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.login.isAuthenticated) || useSelector((state) => state.twoFactorAuth.isAuthenticated) || useSelector((state) => state.googleAuth.isAuthenticated);
+  console.log(isAuthenticated);
   return (
     <div className="flex flex-col h-screen w-full">
       <Header />

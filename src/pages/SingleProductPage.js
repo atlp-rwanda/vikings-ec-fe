@@ -39,7 +39,7 @@ const SingProductPage = () => {
     <BuyerViewProduct
       products={product}
       fullImage={currentImage}
-      switchImages={<SwitchImages switchCurrentImage={switchImage} className="relative flex sm:justify-between xs:gap-52 md:top-12 cursor-pointer xs:top-2 sm:top-2" />}
+      switchImages={<SwitchImages switchCurrentImage={switchImage} className="flex justify-between" />}
       wish={(
         <ProductOperationButton
           className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center"

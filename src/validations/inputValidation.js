@@ -43,8 +43,10 @@ export const accountSchema = yup.object().shape({
   lastname: yup.string().min(3).trim().required(),
   email: yup.string().email().lowercase().trim()
     .required(),
-  gender: yup.string().required('Your gender is required'),
-  birthdate: yup.date().required('Your birthdate is required'),
+  gender: yup.string().required('Your gender is required').oneOf(['Male', 'Female']),
+  birthdate: yup.date()
+    .required('Your birthdate is required')
+    .max(new Date(), 'You can not be born in the future'),
   phone: yup.string().matches(/^\+?[1-9][0-9]{7,14}$/),
 });
 
