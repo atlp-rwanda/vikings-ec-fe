@@ -22,6 +22,7 @@ const SingProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const { id } = useParams()
   const navigate=useNavigate();
+  const { data: cart } = useSelector((state) => state.cart);
   useEffect(() => {
     dispatch(singleProduct(id));
     dispatch(getRecommendedProducts());
@@ -50,6 +51,7 @@ const SingProductPage = () => {
 )}
       addCart={(
         <Modal
+          forceCloseOnChange={cart}
           header={(
             <h2 className="text-2xl mx-auto text-[#64B937]">
               Confirm to add &nbsp;

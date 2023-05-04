@@ -15,7 +15,7 @@ const ProductCard = ({ getPersistCartSetter, ...props }) => {
   }, [getPersistCartSetter]);
   const singleProduct = () => {
     if (props.wish) {
-      window.location = `/products/${props.product.id}`;
+      window.location.href = `/products/${props.product.id}`;
     } else {
       props.viewSingleProduct(
         props.product.name,

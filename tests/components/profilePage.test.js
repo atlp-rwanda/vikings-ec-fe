@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import {
   expect, describe, it,
 } from '@jest/globals';
@@ -19,7 +19,7 @@ describe('Profile page', () => {
       </Provider>,
     );
 
-    const pageContent = screen.findByTestId("spinner");
+    const pageContent = screen.findByTestId('spinner');
     expect(pageContent).toBeDefined();
   });
 });

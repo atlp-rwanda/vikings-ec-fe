@@ -10,7 +10,7 @@ const CheckoutDiv = () => {
   const createCheckoutSession = () => {
     dispatch(createPaymentsSession());
   }
-  if(data) window.location = data.url;
+  if(data) window.location.href = data.url;
 
   return (
     <div className="flex bg-white md:flex-col gap-3 max-w-xs w-full ">
@@ -22,7 +22,7 @@ const CheckoutDiv = () => {
         </p>
       </div>
       <button type="button" disabled={isLoading} className="bg-[#7AC751] w-full md:w-auto text-white py-2 rounded-lg"
-      onClick={createCheckoutSession}> 
+      onClick={createCheckoutSession}>
       {isLoading ? <div className="flex justify-center mt-0 py-0">
         <img src={loader} alt="Loader Spinner" className="text-green-500 animate-spin w-[20px] text-center" data-testid="spinner" />
       </div> : 'Checkout'}
