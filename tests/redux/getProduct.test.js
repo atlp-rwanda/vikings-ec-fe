@@ -65,16 +65,6 @@ describe('Get single product', () => {
       .includes(expectedActions[1].type)).toBe(true);
   });
 
-  // it('should return error', async () => {
-  //   const expectedActions = [
-  //     { type: 'singleProduct/fetchProduct/pending' },
-  //     { type: 'singleProduct/fetchProduct/fulfilled', payload: { data: 'mocked data' } },
-  //   ];
-  //   await jestStore.dispatch(singleProduct());
-  //   expect(jestStore.getActions().map((each) => each.type)
-  //     .includes(expectedActions[1].type)).toBe(true);
-  // });
-
   it('should set loading true while action is pending', () => {
     const action = { type: singleProduct.pending };
     const state = singleProductSlice(initialState, action);

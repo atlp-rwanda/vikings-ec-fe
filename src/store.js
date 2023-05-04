@@ -31,6 +31,8 @@ import provideRatingsReducer from './features/ratings/ratingsSlice';
 import recommendedProductsReducer from './features/product/recommededProducts';
 import sendMessageReducer from './features/chat/sendMessage';
 import getMessagesReducer from './features/chat/getMessages';
+import PaymentCheckoutReducer from './features/payments/PaymentsSlice';
+import getOrderDetailsReducer from './features/order/orderSlice';
 
 const middlewares = [];
 
@@ -75,6 +77,8 @@ const store = configureStore({
     recommendedProducts: recommendedProductsReducer,
     sendMessage: sendMessageReducer,
     getMessages: getMessagesReducer,
+    payment: PaymentCheckoutReducer,
+    order: getOrderDetailsReducer,
   },
   middleware: [...middlewares, thunk],
 });

@@ -12,6 +12,7 @@ import { cartHandler } from './cart.handler';
 import { userHandler } from './User.handler';
 import {rolesHandler} from './changeRole.handler'
 import { statusHandler } from './changeStatus.handler';
+import { orderHandler } from './order.handler';
 
 const handlers = [
   ...loginHandler,
@@ -32,7 +33,8 @@ const handlers = [
   ...cartHandler,
   ...userHandler,
   ...rolesHandler,
-  ...statusHandler
+  ...statusHandler,
+  ...orderHandler
 ];
 
 export default handlers;
