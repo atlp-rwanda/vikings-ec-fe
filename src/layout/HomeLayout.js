@@ -11,7 +11,7 @@ const HomeLayout = () => {
   const isAuthenticated = useSelector((state) => state.login.isAuthenticated) || useSelector((state) => state.twoFactorAuth.isAuthenticated) || useSelector((state) => state.googleAuth.isAuthenticated);
   console.log(isAuthenticated);
   return (
-    <div className="flex flex-col h-screen w-full">
+    <div className="flex flex-col min-h-screen w-full">
       <Header />
       { isAuthenticated
         ? (
@@ -29,9 +29,7 @@ const HomeLayout = () => {
           </div>
         )}
       <Outlet />
-      <div className="flex flex-col w-full">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

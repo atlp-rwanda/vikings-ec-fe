@@ -11,7 +11,7 @@ const Users = () => {
   const { data } = useSelector((state) => state.users);
 
   useEffect(() => {
-    dispatch(getUsers());
+    dispatch(getUsers({ page: 1 }));
   }, []);
   if (data !== null && data !== undefined) {
     const users = data.data.items;

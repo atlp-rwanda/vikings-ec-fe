@@ -98,7 +98,7 @@ const Search = () => {
   };
 
   return (
-    <div className="absolute z-10 md:-mx-52 xs:-mx-24 xs:mt-16 md:mt-0 sm:-mx-24 sm:mt-16" ref={searchRef}>
+    <div className="absolute z-50 left-[50%] transform translate-x-[-50%] xs:top-24" ref={searchRef}>
       <div className="bg-[#64B937] rounded-md px-0.5 py-0.5 flex">
         <input type="text" onChange={searchInputHandler} onKeyDown={handleKeyPress} value={inputValue} placeholder="Search here..." data-testid="search-input" className="rounded-l-md px-2 md:w-60 xs:w-32 sm:w-40 outline-none py-1" />
         <div onClick={optionHandler} className="bg-[#fffdfd] border-l-2 cursor-pointer hover:bg-[#ebeeeb] px-3  py-1 flex justify-between items-center gap-3">

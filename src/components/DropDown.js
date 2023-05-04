@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { changeStatus } from "../features/auth/changeUserStatusSlice";
-import { updateRole } from "../features/auth/rolesSlice";
-import Transition from "./Transition";
+import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { changeStatus } from '../features/auth/changeUserStatusSlice';
+import { updateRole } from '../features/auth/rolesSlice';
+import Transition from './Transition';
 
 const DropDown = ({ toggle, children }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { data: rolesData } = useSelector((state) => state.roles);
   const { data: statusChangeData } = useSelector((state) => state.changeStatus);
+  const { data: saleStatusChangeData } = useSelector((state) => state.changeSaleStatus);
   const trigger = useRef(null);
   const dropdown = useRef(null);
 
@@ -17,17 +18,17 @@ const DropDown = ({ toggle, children }) => {
         return;
       }
       if (
-        !dropdownOpen ||
-        dropdown.current.contains(target) ||
-        trigger.current.contains(target)
+        !dropdownOpen
+        || dropdown.current.contains(target)
+        || trigger.current.contains(target)
       ) {
         return;
       }
 
       setDropdownOpen(false);
     };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
+    document.addEventListener('click', clickHandler);
+    return () => document.removeEventListener('click', clickHandler);
   }, [dropdownOpen]);
 
   useEffect(() => {
@@ -43,16 +44,22 @@ const DropDown = ({ toggle, children }) => {
   }, [statusChangeData]);
 
   useEffect(() => {
+    if (saleStatusChangeData) {
+      setDropdownOpen(false);
+    }
+  }, [saleStatusChangeData]);
+
+  useEffect(() => {
     const keyHandler = ({ keyCode }) => {
       if (!dropdownOpen || keyCode !== 27) return;
       setDropdownOpen(false);
     };
-    document.addEventListener("keydown", keyHandler);
-    return () => document.removeEventListener("keydown", keyHandler);
+    document.addEventListener('keydown', keyHandler);
+    return () => document.removeEventListener('keydown', keyHandler);
   }, [dropdownOpen]);
 
   return (
-    <div className="relative inline-flex">
+    <div className="absolute xs:relative inline-flex">
       {/* eslint-disable-next-line jsx-a11y/interactive-supports-focus */}
       <div
         ref={trigger}

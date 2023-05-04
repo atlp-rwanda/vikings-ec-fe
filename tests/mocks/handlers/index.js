@@ -14,6 +14,7 @@ import { rolesHandler } from './changeRole.handler';
 import { statusHandler } from './changeStatus.handler';
 import { logoutHandler } from './logout.handler';
 import { orderHandler } from './order.handler';
+import { getSalesHandler, updateSalesHandler } from './sales.handler';
 
 const handlers = [
   ...loginHandler,
@@ -37,6 +38,8 @@ const handlers = [
   ...statusHandler,
   ...logoutHandler,
   ...orderHandler,
+  ...getSalesHandler,
+  ...updateSalesHandler,
 ];
 
 export default handlers;

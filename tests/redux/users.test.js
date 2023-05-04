@@ -1,12 +1,11 @@
 import { describe, it, expect } from '@jest/globals';
 import { jestStore } from '../jest.setup';
 import userSlice, { getUserActions, getUsers } from '../../src/features/auth/userSlice';
-import { updateRole } from '../../src/features/auth/rolesSlice';
-import changeUserStatusSlice from '../../src/features/auth/changeUserStatusSlice';
 
 describe('User slice', () => {
   const initialState = {
     data: null,
+    pagination: null,
     isLoading: false,
     errorMessage: null,
   };
@@ -14,10 +13,10 @@ describe('User slice', () => {
   it('return userslice', () => {
     const expectedActions = [
       { type: 'user/fetchUsers/pending' },
-      { type: 'user/fetchUsers/fulfilled', payload:  { data :'mocked data'} }, 
+      { type: 'user/fetchUsers/fulfilled', payload: { data: 'mocked data' } },
     ];
 
-    return jestStore.dispatch(getUsers()).then(() => { 
+    return jestStore.dispatch(getUsers({ page: 1 })).then(() => {
       expect(
         jestStore
           .getActions()
@@ -30,29 +29,35 @@ describe('User slice', () => {
   it('should set loading true while action is pending', () => {
     const action = { type: getUsers.pending };
     const State = userSlice(initialState, action);
-    expect(State).toEqual({ isLoading: true, errorMessage: null, data: null });
+    expect(State).toEqual({
+      isLoading: true, errorMessage: null, data: null, pagination: null,
+    });
   });
 
   it('should get users when action is fulfilled', () => {
     const action = {
-      type: getUsers.fulfilled, 
-      payload: {id: "b2ab9416-8129-43db-9dc1-6f2f7a17630b",
-      firstname: "Irakoze",
-      lastname: "Yves Seller",
-      email: "irakozeyves9@gmail.com",
-      role: "admin",
-      isActive: true,}, 
+      type: getUsers.fulfilled,
+      payload: {
+        id: 'b2ab9416-8129-43db-9dc1-6f2f7a17630b',
+        firstname: 'Irakoze',
+        lastname: 'Yves Seller',
+        email: 'irakozeyves9@gmail.com',
+        role: 'admin',
+        isActive: true,
+      },
     };
     const State = userSlice(initialState, action);
     expect(State).toEqual({
-        isLoading: false, 
-        errorMessage: null, 
-        data: {id: "b2ab9416-8129-43db-9dc1-6f2f7a17630b",
-        firstname: "Irakoze",
-        lastname: "Yves Seller",
-        email: "irakozeyves9@gmail.com",
-        role: "admin",
-        isActive: true,}
+      isLoading: false,
+      errorMessage: null,
+      data: {
+        id: 'b2ab9416-8129-43db-9dc1-6f2f7a17630b',
+        firstname: 'Irakoze',
+        lastname: 'Yves Seller',
+        email: 'irakozeyves9@gmail.com',
+        role: 'admin',
+        isActive: true,
+      },
     });
   });
 
@@ -78,16 +83,15 @@ describe('User slice', () => {
       },
       isLoading: false,
     };
-    
+
     const payload = {
       userId: 1,
       field: 'name',
       value: 'Johnny',
     };
-    
+
     const newState = userSlice(initialState, getUserActions.changeField(payload));
-    
+
     expect(newState.data.data.items[0].name).toBe('Johnny');
   });
 });
-

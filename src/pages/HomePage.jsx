@@ -25,6 +25,7 @@ const HomePage = () => {
   const [hoverAddCart, setHoverAddCart] = useState(false);
   const [showChats, setShowChats] = useState(false);
   const [showChatButton, setShowChatButton] = useState(true);
+  const { data: addToCartData } = useSelector((state) => state.addToCart);
 
   const room = 'chatbot';
   const user = getUserInfo();
@@ -102,6 +103,7 @@ const HomePage = () => {
           )}
           addCart={(
             <Modal
+              forceCloseOnChange={addToCartData}
               header={(
                 <h2 className="text-2xl mx-auto text-[#64B937]">
                   Confirm to add &nbsp;
@@ -153,7 +155,14 @@ const HomePage = () => {
   }
 
   return (
-    <div className=" relative min-h-72">
+    <div className="min-h-72">
+      <Chat
+        onClose={handleChatButtonClick}
+        visible={showChats}
+        socket={socket}
+        room={room}
+        user={user}
+      />
       <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">
         OUR PRODUCTS
       </h1>
@@ -161,7 +170,7 @@ const HomePage = () => {
         <Loader />
       ) : (
         <div
-          className={`px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10 ${showChatButton ? '' : 'fixed'}`}
+          className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10"
         >
           {!productNotFound ? (
             viewProducts
@@ -174,15 +183,6 @@ const HomePage = () => {
       )}
       <br />
       <div className="pb-4">{!isLoading ? pageCount : null}</div>
-      <div className=" fixed bottom-[80px] right-[50px] z-50 ">
-        <Chat
-          onClose={handleChatButtonClick}
-          visible={showChats}
-          socket={socket}
-          room={room}
-          user={user}
-        />
-      </div>
       <div>
         <button
           onClick={() => {

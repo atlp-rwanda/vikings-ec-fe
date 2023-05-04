@@ -35,7 +35,7 @@ describe('ProductCard', () => {
         <MemoryRouter>
           <SingProductPage />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
     expect(getByText('Recommended For You')).toBeInTheDocument();
   });
@@ -105,6 +105,10 @@ jest.mock('react-router-dom', () => ({
 
 describe('SingProductPage', () => {
   const mockStore = configureStore({})({
+    cart: {
+      data: [],
+      isLoading: false,
+    },
     singleProduct: {
       product: {
         name: 'Test Product',
@@ -285,6 +289,14 @@ describe('HomePage Component', () => {
   let store;
   beforeEach(() => {
     store = mockStore({
+      addToCart: {
+        data: {},
+        isLoading: false,
+      },
+      cart: {
+        data: {},
+        isLoading: false,
+      },
       product: {
         productsList: {
           currentPage: 1,
@@ -443,7 +455,7 @@ describe('Reviewers component', () => {
   it('renders the reviewer name', () => {
     const { getByText } = render(<Reviewers reviewer={reviewer} />);
     expect(
-      getByText(`${reviewer.buyer.firstname} ${reviewer.buyer.lastname}`)
+      getByText(`${reviewer.buyer.firstname} ${reviewer.buyer.lastname}`),
     ).toBeInTheDocument();
   });
 
@@ -456,7 +468,7 @@ describe('Reviewers component', () => {
     const { getByAltText } = render(<Reviewers reviewer={reviewer} />);
     expect(getByAltText('profile')).toHaveAttribute(
       'src',
-      reviewer.buyer.avatar
+      reviewer.buyer.avatar,
     );
   });
 });

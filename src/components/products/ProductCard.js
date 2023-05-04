@@ -15,7 +15,7 @@ const ProductCard = ({ getPersistCartSetter, ...props }) => {
   }, [getPersistCartSetter]);
   const singleProduct = () => {
     if (props.wish) {
-      window.location = `/products/${props.product.id}`;
+      window.location.href = `/products/${props.product.id}`;
     } else {
       props.viewSingleProduct(
         props.product.name,
@@ -38,7 +38,7 @@ const ProductCard = ({ getPersistCartSetter, ...props }) => {
 
     >
       {
-        props.product.bonus && (
+        (props.product.bonus > 0) && (
           <div className="bg-red-500 text-white absolute top-6 left-6 w-fit p-2 text-[12px]">
             -
             {getDiscount(props.product.price, props.product.bonus)}

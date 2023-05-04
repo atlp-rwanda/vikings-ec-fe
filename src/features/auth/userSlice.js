@@ -1,12 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import customAxios from '../api/customAxios';
 
 export const getUsers = createAsyncThunk(
   'user/fetchUsers',
-  async (page, { rejectWithValue }) => {
+  async ({ page }, { rejectWithValue }) => {
     try {
-      const { data } = await customAxios.get('/users');
+      const { data } = await customAxios.get(`/users?limit=${10}&page=${page}`);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -16,6 +15,14 @@ export const getUsers = createAsyncThunk(
 
 const initialState = {
   data: null,
+  pagination: {
+    totalItems: 0,
+    itemCount: 0,
+    itemsPerPage: '10',
+    totalPages: 1,
+    currentPage: '1',
+
+  },
   isLoading: false,
 };
 
@@ -24,16 +31,14 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     changeField(state, { payload }) {
-      if(state.data?.data?.items){
-        state.data.data.items = state.data.data.items.map(each => {
-          if(payload.userId !== each.id)
-          {
+      if (state.data?.data?.items) {
+        state.data.data.items = state.data.data.items.map((each) => {
+          if (payload.userId !== each.id) {
             return each;
           }
-          return {...each, [payload.field]:payload.value}
+          return { ...each, [payload.field]: payload.value };
         });
       }
-      
     },
   },
   extraReducers: {
@@ -43,6 +48,7 @@ export const userSlice = createSlice({
     [getUsers.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.data = payload;
+      state.pagination = payload.data?.meta;
     },
     [getUsers.rejected]: (state, { payload }) => {
       state.isLoading = false;

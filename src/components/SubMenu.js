@@ -34,7 +34,7 @@ const SubMenu = () => {
   ));
 
   return (
-    <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-[9999] justify-between xs:flex-row-reverse">
+    <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between xs:flex-row-reverse">
       <ul className="hidden md:flex flex-row gap-4">
         {menuItems}
       </ul>
@@ -47,7 +47,7 @@ const SubMenu = () => {
       >
         <div className="flex text-gray-600">
           <img src={LogoutIcon} alt="Logout Icon" className="w-[24px] h-[24px]" />
-          <div className="ml-2 xs:hidden">Logout</div>
+          <div className="ml-2 xs:hidden sm:hidden md:block">Logout</div>
 
         </div>
       </Button>

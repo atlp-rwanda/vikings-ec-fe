@@ -41,7 +41,7 @@ const Sidebar = ({ children }) => {
       path: '/dashboard',
       name: 'Dashboard',
       icon: Dashboard,
-      scope: ['admin', 'buyer', 'seller'],
+      scope: ['admin', 'seller'],
     },
     {
       path: '/dashboard/users',
