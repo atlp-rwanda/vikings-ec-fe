@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { io } from 'socket.io-client';
 import getMessage from '../features/actions/welcomeAction';
 import ProductCard from '../components/products/ProductCard';
 import { getProductList } from '../features/product/getProductsSilice';
@@ -13,12 +14,29 @@ import Loader from '../components/Loader';
 import { showErrorMessage } from '../utils/toast';
 import Modal from '../components/Modal';
 import SetCartQuantity from '../components/cart/SetCartQuantity';
+import ChatIcon from '../../public/images/icons/comment.svg';
+import Chat from '../components/chat/chats';
+import getUserInfo from '../utils/getUserInfo';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const { productsList, isLoading, errorMessage } = useSelector((state) => state.product);
   const [hover, setHover] = useState(false);
   const [hoverAddCart, setHoverAddCart] = useState(false);
+  const [showChats, setShowChats] = useState(false);
+  const [showChatButton, setShowChatButton] = useState(true);
+
+  const room = 'chatbot';
+  const user = getUserInfo();
+
+  const socket = io.connect('https://vikings-ec-bn-mbhd.onrender.com');
+  socket.emit('join_room', room);
+
+  const handleChatButtonClick = () => {
+    setShowChats(false);
+    setShowChatButton(true);
+  };
+
   const handleMouseEnter = () => {
     setHover(true);
   };
@@ -135,17 +153,48 @@ const HomePage = () => {
   }
 
   return (
-    <div className="min-h-72">
-      <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">OUR PRODUCTS</h1>
-      {isLoading ? <Loader />
-        : (
-          <div className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10">
-            {!productNotFound ? viewProducts : <p className="text-gray-600 flex justify-center items-center w-full col-span-4 font-bold ">Product not found</p>}
-          </div>
-        )}
+    <div className=" relative min-h-72">
+      <h1 className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600">
+        OUR PRODUCTS
+      </h1>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div
+          className={`px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10 ${showChatButton ? '' : 'fixed'}`}
+        >
+          {!productNotFound ? (
+            viewProducts
+          ) : (
+            <p className="text-gray-600 flex justify-center items-center w-full col-span-4 font-bold ">
+              Product not found
+            </p>
+          )}
+        </div>
+      )}
       <br />
-      <div className="pb-4">
-        {!isLoading ? pageCount : null}
+      <div className="pb-4">{!isLoading ? pageCount : null}</div>
+      <div className=" fixed bottom-[80px] right-[50px] z-50 ">
+        <Chat
+          onClose={handleChatButtonClick}
+          visible={showChats}
+          socket={socket}
+          room={room}
+          user={user}
+        />
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            setShowChats(true);
+            setShowChatButton(false);
+          }}
+          type="submit"
+          className={`w-[50px] h-[50px] rounded-l-[25px] rounded-tr-[25px] fixed bottom-[80px] right-[50px] z-10 bg-[#ABEC89] hover:bg-[#099f09] px-[12px] comment ${showChatButton ? '' : 'hidden'
+          }`}
+        >
+          <img src={ChatIcon} alt="Send Icon" className=" mx-auto " />
+        </button>
       </div>
     </div>
   );

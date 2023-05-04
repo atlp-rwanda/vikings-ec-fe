@@ -25,3 +25,6 @@ font-family: 'Recursive', sans-serif;
   font-weight: bold;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }

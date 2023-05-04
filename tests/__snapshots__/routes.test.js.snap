@@ -1,5 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`My app renders Users data correctly 1`] = `
+<div>
+  <h1>
+    Dashboard
+  </h1>
+  <div
+    className="flex justify-center mt-24 py-16"
+  >
+    <img
+      alt="Loader Spinner"
+      className="text-green-500 animate-spin w-[30px] text-center"
+      data-testid="spinner"
+      src=""
+    />
+  </div>
+  <br />
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    go to home page
+  </a>
+</div>
+`;
+
 exports[`My app renders auth correctly 1`] = `
 <div
   className="flex flex-col h-screen bg-login bg-center"
@@ -1142,10 +1167,10 @@ exports[`My app renders edit profile page correct 1`] = `
     </div>
   </div>
   <div
-    className="flex flex-col w-full px-10 md:px-24 xl:px-60 xs:px-2"
+    className="px-24"
   >
-    <div
-      className="flex flex-row justify-between my-4"
+    <nav
+      className="py-2.5 flex items-center justify-between w-full"
     >
       <a
         className="flex items-center"
@@ -1907,7 +1932,7 @@ exports[`My app renders home correctly 1`] = `
     </nav>
   </div>
   <div
-    className="min-h-72"
+    className=" relative min-h-72"
   >
     <h1
       className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600"

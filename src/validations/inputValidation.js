@@ -21,7 +21,6 @@ export const resetPasswordSchema = yup.object().shape({
     .test('passwords-match', 'Passwords must match', function (value) {
       return this.parent.newPassword === value;
     }),
-
 });
 
 export const registerSchema = yup.object().shape({
@@ -58,9 +57,7 @@ export const addressSchema = yup.object().shape({
   zipCode: yup.string(),
 });
 export const updatePasswordSchema = yup.object().shape({
-  old_password: yup
-    .string()
-    .required('Password is required'),
+  old_password: yup.string().required('Password is required'),
   new_password: yup
     .string()
     .min(8, 'Password must be at least 8 characters long')
@@ -75,4 +72,7 @@ export const ratingSchema = yup.object().shape({
     .string()
     .min(2, 'Feedback must be at least 2 characters')
     .required(),
+});
+export const messageSchema = yup.object().shape({
+  message: yup.string().min(3).trim().required(),
 });

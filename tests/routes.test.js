@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { expect, describe, it } from '@jest/globals';
 import { screen, waitFor } from '@testing-library/react';
-import renderRoute, { simpleRender } from './jest.setup';
+import renderRoute, { simpleRender, renderPath } from './jest.setup';
 import Button from '../src/components/forms/Button';
-import { renderPath } from './jest.setup';
+import 'setimmediate';
 
 describe('My app', () => {
   it('renders home correctly', async () => {
@@ -47,7 +47,7 @@ describe('My app', () => {
   });
 
   it('renders verify auth correctly', async () => {
-    const renderer = renderRoute('/verify');
+    const renderer = renderRoute('auth/verify');
     await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
@@ -101,7 +101,7 @@ describe('My app', () => {
     await waitFor(() => {
       expect(renderer).toBeDefined();
     });
-    });
+  });
   it('renders Users data correctly', async () => {
     const renderer = renderPath('/dashboard/users');
     await waitFor(() => {

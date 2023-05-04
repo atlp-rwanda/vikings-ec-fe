@@ -303,6 +303,8 @@ describe('HomePage Component', () => {
       googleAuth: {
         data: { user: { id: 1, name: 'User' } },
       },
+      getMessages: { isLoading: false, messages: [] },
+      sendMessage: { isLoading: false },
     });
   });
 
