@@ -13,6 +13,9 @@ import SetCartQuantity from '../components/cart/SetCartQuantity';
 import Modal from '../components/Modal';
 import { getRecommendedProducts } from '../features/product/recommededProducts';
 import { getProductList } from '../features/product/getProductsSilice';
+import { addToWishlist } from '../features/wishlist/wishlistslice';
+import { showErrorMessage, showSuccessMessage } from '../utils/toast';
+
 
 const SingProductPage = () => {
   const dispatch = useDispatch();
@@ -36,6 +39,14 @@ const SingProductPage = () => {
       setCurrentImage((prevImage) => prevImage + 1);
     }
   };
+  const addWishlist = async (productId) => {
+    try {
+      const response = await dispatch(addToWishlist({ productId })).unwrap();
+      showSuccessMessage('Product added successfully');
+    } catch (error) {
+      showErrorMessage(error.data.message);
+    }
+  };
   const viewProduct = (
     <BuyerViewProduct
       products={product}
@@ -43,6 +54,7 @@ const SingProductPage = () => {
       switchImages={<SwitchImages switchCurrentImage={switchImage} className="flex justify-between" />}
       wish={(
         <ProductOperationButton
+        onClick={() => { addWishlist(id); }}
           className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center"
           icon={wishIcon}
           title="Wish product"

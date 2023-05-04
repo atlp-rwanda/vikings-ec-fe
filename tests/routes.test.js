@@ -66,7 +66,6 @@ describe('My app', () => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
-
   it('renders edit profile page correct', async () => {
     const renderer = renderRoute('/profile/update');
     await waitFor(() => { expect(renderer.toJSON()).toMatchSnapshot(); });
@@ -126,3 +125,4 @@ describe('My app', () => {
     });
   });
 });
+

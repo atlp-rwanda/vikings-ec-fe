@@ -42,6 +42,8 @@ import notificationsReducer from './features/notifications/getNotificationSlice'
 import markOneNotificationReducer from './features/notifications/markOneNotificationSlice';
 import markAllNotificationsReducer from './features/notifications/markAllNotificationsSlice';
 import getStatsReducer from './features/stastics/stats';
+import addToWishlistReducer from './features/wishlist/wishlistslice';
+import getWishlistReducer from './features/wishlist/getWishlistSlice';
 
 const middlewares = [];
 
@@ -130,6 +132,8 @@ const store = configureStore({
     markOneNotification: markOneNotificationReducer,
     markAllNotifications: markAllNotificationsReducer,
     stastics: getStatsReducer,
+    addToWishlist: addToWishlistReducer,
+    getWishlist: getWishlistReducer,
   },
   middleware: [...middlewares, thunk],
 });

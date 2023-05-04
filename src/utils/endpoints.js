@@ -13,6 +13,8 @@ const Endpoints = {
   pay: '/payments/create-checkout-session',
   order: '/orders',
   notifications: '/notifications',
+  wishlist: '/wishlist',
+  users: '/users',
 };
 
 export default Endpoints;

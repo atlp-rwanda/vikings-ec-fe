@@ -1,5 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+<<<<<<< HEAD
 exports[`My app renders Users data correctly 1`] = `
 <div
   className="flex"
@@ -187,6 +188,8 @@ exports[`My app renders Users data correctly 1`] = `
 </div>
 `;
 
+=======
+>>>>>>> feat: implement sidebar and navbar (#19)
 exports[`My app renders auth correctly 1`] = `
 <div
   className="flex flex-col h-screen bg-login bg-center"
@@ -1101,6 +1104,10 @@ exports[`My app renders auth correctly 3`] = `
 
 exports[`My app renders create product correctly 1`] = `
 <div
+<<<<<<< HEAD
+  className="flex"
+=======
+<<<<<<< HEAD
   className="flex"
 >
   <div
@@ -1251,6 +1258,442 @@ exports[`My app renders create product correctly 1`] = `
         <a
           className="h-fit"
           href="/notification"
+        >
+           
+          <img
+            alt="Bell Icon"
+            className="w-8 h-8"
+            src=""
+          />
+        </a>
+        <img
+          alt="Profile Icon"
+          className="w-8 h-8"
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      className="md:px-24 xs:px-4 sm:px-4"
+    >
+      <a
+        className="cursor-pointer mb-4 block"
+        href="/dashboard/products"
+        onClick={[Function]}
+      >
+        <img
+          alt="Back Icon"
+          className="inline-flex mr-4"
+          src=""
+        />
+        All Products
+      </a>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="grid md:grid-cols-2 gap-10 sm:grid-flow-row"
+        >
+          <div
+            className=""
+          >
+            <div
+              className="my-7"
+            >
+              <div
+                className="h-[80px] undefined"
+              >
+                <label
+                  className="undefined sr-only""
+                  htmlFor="name"
+                >
+                  Name
+                </label>
+                <div
+                  className="w-full"
+                >
+                  <input
+                    className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
+                    label="Name"
+                    name="name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Product Name"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="my-7"
+            >
+              <select
+                className="appearance-none border w-full px-3 text-gray-700 leading-tight focus:outline-none h-8"
+                defaultValue=""
+                name="categoryId"
+                onBlur={[Function]}
+                onChange={[Function]}
+              >
+                <option
+                  disabled={true}
+                  value=""
+                >
+                  Select category
+                </option>
+              </select>
+            </div>
+            <div
+              className="my-7"
+            >
+              <div
+                className="h-[80px] undefined"
+              >
+                <label
+                  className="undefined sr-only""
+                  htmlFor="price"
+                >
+                  Price
+                </label>
+                <div
+                  className="w-full"
+                >
+                  <input
+                    className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
+                    label="Price"
+                    name="price"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Product Price"
+                    type="number"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="my-7"
+            >
+              <div
+                className="h-[80px] undefined"
+              >
+                <label
+                  className="undefined sr-only""
+                  htmlFor="quantity"
+                >
+                  Quantity
+                </label>
+                <div
+                  className="w-full"
+                >
+                  <input
+                    className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
+                    label="Quantity"
+                    name="quantity"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Product Quantity"
+                    type="number"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="my-7"
+            >
+              <div
+                className="h-[80px] undefined"
+              >
+                <label
+                  className="undefined sr-only""
+                  htmlFor="bonus"
+                >
+                  Bonus
+                </label>
+                <div
+                  className="w-full"
+                >
+                  <input
+                    className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
+                    label="Bonus"
+                    name="bonus"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Product Bonus"
+                    type="number"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="my-7"
+            >
+              <div
+                className="h-[80px] undefined"
+              >
+                <label
+                  className="undefined sr-only""
+                  htmlFor="expiryDate"
+                >
+                  Expiry Date
+                </label>
+                <div
+                  className="w-full"
+                >
+                  <input
+                    className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
+                    label="Expiry Date"
+                    min="2023-05-04"
+                    name="expiryDate"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="date"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="my-7 w-28 xs:w-full xs:sticky xs:top-[100vh]"
+            >
+              <div>
+                <button
+                  className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] w-28 h-8 rounded-none"
+                  onClick={[Function]}
+                  role="submit"
+                  type="submit"
+                >
+                  Save
+                   
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            className=" grid grid-cols-2 content-baseline justify-items-center gap-3 md:gap-10"
+          >
+            <label
+              className="w-24 h-24 md:w-48 md:h-48"
+              htmlFor="images"
+            >
+              <div
+                className="w-24 h-24 md:w-48 md:h-48 border py-6 md:py-16 text-[2rem] text-center bg-white"
+              >
+                +
+              </div>
+            </label>
+            <input
+              accept="image/png, image/jpeg, image/jpg, image/webp, image/gif"
+              className="hidden"
+              id="images"
+              multiple={true}
+              name="images"
+              onChange={[Function]}
+              type="file"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+=======
+  className="xs:px-6"
+>>>>>>> feat: implement sidebar and navbar (#19)
+>
+  <div
+    className="flex bg-[#F8F7FC] h-[100vh] md:sticky top-0 shadow-sm mb-2"
+    data-testid="sidebar"
+  >
+    <div
+      className="bg-white xs:hidden"
+    >
+      <div
+        className="flex p-14 xs:p-6 "
+      >
+        <div
+          className="logo"
+        >
+          <a
+            className="flex items-center"
+            href="/"
+          >
+            <img
+              alt="Vikings Logo"
+              className="h-6 sm:h-9 mr-1  xs:hidden xs:m-0"
+              src=""
+            />
+            <span
+              className="self-center text-xl font-semibold whitespace-nowrap mr-6 xs:hidden "
+            >
+              Vikings
+            </span>
+          </a>
+        </div>
+        <button
+          aria-controls="navbar-default"
+          aria-expanded="false"
+          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 ml-3 xs:m-0 "
+          data-collapse-toggle="navbar-default"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="sr-only"
+          >
+            Open main menu
+          </span>
+          <svg
+            aria-hidden="true"
+            className="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clipRule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="px-14 py-4 hover:cursor-pointer  hover:bg-red-100"
+      >
+        <button
+          className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-transparent"
+          onClick={[Function]}
+        >
+           
+          <div
+            className="flex text-gray-600 "
+          >
+            <img
+              alt="Logout Icon"
+              className="w-[24px] h-[24px]"
+              src=""
+            />
+            <div
+              className="ml-2 "
+            >
+              Logout
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div
+      className="xs:flex hidden bg-white bottom-0 fixed w-full border border-t-2 justify-between p-4 z-50"
+    >
+      <div>
+        <button
+          className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-transparent hover:text-[#ecffe7]"
+          onClick={[Function]}
+        >
+           
+          <div
+            className="flex text-gray-600 "
+          >
+            <img
+              alt="Logout Icon"
+              className="w-[24px] h-[24px]"
+              src=""
+            />
+            <div
+              className="hidden"
+            >
+              Logout
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+<<<<<<< HEAD
+  </div>
+  <div
+    className="flex flex-col bg-[#F8F7FC] flex-grow mb-8"
+  >
+    <div
+      className="flex gap-2 p-4 md:px-24 xs:px-4 sm:px-4 items-center justify-between mb-8"
+=======
+  </form>
+>>>>>>> feat: Implement provide ratings
+</div>
+`;
+
+exports[`My app renders edit profile page correct 1`] = `
+<div
+  className="flex flex-col h-screen w-full"
+>
+  <div
+    className=" bg-[#64B937] w-full justify-start py-4 hidden sm:flex "
+  >
+    <div
+      className="ml-24 text-white"
+    >
+      Welcome to our online shop
+    </div>
+  </div>
+  <div
+    className="flex flex-col w-full px-10 md:px-24 xl:px-60 xs:px-2"
+  >
+    <div
+      className="flex flex-row justify-between my-4"
+>>>>>>> feat: implement sidebar and navbar (#19)
+    >
+      <div
+        className="hidden xs:block"
+      >
+        <a
+          className="flex items-center gap-2"
+          href="/"
+        >
+          <img
+            alt="Vikings Logo"
+            className="h-6 sm:h-9"
+            src=""
+          />
+          <span
+            className="self-center text-xl font-semibold whitespace-nowrap text-[#555555]"
+          >
+            Vikings
+          </span>
+        </a>
+      </div>
+      <a
+        aria-current="page"
+        className="text-green-400 xs:hidden font-bold active"
+        href="/dashboard"
+        onClick={[Function]}
+      >
+        Dashboard
+      </a>
+      <div
+<<<<<<< HEAD
+        className="flex gap-1"
+      >
+        <a
+          className="h-fit"
+          href="/notification"
+=======
+<<<<<<< HEAD
+        className="flex flex-row items-center gap-6 mt-1"
+      >
+        <a
+          className="h-fit"
+          href="/dashboard"
+        >
+          <img
+            alt="Dashboard Icon"
+            src=""
+          />
+        </a>
+        <a
+=======
+        className="flex flex-row align-middle gap-6 mt-1"
+      >
+        <a
+>>>>>>> feat: Implement provide ratings
+          className="flex flex-col align-middle h-fit"
+          href="/cart"
+>>>>>>> feat: implement sidebar and navbar (#19)
         >
            
           <img
@@ -2113,7 +2556,15 @@ exports[`My app renders edit profile page correct 1`] = `
         </a>
         <a
           className="flex flex-col align-middle h-fit"
+<<<<<<< HEAD
           href="/notification"
+=======
+<<<<<<< HEAD
+          href="/notification"
+=======
+          href="/profile"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
         >
           <img
             alt="Bell Icon"
@@ -2136,7 +2587,15 @@ exports[`My app renders edit profile page correct 1`] = `
     className="flex flex-col w-full"
   >
     <div
+<<<<<<< HEAD
       className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between xs:flex-row-reverse"
+=======
+<<<<<<< HEAD
+      className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-[9999] justify-between xs:flex-row-reverse"
+=======
+      className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
     >
       <ul
         className="hidden md:flex flex-row gap-4"
@@ -2152,7 +2611,15 @@ exports[`My app renders edit profile page correct 1`] = `
         <li>
           <a
             className="py-2 text-gray-600 text-[14px] md:hover:text-[#338E03] uppercase"
+<<<<<<< HEAD
             href="/"
+=======
+<<<<<<< HEAD
+            href="/"
+=======
+            href="/about-us"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
           >
             About
           </a>
@@ -2160,12 +2627,24 @@ exports[`My app renders edit profile page correct 1`] = `
         <li>
           <a
             className="py-2 text-gray-600 text-[14px] md:hover:text-[#338E03] uppercase"
+<<<<<<< HEAD
             href="/"
+=======
+<<<<<<< HEAD
+            href="/"
+=======
+            href="/contact-us"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
           >
             Contact us
           </a>
         </li>
       </ul>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> feat: implement sidebar and navbar (#19)
       <div>
         <button
           className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-gray-100 hover:text-[#ecffe7]"
@@ -2181,13 +2660,22 @@ exports[`My app renders edit profile page correct 1`] = `
               src=""
             />
             <div
+<<<<<<< HEAD
               className="ml-2 xs:hidden sm:hidden md:block"
+=======
+              className="ml-2 xs:hidden"
+>>>>>>> feat: implement sidebar and navbar (#19)
             >
               Logout
             </div>
           </div>
         </button>
       </div>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
       <div
         className="md:hidden flex items-center"
       >
@@ -3039,7 +3527,146 @@ exports[`My app renders home correctly 1`] = `
           </a>
         </li>
       </ul>
+<<<<<<< HEAD
     </div>
+=======
+    </nav>
+  </div>
+  <div
+<<<<<<< HEAD
+    className=" relative min-h-72"
+=======
+    className="min-h-72"
+>>>>>>> feat: Implement provide ratings
+  >
+    <h1
+      className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600"
+    >
+      OUR PRODUCTS
+    </h1>
+    <div
+<<<<<<< HEAD
+      className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10 "
+=======
+      className="px-10 md:px-24 xl:px-60 xs:px-2 grid md:grid-cols-2 lg:grid-cols-4 xs:grid-cols-1 gap-10"
+>>>>>>> feat: Implement provide ratings
+    />
+    <br />
+    <div
+      className="pb-4"
+    />
+<<<<<<< HEAD
+    <div
+      className=" fixed bottom-[80px] right-[50px] z-50 "
+    >
+      <div
+        className=" bg-white shadow sm:w-[370px] border md:w-[600px] w-[325px] flex flex-col xs:justify-center rounded-t-[20px] rounded-bl-[20px] hidden"
+      >
+        <div
+          className="bg-[#ABEC89] flex justify-between h-[50px] py-[15px] px-[20px] rounded-t-[20px]"
+        >
+          <div>
+             Chat 
+          </div>
+          <div>
+            <button
+              onClick={[Function]}
+            >
+              X
+            </button>
+          </div>
+        </div>
+        <div
+          className="p-[20px] border md:mx-22 flex flex-col h-[650px] xs:justify-center rounded-bl-[20px]"
+        >
+          <div
+            className="overflow-y-auto no-scrollbar h-[500px] flex scroll-smooth flex-col-reverse justify - center"
+          />
+          <div>
+            <div
+              className="text-gray-400 font-bold px-[30px] py-[10px] h-[40px]"
+            >
+              <p>
+                <em>
+                   
+                </em>
+              </p>
+            </div>
+          </div>
+          <div
+            className="h-[90px]"
+          >
+            <form
+              onSubmit={[Function]}
+            >
+              <div
+                className="relative"
+              >
+                <div
+                  className="h-[80px] undefined"
+                >
+                  <label
+                    className="undefined sr-only""
+                    htmlFor="message"
+                  />
+                  <div
+                    className="w-full"
+                  >
+                    <input
+                      className=" w-full h-[55px]  rounded-[15px] px-2 py-3 text-[16px] placeholder:text-gray-400 sm:text-[12px] my-2 focus:bg-[#EAF0F7] bg-[#EAF0F7] whitespace-normal"
+                      name="message"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Type message"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div
+                  className=" absolute right-0 top-0"
+                >
+                  <div>
+                    <button
+                      className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] bg-inherit hover:bg-[#F3F3F3] hover:rounded-r-[15px] h-[55px]"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                       
+                      <img
+                        alt="Send Icon"
+                        className="w-[90%] m-auto"
+                        src=""
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        className="w-[50px] h-[50px] rounded-l-[25px] rounded-tr-[25px] fixed bottom-[80px] right-[50px] z-10 bg-[#ABEC89] hover:bg-[#099f09] px-[12px] comment "
+        onClick={[Function]}
+        type="submit"
+      >
+        <img
+          alt="Send Icon"
+          className=" mx-auto "
+          src=""
+        />
+      </button>
+    </div>
+=======
+>>>>>>> feat: Implement provide ratings
+  </div>
+  <div
+    className="flex flex-col w-full"
+  >
+>>>>>>> feat: implement sidebar and navbar (#19)
     <div
       className="mb-10"
     >
@@ -3484,6 +4111,7 @@ exports[`My app renders profile page 1`] = `
         </span>
       </a>
       <div
+<<<<<<< HEAD
         className="flex flex-row items-center gap-6 mt-1"
       >
         <a
@@ -3496,6 +4124,26 @@ exports[`My app renders profile page 1`] = `
           />
         </a>
         <a
+=======
+<<<<<<< HEAD
+        className="flex flex-row items-center gap-6 mt-1"
+      >
+        <a
+          className="h-fit"
+          href="/dashboard"
+        >
+          <img
+            alt="Dashboard Icon"
+            src=""
+          />
+        </a>
+        <a
+=======
+        className="flex flex-row align-middle gap-6 mt-1"
+      >
+        <a
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
           className="flex flex-col align-middle h-fit"
           href="/cart"
         >
@@ -3518,7 +4166,15 @@ exports[`My app renders profile page 1`] = `
         </a>
         <a
           className="flex flex-col align-middle h-fit"
+<<<<<<< HEAD
           href="/notification"
+=======
+<<<<<<< HEAD
+          href="/notification"
+=======
+          href="/profile"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
         >
           <img
             alt="Bell Icon"
@@ -3541,7 +4197,15 @@ exports[`My app renders profile page 1`] = `
     className="flex flex-col w-full"
   >
     <div
+<<<<<<< HEAD
       className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between xs:flex-row-reverse"
+=======
+<<<<<<< HEAD
+      className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-[9999] justify-between xs:flex-row-reverse"
+=======
+      className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
     >
       <ul
         className="hidden md:flex flex-row gap-4"
@@ -3557,7 +4221,15 @@ exports[`My app renders profile page 1`] = `
         <li>
           <a
             className="py-2 text-gray-600 text-[14px] md:hover:text-[#338E03] uppercase"
+<<<<<<< HEAD
             href="/"
+=======
+<<<<<<< HEAD
+            href="/"
+=======
+            href="/about-us"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
           >
             About
           </a>
@@ -3565,12 +4237,24 @@ exports[`My app renders profile page 1`] = `
         <li>
           <a
             className="py-2 text-gray-600 text-[14px] md:hover:text-[#338E03] uppercase"
+<<<<<<< HEAD
             href="/"
+=======
+<<<<<<< HEAD
+            href="/"
+=======
+            href="/contact-us"
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
           >
             Contact us
           </a>
         </li>
       </ul>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> feat: implement sidebar and navbar (#19)
       <div>
         <button
           className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-gray-100 hover:text-[#ecffe7]"
@@ -3586,13 +4270,22 @@ exports[`My app renders profile page 1`] = `
               src=""
             />
             <div
+<<<<<<< HEAD
               className="ml-2 xs:hidden sm:hidden md:block"
+=======
+              className="ml-2 xs:hidden"
+>>>>>>> feat: implement sidebar and navbar (#19)
             >
               Logout
             </div>
           </div>
         </button>
       </div>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> feat: Implement provide ratings
+>>>>>>> feat: implement sidebar and navbar (#19)
       <div
         className="md:hidden flex items-center"
       >
@@ -4147,7 +4840,11 @@ exports[`My app renders resetPassword correctly 1`] = `
 </div>
 `;
 
+<<<<<<< HEAD
+exports[`My app renders verify auth correctly 1`] = `null`;
+=======
 exports[`My app renders update product correctly 1`] = `
+<<<<<<< HEAD
 <div
   className="flex"
 >
@@ -4575,6 +5272,11 @@ exports[`My app renders update product correctly 1`] = `
     </div>
   </div>
 </div>
+=======
+<h2>
+  Page Not Found
+</h2>
+>>>>>>> feat: implement sidebar and navbar (#19)
 `;
 
 exports[`My app renders verify auth correctly 1`] = `null`;
@@ -4584,3 +5286,4 @@ exports[`My app rends dashboard Correctly 1`] = `
   Page Not Found
 </h2>
 `;
+>>>>>>> feat: Implement provide ratings
