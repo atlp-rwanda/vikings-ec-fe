@@ -18,7 +18,7 @@ export const getWishList = createAsyncThunk(
 );
 
 const initialState = {
-  wishedProductsList: [],
+  data: [],
   isLoading: false,
   errorMessage: null,
 };
@@ -32,7 +32,7 @@ export const getWishlistSlice = createSlice({
     },
     [getWishList.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.wishedProductsList = payload;
+      state.data = payload.data.wish;
     },
     [getWishList.rejected]: (state, { payload }) => {
       state.isLoading = false;

@@ -4,7 +4,7 @@ import { getCart } from '../../features/cart/cartSlice';
 import CheckoutDiv from '../../components/cart/CheckoutDiv';
 import CartItemList from '../../components/cart/CartItemList';
 import EmptyCart from '../../components/cart/EmptyCart';
-
+ 
 const CartPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {

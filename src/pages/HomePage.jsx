@@ -62,7 +62,7 @@ const HomePage = () => {
       const response = await dispatch(addToWishlist({
         productId}
         )).unwrap();
-      showSuccessMessage('Product added successfully');
+      showSuccessMessage('Product added to wishlist successfully');
     } catch (error) {
       showErrorMessage(error.data.message);
     }
