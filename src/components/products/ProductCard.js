@@ -24,6 +24,7 @@ const ProductCard = ({ getPersistCartSetter, ...props }) => {
         props.product.quantity,
         props.product.id,
         props.product.bonus,
+        props.product.isAvailable
       );
     }
   };
