@@ -47,7 +47,6 @@ const Notifications = () => {
   const handleLoadMore = () => {
     const currentPage = parseInt(pagination.currentPage);
     if(currentPage === pagination.totalPages) {
-      console.log("NO NEXT PAGE");
       return false;
     }
     dispatch(fetchNotifications({ page: currentPage + 1, append: true }));

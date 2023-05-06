@@ -31,6 +31,7 @@ module.exports = (env) => ({
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
       template: './public/index.html',
+      favicon: './public/images/logo.svg',
     }),
   ],
   module: {

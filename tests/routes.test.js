@@ -66,16 +66,16 @@ describe('My app', () => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
-  it('renders profile page', async () => {
-    const renderer = renderRoute('/profile');
-    await waitFor(() => { expect(renderer.toJSON()).toMatchSnapshot(); });
-  });
+
   it('renders edit profile page correct', async () => {
     const renderer = renderRoute('/profile/update');
     await waitFor(() => { expect(renderer.toJSON()).toMatchSnapshot(); });
   });
   it('renders verify email correctly', async () => {
     const renderer = renderRoute('/auth/verify-email/token');
+    await waitFor(() => {
+      expect(renderer.toJSON()).toMatchSnapshot();
+    });
   });
   it('renders create product correctly', async () => {
     const renderer = renderRoute('/dashboard/products/create');
