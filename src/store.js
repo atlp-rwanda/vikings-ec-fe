@@ -29,13 +29,14 @@ import userReducer from './features/auth/userSlice';
 import rolesReducer from './features/auth/rolesSlice';
 import changeUserStatusReducer from './features/auth/changeUserStatusSlice';
 import logoutReducer from './features/auth/logoutSlice';
-
 import provideRatingsReducer from './features/ratings/ratingsSlice';
 import recommendedProductsReducer from './features/product/recommededProducts';
 import sendMessageReducer from './features/chat/sendMessage';
 import getMessagesReducer from './features/chat/getMessages';
 import PaymentCheckoutReducer from './features/payments/PaymentsSlice';
 import getOrderDetailsReducer from './features/order/orderSlice';
+import markProductReducer from './features/product/markProductSlice';
+
 
 const middlewares = [];
 
@@ -117,6 +118,7 @@ const store = configureStore({
     getMessages: getMessagesReducer,
     payment: PaymentCheckoutReducer,
     order: getOrderDetailsReducer,
+    markProduct: markProductReducer,
   },
   middleware: [...middlewares, thunk],
 });

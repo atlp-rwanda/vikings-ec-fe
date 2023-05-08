@@ -9,6 +9,7 @@ const mockProduct = {
     quantity: 1,
     id: '12345',
     bonus: 2000,
+    isAvailable: true
   },
   editBTN: <button>Edit</button>,
   deleteBTN: <button>Delete</button>,

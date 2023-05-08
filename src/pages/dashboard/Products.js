@@ -55,13 +55,14 @@ const Products = () => {
     }
   };
 
-  const viewSingleProduct = (name, image, price, quantity, id) => {
+  const viewSingleProduct = (name, image, price, quantity, id, bonus, isAvailable) => {
     setSelectedProduct({
       name,
       image,
       price,
       quantity,
       id,
+      isAvailable
     });
     setProductClicked(true);
   };

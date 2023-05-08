@@ -57,6 +57,7 @@ describe('ProductCard', () => {
       1,
       '12345',
       2000,
+      true
     );
   });
 
@@ -343,6 +344,10 @@ describe('HomePage Component', () => {
 
 const mockStore2 = configureStore([thunk]);
 const store = mockStore2({
+  markProduct: {
+    data: null,
+    isLoading: false
+  },
   product: {
     productsList: {
       currentPage: 1,

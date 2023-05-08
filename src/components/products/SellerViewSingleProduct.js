@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductRatings from './ProductRatings';
 import loader from '../../../public/images/icons/loader.svg';
 import { getProductRatings } from '../../features/product/getRatingsSlice';
+import MarkProduct from './MarkProduct';
 
 const SellerViewSingleProduct = ({ ...props }) => {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ const SellerViewSingleProduct = ({ ...props }) => {
           <p className=" text-black font-bold  text-[18px] xs:w-2/4">Left in stock</p>
           <p className="text-[#161616] text-[16px] font-medium">{props.product.quantity}</p>
         </div>
+        <MarkProduct productId={props.product.id} isAvailable={props.product.isAvailable}/>
       </div>
     </div>
   );
