@@ -18,3 +18,12 @@ export const formatDate = (date) => {
   const newDate = new Date(date).toISOString().substr(0, 10);
   return newDate;
 };
+
+export const formatToenUs = (date) => {
+  const newDate = new Date(date).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+  return newDate;
+};

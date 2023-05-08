@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         brand: '#338E03',
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
     },
     screens: {
       xs: { max: '425px' },

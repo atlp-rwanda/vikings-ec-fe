@@ -41,6 +41,7 @@ import markProductReducer from './features/product/markProductSlice';
 import notificationsReducer from './features/notifications/getNotificationSlice';
 import markOneNotificationReducer from './features/notifications/markOneNotificationSlice';
 import markAllNotificationsReducer from './features/notifications/markAllNotificationsSlice';
+import getStatsReducer from './features/stastics/stats';
 
 const middlewares = [];
 
@@ -128,6 +129,7 @@ const store = configureStore({
     notifications: notificationsReducer,
     markOneNotification: markOneNotificationReducer,
     markAllNotifications: markAllNotificationsReducer,
+    stastics: getStatsReducer,
   },
   middleware: [...middlewares, thunk],
 });
