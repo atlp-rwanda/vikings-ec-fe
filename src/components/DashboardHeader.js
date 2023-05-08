@@ -29,9 +29,12 @@ const DashboardHeader = () => {
           {' '}
           <img src={bell} alt="Bell Icon" className="w-8 h-8" />
         </a>
-        {data?.avatar
-          ? (<Avatar avatar={data?.avatar} className="w-8 h-8 rounded-full object-cover" />)
-          : (<img src={Prof} className="w-8 h-8" alt="Profile Icon" />)}
+        <a href="/profile">
+          {data?.avatar
+            ? (<Avatar avatar={data?.avatar} className="w-8 h-8 rounded-full object-cover" />)
+            : (<img src={Prof} className="w-8 h-8" alt="Profile Icon" />)}
+        </a>
+
       </div>
     </div>
   );

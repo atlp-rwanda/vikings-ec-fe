@@ -20,7 +20,7 @@ const Ratings = ({ visible, onClose, productId }) => {
 
   const handleOnClose = (e) => {
     if(e.target.id === 'container')  onClose();
- 
+
   }
 
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const Ratings = ({ visible, onClose, productId }) => {
   });
 
   const onSubmit = async (reviewsData) => {
-   
+
     try {
       reviewsData.rate=number
       const response = await dispatch(provideRatings({rate:reviewsData.rate, productId:productId, feedback:reviewsData.Feedback})).unwrap();
@@ -48,22 +48,23 @@ const Ratings = ({ visible, onClose, productId }) => {
 
   return (
     <form
+      className={`fixed top-0 left-0 flex flex-col justify-center items-center px-4 w-full h-full bg-black bg-opacity-50 z-50 ${!visible ? 'hidden': ''}`}
     onSubmit={(event) => {
       handleSubmit(onSubmit)(event);
     }}
-    
+
     >
 
-      <div 
+      <div
       id="container"
-      className={` fixed top-40 right-1/4 backdrop-blur-sm left-1/3 z-50 p-4  border border-grey-400 bg-slate-200 poppins bg-opacity-80 ${!visible ? 'hidden': ''}`}>
+      className={`max-w-2xl my-auto backdrop-blur-sm z-50 p-4 border border-grey-400 bg-slate-200 poppins w-full px-4 bg-opacity-80 `}>
         <h2>Provide Ratings and Feedback</h2>
         <div className="flex items-center">
           {Array(5)
             .fill()
             .map((_, index) => (
               number >= index + 1 || hoverStar >= index + 1 ? (
-                <AiFillStar 
+                <AiFillStar
                 key={`${index}rate`}
                   onMouseOver={() => setHoverStar(index + 1)}
                   onMouseLeave={() => setHoverStar(undefined)}
@@ -93,7 +94,7 @@ const Ratings = ({ visible, onClose, productId }) => {
         error={errors?.Feedback}
         />
         </div>
-        <div className = 'py-3 sm:px-6 sm:flex sm:flex-row-reverse'>
+        <div className = 'py-3 sm:px-6 flex gap-2 flex-row-reverse'>
           {isLoading ? (
               <Button
             className="!w-fit text-white sm:ml-3 bg-green-500 hover:bg-green-600 px-5 py-2.5 mt-20 font-bold rounded-none self-end ml-auto"
@@ -107,23 +108,23 @@ const Ratings = ({ visible, onClose, productId }) => {
             type="submit"
             label="Add review"
             parentClassName="flex xs:block"
-            className="!w-fit text-white sm:ml-3 bg-green-500 hover:bg-green-600 px-5 py-2.5 mt-20 font-bold rounded-none self-end ml-auto"
+            className="text-white sm:ml-3 bg-green-500 hover:bg-green-600 px-5 py-2.5 mt-20 font-bold rounded-none"
           />
-         
+
           )}
-          <Button   
+          <Button
           role="cancel"
           type='button'
           onClick={onClose}
           label="cancel"
           parentClassName="flex xs:block"
-          className="!w-fit text-white bg-red px-5 py-2.5 mt-20 font-bold rounded-none self-end ml-auto xs:w-full"
+          className="text-white px-5 py-2.5 mt-20 font-bold rounded-none"
         />
         </div>
-        
-        
-  
-       
+
+
+
+
       </div>
   </form>
   );

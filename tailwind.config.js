@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         login: '',
       },
+      colors: {
+        brand: '#338E03',
+      },
     },
     screens: {
       xs: { max: '425px' },

@@ -71,25 +71,25 @@ const Chat = ({ visible, onClose, socket, room, user }) => {
 
   return (
     <div
-      className={` bg-white shadow sm:w-[370px] border md:w-[600px] w-[325px] flex flex-col xs:justify-center rounded-t-[20px] rounded-bl-[20px] ${
+      className={` fixed bottom-[80px] px-4 md:px-0 md:right-5 max-w-[400px] top-[50px] z-50 bg-white w-full flex flex-col xs:justify-center rounded-t-[20px] rounded-bl-[20px] ${
         !visible ? 'hidden' : ''
       }`}
     >
-      <div className="bg-[#ABEC89] flex justify-between h-[50px] py-[15px] px-[20px] rounded-t-[20px]">
+      <div className="bg-[#ABEC89] w-full flex justify-between h-[50px] py-[15px] px-[20px] rounded-t-[20px]">
         <div> Chat </div>
         <div>
           <button onClick={onClose}>X</button>
         </div>
       </div>
 
-      <div className={`p-[20px] border md:mx-22 flex flex-col h-[650px] xs:justify-center rounded-bl-[20px]`}>
+      <div className={`p-[20px] border md:mx-22 flex flex-col h-full xs:justify-center rounded-bl-[20px]`}>
         {isLoading ? (
           <div className='h-[540px] flex justify-center'>
             <Loader />
           </div>
         ) : (
           <>
-            <div className="overflow-y-auto no-scrollbar h-[500px] flex scroll-smooth flex-col-reverse justify - center">
+            <div className="overflow-y-auto no-scrollbar h-full flex scroll-smooth flex-col-reverse justify - center">
               {messages.map((message) => (
                 <div key={message.id} className="p-[10px]">
                   <div

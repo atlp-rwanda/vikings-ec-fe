@@ -35,6 +35,8 @@ import sendMessageReducer from './features/chat/sendMessage';
 import getMessagesReducer from './features/chat/getMessages';
 import PaymentCheckoutReducer from './features/payments/PaymentsSlice';
 import getOrderDetailsReducer from './features/order/orderSlice';
+import getSalesReducer from './features/sales/getSalesSlice';
+import changeSalesStatusReducer from './features/sales/changeSalesStatusSlice';
 import markProductReducer from './features/product/markProductSlice';
 
 
@@ -118,6 +120,8 @@ const store = configureStore({
     getMessages: getMessagesReducer,
     payment: PaymentCheckoutReducer,
     order: getOrderDetailsReducer,
+    sales: getSalesReducer,
+    changeSaleStatus: changeSalesStatusReducer,
     markProduct: markProductReducer,
   },
   middleware: [...middlewares, thunk],

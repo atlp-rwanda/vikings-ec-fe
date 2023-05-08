@@ -1,8 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import UserRow from './UserRow';
+import Pagination from '../Pagination';
+import { getUsers } from '../../features/auth/userSlice';
 
 const UsersTable = ({ data }) => {
+  const dispatch = useDispatch();
+  const { pagination } = useSelector((state) => state.users);
   const users = data.data.items;
 
   return (
@@ -36,6 +40,13 @@ const UsersTable = ({ data }) => {
             ))}
         </tbody>
       </table>
+      <div className="flex justify-center">
+        <Pagination
+          currentPage={parseInt(pagination.currentPage, 10)}
+          pageCount={pagination.totalPages}
+          setPageNumber={(page) => { dispatch(getUsers({ page })); }}
+        />
+      </div>
     </div>
   );
 };
