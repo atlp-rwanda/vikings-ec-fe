@@ -77,6 +77,7 @@ export const getRoutes = () => [
       element={<UpdateProductForm />}
     />
   </Route>,
+  <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,
   <>
     <Route path="/products" element={<SingleProductPage />} />
     <Route key="key_product" path="products/:id" element={<HomeLayout />}>

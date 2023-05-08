@@ -15,6 +15,7 @@ import { statusHandler } from './changeStatus.handler';
 import { logoutHandler } from './logout.handler';
 import { orderHandler } from './order.handler';
 import { getSalesHandler, updateSalesHandler } from './sales.handler';
+import { getNotificationsHandler, markOneNotificationHandler, markAllNotificationHandler } from './notifications.handler';
 
 const handlers = [
   ...loginHandler,
@@ -40,6 +41,9 @@ const handlers = [
   ...orderHandler,
   ...getSalesHandler,
   ...updateSalesHandler,
+  ...getNotificationsHandler,
+  ...markOneNotificationHandler,
+  ...markAllNotificationHandler,
 ];
 
 export default handlers;
