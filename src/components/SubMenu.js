@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import LogoutIcon from '../../public/images/icons/sidebar/logout.svg';
 import Button from './forms/Button';
 import { logout } from '../features/auth/logoutSlice';
+import Search from './products/Search';
 
 const SubMenu = () => {
   const dispatch = useDispatch();
@@ -34,23 +35,10 @@ const SubMenu = () => {
   ));
 
   return (
-    <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between xs:flex-row-reverse">
+    <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between">
       <ul className="hidden md:flex flex-row gap-4">
         {menuItems}
       </ul>
-      <Button
-        onClick={async () => {
-          await dispatch(logout()).unwrap();
-          navigate('/auth');
-        }}
-        className="!my-0 !p-0 h-full !bg-gray-100 hover:text-[#ecffe7]"
-      >
-        <div className="flex text-gray-600">
-          <img src={LogoutIcon} alt="Logout Icon" className="w-[24px] h-[24px]" />
-          <div className="ml-2 xs:hidden sm:hidden md:block">Logout</div>
-
-        </div>
-      </Button>
       <div className="md:hidden flex items-center">
         {showMenu ? (
           <>
@@ -97,6 +85,22 @@ const SubMenu = () => {
           </svg>
         )}
       </div>
+      <div className="max-w-xs md:hidden">
+        <Search />
+      </div>
+      <Button
+        onClick={async () => {
+          await dispatch(logout()).unwrap();
+          navigate('/auth');
+        }}
+        className="!my-0 !p-0 h-full !bg-gray-100 hover:text-[#ecffe7]"
+      >
+        <div className="flex text-gray-600">
+          <img src={LogoutIcon} alt="Logout Icon" className="w-[24px] h-[24px]" />
+          <div className="ml-2 xs:hidden sm:hidden md:block">Logout</div>
+
+        </div>
+      </Button>
     </div>
   );
 };

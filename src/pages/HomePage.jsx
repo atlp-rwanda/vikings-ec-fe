@@ -59,13 +59,6 @@ const HomePage = () => {
   const productNotFound = true
     ? (!isLoading && Array.isArray(productsList.rows) && productsList.rows.length === 0) : false;
 
-  if (errorMessage) {
-    showErrorMessage(errorMessage.data.error);
-    setTimeout(() => {
-      dispatch({ type: 'product/resetErrorMessage' });
-    }, 5000);
-  }
-
   const setPageNumberHandler = (nextPage) => {
     const newPageNumber = nextPage
       ? parseInt(productsList.currentPage) + 1
@@ -123,11 +116,12 @@ const HomePage = () => {
               }}
               toggle={(
                 <ProductOperationButton
-                  className="mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center "
+                  className={`mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center ${row.isAvailable ? '' : 'hover:bg-[#D9F2D9]'}`}
                   icon={hoverAddCart ? HoveredShopIcon : shopIcon}
-                  title="Shop product"
+                  title={row.isAvailable ? 'Shop product' : 'Product is not available'}
                   testId="add-to-cart"
                   alt="shop"
+                  disabled={!row.isAvailable}
                   handleMouseEnter={handleAddTocartMouseEnter}
                   handleMouseLeave={handleAddTocartMouseLeave}
                 />

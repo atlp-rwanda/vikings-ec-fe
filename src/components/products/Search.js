@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import search from '../../assets/images/search.svg';
 import option from '../../assets/images/option_arrow.svg';
 import SearchOption from './SearchOption';
 import SearchSuggest from './SearchSuggest';
 import { getProductList } from '../../features/product/getProductsSilice';
 import InformSearched from './InformSearched';
+import { showErrorMessage } from '../../utils/toast';
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,8 @@ const Search = () => {
   const searchRef = useRef(null);
   const [isSearch, setIsSearch] = useState(false);
   const [searchedFor, setSearchedFor] = useState('');
+  const { pathname } = useLocation();
+  const isRootUrl = pathname === '/';
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -32,6 +36,12 @@ const Search = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [searchRef]);
+
+  useEffect(() => {
+    if (errorMessage && isSearch) {
+      showErrorMessage(errorMessage.data.error);
+    }
+  }, [errorMessage]);
 
   const optionHandler = () => {
     setOptions((prevSate) => !prevSate);
@@ -96,11 +106,10 @@ const Search = () => {
       searchButtonHandler();
     }
   };
-
   return (
-    <div className="absolute z-50 left-[50%] transform translate-x-[-50%] xs:top-24" ref={searchRef}>
+    <div className={`relative w-full ${isRootUrl ? '' : 'hidden'}`} ref={searchRef}>
       <div className="bg-[#64B937] rounded-md px-0.5 py-0.5 flex">
-        <input type="text" onChange={searchInputHandler} onKeyDown={handleKeyPress} value={inputValue} placeholder="Search here..." data-testid="search-input" className="rounded-l-md px-2 md:w-60 xs:w-32 sm:w-40 outline-none py-1" />
+        <input type="text" onChange={searchInputHandler} onKeyDown={handleKeyPress} value={inputValue} placeholder="Search here..." data-testid="search-input" className="rounded-l-md px-2 w-full outline-none py-1" />
         <div onClick={optionHandler} className="bg-[#fffdfd] border-l-2 cursor-pointer hover:bg-[#ebeeeb] px-3  py-1 flex justify-between items-center gap-3">
           <span className="xs:hidden">options</span>
           <img src={option} alt="options" />
@@ -109,14 +118,16 @@ const Search = () => {
           <img src={search} alt="search" />
         </button>
       </div>
-      {isSearch && !isLoading ? <InformSearched click={closeSearchedInform} message={`${searchedFor}`} /> : null }
-      { options ? <SearchOption options={getSelectedSearchOptions} /> : null }
-      { searchSuggest && !options ? (
-        <SearchSuggest
-          productName={searchName}
-          click={searchProductNameClicked}
-        />
-      ) : null }
+      <div className="absolute z-50 w-full">
+        {isSearch && !isLoading ? <InformSearched click={closeSearchedInform} message={`${searchedFor}`} /> : null }
+        { options ? <SearchOption options={getSelectedSearchOptions} /> : null }
+        { searchSuggest && !options ? (
+          <SearchSuggest
+            productName={searchName}
+            click={searchProductNameClicked}
+          />
+        ) : null }
+      </div>
     </div>
   );
 };

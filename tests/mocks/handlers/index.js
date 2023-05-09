@@ -16,6 +16,7 @@ import { logoutHandler } from './logout.handler';
 import { orderHandler } from './order.handler';
 import { getSalesHandler, updateSalesHandler } from './sales.handler';
 import { getNotificationsHandler, markOneNotificationHandler, markAllNotificationHandler } from './notifications.handler';
+import { createCategoryHandler } from './createCategory.handler';
 
 const handlers = [
   ...loginHandler,
@@ -44,6 +45,7 @@ const handlers = [
   ...getNotificationsHandler,
   ...markOneNotificationHandler,
   ...markAllNotificationHandler,
+  ...createCategoryHandler,
 ];
 
 export default handlers;

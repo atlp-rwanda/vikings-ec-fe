@@ -2,10 +2,13 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { userEvent } from '@storybook/testing-library';
 import { expect, describe, it } from '@jest/globals';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 import Search from '../../src/components/products/Search';
 import SearchOption from '../../src/components/products/SearchOption';
 import InformSearched from '../../src/components/products/InformSearched';
@@ -54,7 +57,9 @@ describe('Search component', () => {
   it('should render the search input', () => {
     const { getByPlaceholderText } = render(
       <Provider store={store}>
-        <Search />
+        <BrowserRouter>
+          <Search />
+        </BrowserRouter>
       </Provider>,
     );
     const searchInput = getByPlaceholderText('Search here...');
@@ -64,7 +69,9 @@ describe('Search component', () => {
   it('should render the search button', () => {
     const { getByRole } = render(
       <Provider store={store}>
-        <Search />
+        <BrowserRouter>
+          <Search />
+        </BrowserRouter>
       </Provider>,
     );
     const searchButton = getByRole('button', { name: 'search' });
@@ -74,7 +81,9 @@ describe('Search component', () => {
   it('should render the options click place', () => {
     const { getByAltText } = render(
       <Provider store={store}>
-        <Search />
+        <BrowserRouter>
+          <Search />
+        </BrowserRouter>
       </Provider>,
     );
     const optionsButton = getByAltText('options');
@@ -84,7 +93,9 @@ describe('Search component', () => {
   it('should update the input value when typing in the search input', () => {
     const { getByPlaceholderText } = render(
       <Provider store={store}>
-        <Search />
+        <BrowserRouter>
+          <Search />
+        </BrowserRouter>
       </Provider>,
     );
     const searchInput = getByPlaceholderText('Search here...');
@@ -95,8 +106,10 @@ describe('Search component', () => {
   it('should call the searchButtonHandler function when the search button is clicked', () => {
     const { getByRole } = render(
       <Provider store={store}>
-        <Search />
-      </Provider>
+        <BrowserRouter>
+          <Search />
+        </BrowserRouter>
+      </Provider>,
     );
     const searchButton = getByRole('button', { name: 'search' });
     fireEvent.click(searchButton);
@@ -105,7 +118,9 @@ describe('Search component', () => {
   it('should render the SearchSuggest component', () => {
     const { getByRole } = render(
       <Provider store={store}>
-        <SearchSuggest productName={`Product 1`}/>
+        <BrowserRouter>
+          <SearchSuggest productName="Product 1" />
+        </BrowserRouter>
       </Provider>,
     );
     const searchSuggest = screen.getByTestId('search-suggest');
@@ -115,8 +130,10 @@ describe('Search component', () => {
   it('should dispatch getProductList action with correct arguments when search button is clicked', () => {
     const { getByRole, getByTestId } = render(
       <Provider store={store}>
-        <Search />
-      </Provider>
+        <BrowserRouter>
+          <Search />
+        </BrowserRouter>
+      </Provider>,
     );
 
     const searchInput = getByTestId('search-input');
@@ -134,15 +151,16 @@ describe('Search component', () => {
   it('should search clicked product name', () => {
     const { getByTestId, getByRole } = render(
       <Provider store={store}>
-        <Search />
+        <BrowserRouter>
+          <Search />
+        </BrowserRouter>
       </Provider>,
     );
     const searchInput = getByTestId('search-input');
-    fireEvent.change(searchInput, { target: { value: 'Product 1' } });;
+    fireEvent.change(searchInput, { target: { value: 'Product 1' } });
     const productLink = getByTestId('click-name');
     fireEvent.click(productLink);
   });
-
 });
 
 describe('SearchOption component', () => {

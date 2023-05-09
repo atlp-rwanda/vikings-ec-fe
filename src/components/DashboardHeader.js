@@ -24,7 +24,7 @@ const DashboardHeader = () => {
         </a>
       </div>
       <NavLink to="/dashboard" className="text-green-400 xs:hidden font-bold">Dashboard</NavLink>
-      <div className="flex gap-1">
+      <div className="flex gap-4">
         <a className="flex flex-col align-middle h-fit">
           <Notifications />
         </a>
