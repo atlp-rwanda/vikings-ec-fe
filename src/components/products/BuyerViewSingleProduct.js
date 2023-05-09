@@ -66,6 +66,12 @@ const BuyerViewProduct = ({ ...props }) => {
             <div className="flex justify-between h-fit overflow-clip items-center mt-7 gap-3">
               {otherImages}
             </div>
+            <Button
+              onClick={() => setShowRatings(true)}
+              label="Add review"
+              parentClassName="w-fit mt-6"
+              className="bg-green-500 hover:bg-green-600 rounded-none"
+            />
           </div>
         </div>
       </div>
@@ -75,15 +81,6 @@ const BuyerViewProduct = ({ ...props }) => {
           {reviewers || 'No reviews found'}
         </div>
         <Ratings onClose={handleOnClose} visible={showRatings} productId={props.products.id} />
-        <div className="py-3 px-3 sm:flex flex-wrap gap-2 pt-8 justify-between max-w-2xl">
-          <p className="text-[#393d3e] font-bold text-[18px] italic">Reviews</p>
-          <Button
-            onClick={() => setShowRatings(true)}
-            label="Add review"
-            parentClassName="flex"
-            className="!w-fit text-white mx-[19rem] bg-green-500 hover:bg-green-600 px-5 py-2.5 font-bold rounded-none self-end xs:w-full"
-          />
-        </div>
       </div>
     </div>
   );

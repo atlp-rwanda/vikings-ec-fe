@@ -57,7 +57,7 @@ describe('ProductCard', () => {
       1,
       '12345',
       2000,
-      true
+      true,
     );
   });
 
@@ -84,7 +84,13 @@ describe('DashboardPage', () => {
   it('should render loading spinner when isLoading is true', () => {
     const isLoading = true;
     const productsList = [];
-    const initialState = { product: { productsList, isLoading } };
+    const initialState = {
+      product: { productsList, isLoading },
+      createCategory: {
+        data: null,
+        isLoading: false,
+      },
+    };
     const store = mockStore(initialState);
     render(
       <Provider store={store}>
@@ -128,6 +134,10 @@ describe('SingProductPage', () => {
     },
     product: {
       productList: {},
+      isLoading: false,
+    },
+    createCategory: {
+      data: null,
       isLoading: false,
     },
   });
@@ -321,6 +331,10 @@ describe('HomePage Component', () => {
       },
       getMessages: { isLoading: false, messages: [] },
       sendMessage: { isLoading: false },
+      createCategory: {
+        data: null,
+        isLoading: false,
+      },
     });
   });
 
@@ -358,7 +372,7 @@ const mockStore2 = configureStore([thunk]);
 const store = mockStore2({
   markProduct: {
     data: null,
-    isLoading: false
+    isLoading: false,
   },
   product: {
     productsList: {
@@ -387,6 +401,10 @@ const store = mockStore2({
   },
   getRatings: {
     ratings: null,
+    isLoading: false,
+  },
+  createCategory: {
+    data: null,
     isLoading: false,
   },
 });

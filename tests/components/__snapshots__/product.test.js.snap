@@ -92,8 +92,9 @@ exports[`SingProductPage should render SingProductPage component correctly 1`] =
                 onClick={[Function]}
               >
                 <button
-                  className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center "
-                  title="Shop product"
+                  className="mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center hover:bg-[#D9F2D9]"
+                  disabled={true}
+                  title="Product is not available"
                   type="button"
                 >
                   <img
@@ -111,6 +112,17 @@ exports[`SingProductPage should render SingProductPage component correctly 1`] =
                 className="w-24 h-20 mt-2 object-cover "
                 src="image2.jpg"
               />
+            </div>
+            <div
+              className="w-fit mt-6"
+            >
+              <button
+                className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] bg-green-500 hover:bg-green-600 rounded-none"
+                onClick={[Function]}
+              >
+                Add review
+                 
+              </button>
             </div>
           </div>
         </div>
@@ -308,26 +320,6 @@ exports[`SingProductPage should render SingProductPage component correctly 1`] =
             </div>
           </div>
         </form>
-        <div
-          className="py-3 px-3 sm:flex flex-wrap gap-2 pt-8 justify-between max-w-2xl"
-        >
-          <p
-            className="text-[#393d3e] font-bold text-[18px] italic"
-          >
-            Reviews
-          </p>
-          <div
-            className="flex"
-          >
-            <button
-              className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !w-fit text-white mx-[19rem] bg-green-500 hover:bg-green-600 px-5 py-2.5 font-bold rounded-none self-end xs:w-full"
-              onClick={[Function]}
-            >
-              Add review
-               
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   </div>

@@ -147,25 +147,41 @@ exports[`My app renders Users data correctly 1`] = `
         Dashboard
       </a>
       <div
-        className="flex gap-1"
+        className="flex gap-4"
       >
         <a
-          className="h-fit"
-          href="/notification"
+          className="flex flex-col align-middle h-fit"
         >
-           
-          <img
-            alt="Bell Icon"
-            className="w-8 h-8"
-            src=""
-          />
+          <div
+            className="relative font-bold flex justify-start items-start cursor-pointer"
+            data-testid="notifications-list"
+            onClick={[Function]}
+          >
+            <span
+              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
+            >
+              0
+            </span>
+            <span
+              className="material-symbols-outlined text-[#7AC751] text-3xl"
+            >
+              notifications
+            </span>
+          </div>
+          <div
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+          >
+            <div
+              className="flex flex-col gap-3"
+            />
+          </div>
         </a>
         <a
           href="/profile"
         >
           <img
             alt="Avatar"
-            className="w-32 h-32 xs:w-20 xs:h-20 rounded-full object-cover w-8 h-8 rounded-full object-cover"
+            className="w-32 h-32 xs:w-8 xs:h-8 rounded-full object-cover w-8 h-8 rounded-full object-cover"
             src="http://res.cloudinary.com/djg7yg23y/image/upload/v1681389414/projects/ecommerce/d218ebc4-ce9c-48bc-be76-bb0500bc7125_1681389404.509.jpg"
           />
         </a>
@@ -185,6 +201,12 @@ exports[`My app renders Users data correctly 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`My app renders Users data correctly 2`] = `
+<h2>
+  Page Not Found
+</h2>
 `;
 
 exports[`My app renders auth correctly 1`] = `
@@ -1246,18 +1268,34 @@ exports[`My app renders create product correctly 1`] = `
         Dashboard
       </a>
       <div
-        className="flex gap-1"
+        className="flex gap-4"
       >
         <a
-          className="h-fit"
-          href="/notification"
+          className="flex flex-col align-middle h-fit"
         >
-           
-          <img
-            alt="Bell Icon"
-            className="w-8 h-8"
-            src=""
-          />
+          <div
+            className="relative font-bold flex justify-start items-start cursor-pointer"
+            data-testid="notifications-list"
+            onClick={[Function]}
+          >
+            <span
+              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
+            >
+              0
+            </span>
+            <span
+              className="material-symbols-outlined text-[#7AC751] text-3xl"
+            >
+              notifications
+            </span>
+          </div>
+          <div
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+          >
+            <div
+              className="flex flex-col gap-3"
+            />
+          </div>
         </a>
         <a
           href="/profile"
@@ -1289,7 +1327,7 @@ exports[`My app renders create product correctly 1`] = `
         onSubmit={[Function]}
       >
         <div
-          className="grid md:grid-cols-2 gap-10 sm:grid-flow-row"
+          className="grid lg:grid-cols-2 gap-10 grid-flow-row"
         >
           <div
             className=""
@@ -1438,7 +1476,7 @@ exports[`My app renders create product correctly 1`] = `
                   <input
                     className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
                     label="Expiry Date"
-                    min="2023-05-08"
+                    min="2023-05-09"
                     name="expiryDate"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -1640,18 +1678,34 @@ exports[`My app renders dashboard 1`] = `
         Dashboard
       </a>
       <div
-        className="flex gap-1"
+        className="flex gap-4"
       >
         <a
-          className="h-fit"
-          href="/notification"
+          className="flex flex-col align-middle h-fit"
         >
-           
-          <img
-            alt="Bell Icon"
-            className="w-8 h-8"
-            src=""
-          />
+          <div
+            className="relative font-bold flex justify-start items-start cursor-pointer"
+            data-testid="notifications-list"
+            onClick={[Function]}
+          >
+            <span
+              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
+            >
+              0
+            </span>
+            <span
+              className="material-symbols-outlined text-[#7AC751] text-3xl"
+            >
+              notifications
+            </span>
+          </div>
+          <div
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+          >
+            <div
+              className="flex flex-col gap-3"
+            />
+          </div>
         </a>
         <a
           href="/profile"
@@ -1664,12 +1718,326 @@ exports[`My app renders dashboard 1`] = `
         </a>
       </div>
     </div>
-    <div>
-      <h1
-        className="px-24"
+    <div
+      className="-mt-8 overflow-scroll pb-16"
+    >
+      <div
+        className="flex justify-around items-center mx-20 xs:w-screen xs:flex-col py-6 xs:mx-0 font-poppins font-bold md:gap-2"
       >
-        Dashboard Page
-      </h1>
+        <h1
+          className=""
+        >
+          Filter By Date
+        </h1>
+        <div
+          className="flex items-center justify-between md:p-2 md:w-full"
+        >
+          <p>
+            From
+          </p>
+          <div
+            className="h-[80px] undefined"
+          >
+            <label
+              className="undefined sr-only""
+            />
+            <div
+              className="w-full"
+            >
+              <input
+                className="bg-white p-2 mt-5"
+                defaultValue="2023-04-09"
+                max="2023-05-10"
+                onChange={[Function]}
+                type="date"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="flex items-center justify-between md:p-2 md:w-full"
+        >
+          <p>
+            To
+          </p>
+          <div
+            className="h-[80px] undefined"
+          >
+            <label
+              className="undefined sr-only""
+            />
+            <div
+              className="w-full"
+            >
+              <input
+                className="bg-white p-2 mt-5"
+                defaultValue="2023-05-10"
+                max="2023-05-09"
+                min="2023-04-09"
+                onChange={[Function]}
+                type="date"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="flex md:px-20 justify-around xs:grid grid-cols-1 xs:w-full gap-8 font-poppins font-bold xs:text-sm xs:px-4 text-xl text-white"
+      >
+        <div
+          className="bg-gradient-to-r w-1/4 xs:w-full from-[#54dce6] to-[#92d96c] p-2 "
+        >
+          <p>
+            Created Products
+          </p>
+          <span
+            className="flex justify-end"
+          />
+        </div>
+        <div
+          className="bg-gradient-to-r w-1/4 xs:w-full from-[#67abd2] to-[#92d96c] p-2"
+        >
+          <p>
+            New Sales
+          </p>
+          <span
+            className="flex justify-end"
+          />
+        </div>
+        <div
+          className="bg-gradient-to-r w-1/4 xs:w-full from-[#d36b80] to-[#92d96c] p-2"
+        >
+          <p>
+            Expired Products
+          </p>
+          <span
+            className="flex justify-end"
+          />
+        </div>
+        <div
+          className="bg-gradient-to-r w-1/4 xs:w-full from-[#ae57c1] to-[#92d96c] p-2"
+        >
+          <p>
+            Wished Products
+          </p>
+          <span
+            className="flex justify-end"
+          />
+        </div>
+      </div>
+      <div
+        className="grid grid-cols-2 xs:grid-cols-1 gap-8 max-w-[100%] md:mx-20 mt-10 px-6"
+      >
+        <div
+          className=" font-poppins font-normal"
+        >
+          <table
+            className="w-full bg-white overflow-x-auto"
+          >
+            <caption
+              className="w-full table-caption border-b py-2 px-4"
+            >
+              <p
+                className="inline-block float-left font-bold"
+              >
+                Expired Products
+              </p>
+              <div
+                className="float-right flex"
+              >
+                <img
+                  className="cursor-pointer"
+                  src=""
+                />
+                <span
+                  className="ml-3 text-sm"
+                >
+                  April 9, 2023
+                   - 
+                  May 10, 2023
+                </span>
+              </div>
+            </caption>
+            <thead>
+              <tr
+                className="border-b py-2 text-left"
+              >
+                <th />
+                <th
+                  className="py-2 px-4 font-normal"
+                >
+                  Name
+                </th>
+                <th
+                  className="font-normal"
+                >
+                  Unit Price
+                </th>
+                <th
+                  className="font-normal"
+                >
+                  Quantity
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+        <div
+          className="font-poppins"
+        >
+          <table
+            className="w-full bg-white h-[50%] overflow-scroll"
+          >
+            <caption
+              className="w-full table-caption border-b py-2 px-2"
+            >
+              <p
+                className="inline-block float-left font-bold"
+              >
+                Wished Products
+              </p>
+              <div
+                className="float-right flex"
+              >
+                <img
+                  className="cursor-pointer"
+                  src=""
+                />
+                <span
+                  className="ml-3 text-sm"
+                >
+                  April 9, 2023
+                   - 
+                  May 10, 2023
+                </span>
+              </div>
+            </caption>
+            <thead>
+              <tr
+                className="border-b text-left"
+              >
+                <th />
+                <th
+                  className="py-2 px-4 font-normal"
+                >
+                  Name
+                </th>
+                <th
+                  className="py-2 font-normal"
+                >
+                  Wishes
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+        <div
+          className="font-poppins"
+        >
+          <table
+            className="w-full bg-white"
+          >
+            <caption
+              className="w-full table-caption border-b py-2 px-4"
+            >
+              <p
+                className="inline-block float-left font-bold"
+              >
+                Category Sales
+              </p>
+              <div
+                className="float-right flex"
+              >
+                <img
+                  className="cursor-pointer"
+                  src=""
+                />
+                <span
+                  className="ml-3 text-sm"
+                >
+                  April 9, 2023
+                   - 
+                  May 10, 2023
+                </span>
+              </div>
+            </caption>
+            <thead>
+              <tr
+                className="border-b text-left"
+              >
+                <th
+                  className="py-2 px-4 font-normal"
+                >
+                  Category
+                </th>
+                <th
+                  className="py-2 font-normal"
+                >
+                  Sales
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+        <div
+          className="font-poppins font-normal"
+        >
+          <table
+            className="w-full bg-white text-left h-[50%] overflow-y-auto"
+          >
+            <caption
+              className="w-full table-caption border-b py-2 px-4"
+            >
+              <p
+                className="inline-block float-left font-bold"
+              >
+                Products sold
+              </p>
+              <div
+                className="float-right flex"
+              >
+                <img
+                  className="cursor-pointer"
+                  src=""
+                />
+                <span
+                  className="ml-3 text-sm"
+                >
+                  April 9, 2023
+                   - 
+                  May 10, 2023
+                </span>
+              </div>
+            </caption>
+            <thead>
+              <tr
+                className="border-b py-2"
+              >
+                <th />
+                <th
+                  className="py-2 px-4 font-normal"
+                >
+                  Name
+                </th>
+                <th
+                  className="font-normal"
+                >
+                  Unit Price
+                </th>
+                <th
+                  className="font-normal"
+                >
+                  Quantity
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1822,25 +2190,41 @@ exports[`My app renders dashboard 2`] = `
         Dashboard
       </a>
       <div
-        className="flex gap-1"
+        className="flex gap-4"
       >
         <a
-          className="h-fit"
-          href="/notification"
+          className="flex flex-col align-middle h-fit"
         >
-           
-          <img
-            alt="Bell Icon"
-            className="w-8 h-8"
-            src=""
-          />
+          <div
+            className="relative font-bold flex justify-start items-start cursor-pointer"
+            data-testid="notifications-list"
+            onClick={[Function]}
+          >
+            <span
+              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
+            >
+              0
+            </span>
+            <span
+              className="material-symbols-outlined text-[#7AC751] text-3xl"
+            >
+              notifications
+            </span>
+          </div>
+          <div
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+          >
+            <div
+              className="flex flex-col gap-3"
+            />
+          </div>
         </a>
         <a
           href="/profile"
         >
           <img
             alt="Avatar"
-            className="w-32 h-32 xs:w-20 xs:h-20 rounded-full object-cover w-8 h-8 rounded-full object-cover"
+            className="w-32 h-32 xs:w-8 xs:h-8 rounded-full object-cover w-8 h-8 rounded-full object-cover"
             src="http://res.cloudinary.com/djg7yg23y/image/upload/v1681389414/projects/ecommerce/d218ebc4-ce9c-48bc-be76-bb0500bc7125_1681389404.509.jpg"
           />
         </a>
@@ -2004,25 +2388,41 @@ exports[`My app renders dashboard 3`] = `
         Dashboard
       </a>
       <div
-        className="flex gap-1"
+        className="flex gap-4"
       >
         <a
-          className="h-fit"
-          href="/notification"
+          className="flex flex-col align-middle h-fit"
         >
-           
-          <img
-            alt="Bell Icon"
-            className="w-8 h-8"
-            src=""
-          />
+          <div
+            className="relative font-bold flex justify-start items-start cursor-pointer"
+            data-testid="notifications-list"
+            onClick={[Function]}
+          >
+            <span
+              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
+            >
+              0
+            </span>
+            <span
+              className="material-symbols-outlined text-[#7AC751] text-3xl"
+            >
+              notifications
+            </span>
+          </div>
+          <div
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+          >
+            <div
+              className="flex flex-col gap-3"
+            />
+          </div>
         </a>
         <a
           href="/profile"
         >
           <img
             alt="Avatar"
-            className="w-32 h-32 xs:w-20 xs:h-20 rounded-full object-cover w-8 h-8 rounded-full object-cover"
+            className="w-32 h-32 xs:w-8 xs:h-8 rounded-full object-cover w-8 h-8 rounded-full object-cover"
             src="http://res.cloudinary.com/djg7yg23y/image/upload/v1681389414/projects/ecommerce/d218ebc4-ce9c-48bc-be76-bb0500bc7125_1681389404.509.jpg"
           />
         </a>
@@ -2061,10 +2461,10 @@ exports[`My app renders edit profile page correct 1`] = `
     className="flex flex-col w-full px-10 md:px-24 xl:px-60 xs:px-2"
   >
     <div
-      className="flex flex-row justify-between my-4"
+      className="flex flex-row justify-between my-4 gap-2"
     >
       <a
-        className="flex items-center"
+        className="flex items-center w-full"
         href="/"
       >
         <img
@@ -2079,7 +2479,57 @@ exports[`My app renders edit profile page correct 1`] = `
         </span>
       </a>
       <div
-        className="flex flex-row items-center gap-6 mt-1"
+        className="hidden md:block w-full"
+      >
+        <div
+          className="relative w-full hidden"
+        >
+          <div
+            className="bg-[#64B937] rounded-md px-0.5 py-0.5 flex"
+          >
+            <input
+              className="rounded-l-md px-2 w-full outline-none py-1"
+              data-testid="search-input"
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search here..."
+              type="text"
+              value=""
+            />
+            <div
+              className="bg-[#fffdfd] border-l-2 cursor-pointer hover:bg-[#ebeeeb] px-3  py-1 flex justify-between items-center gap-3"
+              onClick={[Function]}
+            >
+              <span
+                className="xs:hidden"
+              >
+                options
+              </span>
+              <img
+                alt="options"
+                src=""
+              />
+            </div>
+            <button
+              className="bg-[#64B937] px-4 py-1"
+              disabled={true}
+              name="search"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt="search"
+                src=""
+              />
+            </button>
+          </div>
+          <div
+            className="absolute z-50 w-full"
+          />
+        </div>
+      </div>
+      <div
+        className="flex flex-row items-center justify-end gap-6 mt-1 w-full "
       >
         <a
           className="h-fit"
@@ -2113,12 +2563,30 @@ exports[`My app renders edit profile page correct 1`] = `
         </a>
         <a
           className="flex flex-col align-middle h-fit"
-          href="/notification"
         >
-          <img
-            alt="Bell Icon"
-            src=""
-          />
+          <div
+            className="relative font-bold flex justify-start items-start cursor-pointer"
+            data-testid="notifications-list"
+            onClick={[Function]}
+          >
+            <span
+              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
+            >
+              0
+            </span>
+            <span
+              className="material-symbols-outlined text-[#7AC751] text-3xl"
+            >
+              notifications
+            </span>
+          </div>
+          <div
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+          >
+            <div
+              className="flex flex-col gap-3"
+            />
+          </div>
         </a>
         <a
           className="flex flex-col align-middle h-fit"
@@ -2136,7 +2604,7 @@ exports[`My app renders edit profile page correct 1`] = `
     className="flex flex-col w-full"
   >
     <div
-      className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between xs:flex-row-reverse"
+      className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between"
     >
       <ul
         className="hidden md:flex flex-row gap-4"
@@ -2166,6 +2634,75 @@ exports[`My app renders edit profile page correct 1`] = `
           </a>
         </li>
       </ul>
+      <div
+        className="md:hidden flex items-center"
+      >
+        <svg
+          className="h-6 w-6 text-gray-600 cursor-pointer"
+          fill="none"
+          onClick={[Function]}
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 6h16M4 12h16M4 18h16"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+          />
+        </svg>
+      </div>
+      <div
+        className="max-w-xs md:hidden"
+      >
+        <div
+          className="relative w-full hidden"
+        >
+          <div
+            className="bg-[#64B937] rounded-md px-0.5 py-0.5 flex"
+          >
+            <input
+              className="rounded-l-md px-2 w-full outline-none py-1"
+              data-testid="search-input"
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search here..."
+              type="text"
+              value=""
+            />
+            <div
+              className="bg-[#fffdfd] border-l-2 cursor-pointer hover:bg-[#ebeeeb] px-3  py-1 flex justify-between items-center gap-3"
+              onClick={[Function]}
+            >
+              <span
+                className="xs:hidden"
+              >
+                options
+              </span>
+              <img
+                alt="options"
+                src=""
+              />
+            </div>
+            <button
+              className="bg-[#64B937] px-4 py-1"
+              disabled={true}
+              name="search"
+              onClick={[Function]}
+              type="button"
+            >
+              <img
+                alt="search"
+                src=""
+              />
+            </button>
+          </div>
+          <div
+            className="absolute z-50 w-full"
+          />
+        </div>
+      </div>
       <div>
         <button
           className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-gray-100 hover:text-[#ecffe7]"
@@ -2187,25 +2724,6 @@ exports[`My app renders edit profile page correct 1`] = `
             </div>
           </div>
         </button>
-      </div>
-      <div
-        className="md:hidden flex items-center"
-      >
-        <svg
-          className="h-6 w-6 text-gray-600 cursor-pointer"
-          fill="none"
-          onClick={[Function]}
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4 6h16M4 12h16M4 18h16"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-          />
-        </svg>
       </div>
     </div>
   </div>
@@ -3449,397 +3967,6 @@ exports[`My app renders landing 1`] = `
 </div>
 `;
 
-exports[`My app renders profile page 1`] = `
-<div
-  className="flex flex-col h-screen w-full"
->
-  <div
-    className=" bg-[#64B937] w-full justify-start py-4 hidden sm:flex "
-  >
-    <div
-      className="ml-24 text-white"
-    >
-      Welcome to our online shop
-    </div>
-  </div>
-  <div
-    className="flex flex-col w-full px-10 md:px-24 xl:px-60 xs:px-2"
-  >
-    <div
-      className="flex flex-row justify-between my-4"
-    >
-      <a
-        className="flex items-center"
-        href="/"
-      >
-        <img
-          alt="Vikings Logo"
-          className="h-6 sm:h-9"
-          src=""
-        />
-        <span
-          className="self-center text-xl font-semibold whitespace-nowrap"
-        >
-          Vikings
-        </span>
-      </a>
-      <div
-        className="flex flex-row items-center gap-6 mt-1"
-      >
-        <a
-          className="h-fit"
-          href="/dashboard"
-        >
-          <img
-            alt="Dashboard Icon"
-            src=""
-          />
-        </a>
-        <a
-          className="flex flex-col align-middle h-fit"
-          href="/cart"
-        >
-          <a
-            className="relative font-bold flext justify-start items-start"
-            href="/cart"
-            onClick={[Function]}
-          >
-            <span
-              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
-            >
-              0
-            </span>
-            <span
-              className="material-symbols-outlined text-[#7AC751] text-2xl"
-            >
-              shopping_bag
-            </span>
-          </a>
-        </a>
-        <a
-          className="flex flex-col align-middle h-fit"
-          href="/notification"
-        >
-          <img
-            alt="Bell Icon"
-            src=""
-          />
-        </a>
-        <a
-          className="flex flex-col align-middle h-fit"
-          href="/profile"
-        >
-          <img
-            alt="Account Icon"
-            src=""
-          />
-        </a>
-      </div>
-    </div>
-  </div>
-  <div
-    className="flex flex-col w-full"
-  >
-    <div
-      className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between xs:flex-row-reverse"
-    >
-      <ul
-        className="hidden md:flex flex-row gap-4"
-      >
-        <li>
-          <a
-            className="py-2 text-gray-600 text-[14px] md:hover:text-[#338E03] uppercase"
-            href="/"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            className="py-2 text-gray-600 text-[14px] md:hover:text-[#338E03] uppercase"
-            href="/"
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            className="py-2 text-gray-600 text-[14px] md:hover:text-[#338E03] uppercase"
-            href="/"
-          >
-            Contact us
-          </a>
-        </li>
-      </ul>
-      <div>
-        <button
-          className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-gray-100 hover:text-[#ecffe7]"
-          onClick={[Function]}
-        >
-           
-          <div
-            className="flex text-gray-600"
-          >
-            <img
-              alt="Logout Icon"
-              className="w-[24px] h-[24px]"
-              src=""
-            />
-            <div
-              className="ml-2 xs:hidden sm:hidden md:block"
-            >
-              Logout
-            </div>
-          </div>
-        </button>
-      </div>
-      <div
-        className="md:hidden flex items-center"
-      >
-        <svg
-          className="h-6 w-6 text-gray-600 cursor-pointer"
-          fill="none"
-          onClick={[Function]}
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4 6h16M4 12h16M4 18h16"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    className="xs:w-11/12 sm:w-10/12 md:w-9/12 mx-auto mt-16 profile"
-  >
-    <div
-      className="flex justify-center"
-    >
-      <img
-        alt="Loader Spinner"
-        className="text-green-500 animate-spin w-[30px] text-center"
-        data-testid="spinner"
-        src=""
-      />
-    </div>
-  </div>
-  <div
-    className="flex flex-col w-full mt-20"
-  >
-    <div
-      className="px-24 flex mt-12 justify-between xs:flex-col xs:px-2"
-    >
-      <div
-        className="w-[400px] xs:w-full mb-10"
-      >
-        <a
-          className="flex items-center mb-3"
-          href="/"
-        >
-          <img
-            alt="Vikings Logo"
-            className="h-6 sm:h-9"
-            src=""
-          />
-          <span
-            className="self-center text-xl font-semibold whitespace-nowrap text-gray-600"
-          >
-            Vikings
-          </span>
-        </a>
-        <p
-          className="mb-2"
-        >
-          Viking is the a popular Ecommerce site. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor
-        </p>
-        <ul
-          className="flex"
-        >
-          <li>
-            <a
-              href="#"
-            >
-              <img
-                alt="Social network icon"
-                src=""
-              />
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-            >
-              <img
-                alt="Social network icon"
-                src=""
-              />
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-            >
-              <img
-                alt="Social network icon"
-                src=""
-              />
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-            >
-              <img
-                alt="Social network icon"
-                src=""
-              />
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div
-        className="mb-10"
-      >
-        <h1
-          className="mb-3 font-bold text-gray-600"
-        >
-          Help
-        </h1>
-        <ul>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Privacy Policy
-            </a>
-          </li>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Shipping & Delivery
-            </a>
-          </li>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Refund Policy
-            </a>
-          </li>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Track your order
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div
-        className="mb-10"
-      >
-        <h1
-          className="mb-3 font-bold text-gray-600"
-        >
-          Supports
-        </h1>
-        <ul>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Feedback
-            </a>
-          </li>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Contact us
-            </a>
-          </li>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Download app
-            </a>
-          </li>
-          <li
-            className="mb-2"
-          >
-            <a
-              href="#"
-            >
-              Terms and conditions
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div
-      className="px-24 xs:px-2"
-    >
-      <hr
-        className="h-px my-2 bg-gray-200 border-0"
-      />
-    </div>
-    <div
-      className="px-24 xs:p-2 flex justify-between xs:flex-col my-4"
-    >
-      <p>
-        © 2023 Vikings - All rights reserved
-      </p>
-      <ul
-        className="flex gap-4 xs:flex-col xs:mt-2 xs:gap-0"
-      >
-        <li>
-          <a
-            href="#"
-          >
-            Privacy
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-          >
-            Security
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-          >
-            Terms
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`My app renders redirect-google correctly 1`] = `
 <div
   className="flex flex-col gap-2 items-center justify-center h-screen w-screen"
@@ -4294,25 +4421,41 @@ exports[`My app renders update product correctly 1`] = `
         Dashboard
       </a>
       <div
-        className="flex gap-1"
+        className="flex gap-4"
       >
         <a
-          className="h-fit"
-          href="/notification"
+          className="flex flex-col align-middle h-fit"
         >
-           
-          <img
-            alt="Bell Icon"
-            className="w-8 h-8"
-            src=""
-          />
+          <div
+            className="relative font-bold flex justify-start items-start cursor-pointer"
+            data-testid="notifications-list"
+            onClick={[Function]}
+          >
+            <span
+              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
+            >
+              0
+            </span>
+            <span
+              className="material-symbols-outlined text-[#7AC751] text-3xl"
+            >
+              notifications
+            </span>
+          </div>
+          <div
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+          >
+            <div
+              className="flex flex-col gap-3"
+            />
+          </div>
         </a>
         <a
           href="/profile"
         >
           <img
             alt="Avatar"
-            className="w-32 h-32 xs:w-20 xs:h-20 rounded-full object-cover w-8 h-8 rounded-full object-cover"
+            className="w-32 h-32 xs:w-8 xs:h-8 rounded-full object-cover w-8 h-8 rounded-full object-cover"
             src="http://res.cloudinary.com/djg7yg23y/image/upload/v1681389414/projects/ecommerce/d218ebc4-ce9c-48bc-be76-bb0500bc7125_1681389404.509.jpg"
           />
         </a>
@@ -4509,7 +4652,7 @@ exports[`My app renders update product correctly 1`] = `
                 <input
                   className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
                   label="Expiry date"
-                  min="2023-05-08"
+                  min="2023-05-09"
                   name="expiryDate"
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -4578,6 +4721,173 @@ exports[`My app renders update product correctly 1`] = `
 `;
 
 exports[`My app renders verify auth correctly 1`] = `null`;
+
+exports[`My app renders verify email correctly 1`] = `
+<div
+  className="flex flex-col h-screen bg-login bg-center"
+>
+  <div
+    className=" bg-[#64B937] w-full justify-start py-4 hidden sm:flex "
+  >
+    <div
+      className="ml-24 text-white"
+    >
+      Welcome to our online shop
+    </div>
+  </div>
+  <div
+    className="flex flex-col w-full h-full md:px-24 xl:px-60 xs:px-2"
+  >
+    <nav
+      className="py-2.5 flex items-center justify-between w-full"
+    >
+      <a
+        className="flex items-center"
+        href="/"
+      >
+        <img
+          alt="Vikings Logo"
+          className="h-6 sm:h-9"
+          src=""
+        />
+        <span
+          className="self-center text-xl font-semibold whitespace-nowrap"
+        >
+          Vikings
+        </span>
+      </a>
+      <button
+        aria-controls="navbar-default"
+        aria-expanded="false"
+        className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        data-collapse-toggle="navbar-default"
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Open main menu
+        </span>
+        <svg
+          aria-hidden="true"
+          className="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clipRule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            fillRule="evenodd"
+          />
+        </svg>
+      </button>
+      <ul
+        className="md:flex hidden flex-1 flex-col p-4 mt-4 justify-between max-w-[54rem] rounded-lg bg-inherit bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
+      >
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
+            onClick={[Function]}
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
+            onClick={[Function]}
+          >
+            Pages
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
+            onClick={[Function]}
+          >
+            Contact
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/auth/signin"
+            onClick={[Function]}
+          >
+            SignIn
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/auth/signup"
+            onClick={[Function]}
+          >
+            Register
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      className="flex flex-col gap-2 items-center justify-center h-screen"
+    >
+      <div
+        className="flex flex-col gap-2 items-center justify-center"
+      >
+        <h4>
+          please wait...
+        </h4>
+        <div
+          role="status"
+        >
+          <svg
+            aria-hidden="true"
+            className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+            fill="none"
+            viewBox="0 0 100 101"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+              fill="currentColor"
+            />
+            <path
+              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+              fill="currentFill"
+            />
+          </svg>
+          <span
+            className="sr-only"
+          >
+            Loading...
+          </span>
+        </div>
+      </div>
+      <a
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        href="/"
+        onClick={[Function]}
+      >
+        back home
+         
+      </a>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`My app rends dashboard Correctly 1`] = `
 <h2>

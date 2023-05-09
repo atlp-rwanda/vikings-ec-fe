@@ -1,10 +1,13 @@
 import * as React from 'react';
-import { expect, describe, it } from '@jest/globals';
+import {
+  expect, describe, it, jest,
+} from '@jest/globals';
 import { waitFor } from '@testing-library/react';
-import renderRoute, { simpleRender, renderPath } from './jest.setup';
+import renderRoute, { simpleRender } from './jest.setup';
 import Button from '../src/components/forms/Button';
 import 'setimmediate';
 
+jest.setTimeout(30000);
 describe('My app', () => {
   it('renders home correctly', async () => {
     const renderer = renderRoute('/');
@@ -26,13 +29,13 @@ describe('My app', () => {
   });
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth/signup');
-    waitFor(() => {
+    await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });
   it('renders auth correctly', async () => {
     const renderer = renderRoute('/auth/signin');
-    waitFor(() => {
+    await waitFor(() => {
       expect(renderer.toJSON()).toMatchSnapshot();
     });
   });

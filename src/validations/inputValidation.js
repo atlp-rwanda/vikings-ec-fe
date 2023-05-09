@@ -78,3 +78,7 @@ export const ratingSchema = yup.object().shape({
 export const messageSchema = yup.object().shape({
   message: yup.string().min(3).trim().required(),
 });
+
+export const categorySchema = yup.object().shape({
+  name: yup.string().matches(/^[a-zA-Z0-9\s-]+$/).required(),
+});

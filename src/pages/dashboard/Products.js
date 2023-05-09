@@ -15,6 +15,9 @@ import { useNavigate } from 'react-router-dom';
 import ConfirmDelete from '../../components/ConfirmDelete';
 import { deleteProduct } from '../../features/product/deleteProduct';
 import { showErrorMessage, showSuccessMessage } from '../../utils/toast';
+import Modal from '../../components/Modal';
+import CreateCategoryForm from '../../components/forms/CreateCategoryForm';
+import getUserInfo from '../../utils/getUserInfo';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -26,6 +29,8 @@ const Products = () => {
   const navigate = useNavigate();
   const [showModel, setShowModel] = useState(false);
   const [productId, setProductId] = useState('');
+  const { data: newCategory } = useSelector((state)=> state.createCategory);
+  const user = getUserInfo();
 
   const handleConfirm = async () => {
     try {
@@ -195,13 +200,31 @@ const Products = () => {
         </h2>
       </div>
       <div className="space-y-4">
-        <div className="w-full md:px-24 xs:px-4 sm:px-4">
+        <div className="w-full flex flex-wrap gap-2 justify-end px-24">
           <button
             onClick={() => navigate('/dashboard/products/create')}
-            className="block text-white bg-green-500 hover:bg-green-600 text-sm px-5 py-2.5 mt-4 ml-auto font-bold w-fit text-center"
+            className="block text-white bg-green-500 hover:bg-green-600 text-sm px-5 py-2.5 mt-4 font-bold text-center"
           >
             + Add new product
           </button>
+          {
+            (user?.role === 'admin') &&
+            (<Modal
+              forceCloseOnChange={newCategory}
+              header={
+                <h2 className="text-lg mx-auto text-green-500 font-bold">Create a new category</h2>
+              }
+              toggle={
+                <button
+                  className="block text-white bg-green-500 hover:bg-green-600 text-sm px-5 py-2.5 mt-4 font-bold text-center"
+                >
+                  + Add new category
+                </button>
+              }
+            >
+              <CreateCategoryForm/>
+            </Modal>)
+          }
         </div>
         {productClicked && (
           <div className="md:px-24 xs:px-4 sm:px-4">

@@ -80,7 +80,7 @@ const CreateProductForm = () => {
           handleSubmit(onSubmit)(event);
         }}
       >
-        <div className="grid md:grid-cols-2 gap-10 sm:grid-flow-row">
+        <div className="grid lg:grid-cols-2 gap-10 grid-flow-row">
           <div className="">
             <div className="my-7">
               <InputField

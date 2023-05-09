@@ -39,6 +39,7 @@ describe('Get all products', () => {
         price: 2,
       },
       isLoading: false,
+      errorMessage: null,
     });
   });
   it('should return error when action is rejected', () => {

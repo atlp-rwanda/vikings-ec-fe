@@ -15,7 +15,7 @@ const Notifications = () => {
   const { isLoading } = useSelector((state) => state.markAllNotifications);
   const dispatch = useDispatch();
 
-  const socket = io.connect(process.env.REACT_APP_BASE_URL);
+  const socket = io.connect('https://vikings-ec-bn-mbhd.onrender.com');
   const userInfo = getUserInfo();
 
   useEffect(() => {
@@ -24,6 +24,9 @@ const Notifications = () => {
       dispatch(addNotifications(data));
       showSuccessMessage(`${data?.message}`);
     });
+    return () => {
+      socket.off(`notification.${userInfo?.id}`);
+    };
   }, []);
 
   useEffect(() => {
