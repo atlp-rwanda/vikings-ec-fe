@@ -43,6 +43,9 @@ import markOneNotificationReducer from './features/notifications/markOneNotifica
 import markAllNotificationsReducer from './features/notifications/markAllNotificationsSlice';
 import getStatsReducer from './features/stastics/stats';
 import createCategoryReducer from './createCategorySlice';
+import addToWishlistReducer from './features/wishlist/wishlistslice';
+import getWishlistReducer from './features/wishlist/getWishlistSlice';
+import deleteWishlistReducer from './features/wishlist/deleteWishlistSlice';
 
 const middlewares = [];
 
@@ -132,6 +135,9 @@ const store = configureStore({
     markAllNotifications: markAllNotificationsReducer,
     stastics: getStatsReducer,
     createCategory: createCategoryReducer,
+    addToWishlist: addToWishlistReducer,
+    getWishlist: getWishlistReducer,
+    deleteWishlist: deleteWishlistReducer,
   },
   middleware: [...middlewares, thunk],
 });

@@ -79,6 +79,7 @@ exports[`SingProductPage should render SingProductPage component correctly 1`] =
             >
               <button
                 className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center"
+                onClick={[Function]}
                 title="Wish product"
                 type="button"
               >

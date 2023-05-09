@@ -26,6 +26,7 @@ import Dashboard from '../pages/dashboard';
 import UpdateProductForm from '../components/products/updateProduct';
 import SingleProductPage from '../pages/SingleProductPage';
 import PaymentSuccessPage from '../pages/payment/PaymentSuccessPage';
+import Wishlist from '../components/wishlist/Wishlist';
 
 export const getRoutes = () => [
   <Route key="key__" path="/" element={<HomeLayout />}>
@@ -62,6 +63,9 @@ export const getRoutes = () => [
   <Route key="key__cart" path="/cart" element={<HomeLayout />}>
     <Route index element={<CartPage />} />
   </Route>,
+  <Route key="key__wishlist" path="/wishlist" element={<HomeLayout />}>
+  <Route index element={<Wishlist />} />
+</Route>,
   <Route key="key__dashboard" path="/dashboard" element={<DashboardLayout />}>
     <Route index element={<Dashboard />} />
     <Route path="orders" element={<Orders />} />
