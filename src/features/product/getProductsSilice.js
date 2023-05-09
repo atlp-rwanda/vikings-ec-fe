@@ -3,7 +3,9 @@ import axios from '../api/customAxios';
 
 export const getProductList = createAsyncThunk(
   'products/fetchList',
-  async ({ pageNumber, name, category, minPrice, maxPrice, expireDate }, { rejectWithValue }) => {
+  async ({
+    pageNumber, name, category, minPrice, maxPrice, expireDate,
+  }, { rejectWithValue }) => {
     try {
       let url = `/products?page=${pageNumber}&limit=${20}`;
       if (name) url += `&name=${name}`;
@@ -35,13 +37,11 @@ export const getProductsSlice = createSlice({
     [getProductList.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.productsList = payload;
+      state.errorMessage = null;
     },
     [getProductList.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.errorMessage = payload;
-    },
-    'product/resetErrorMessage': (state) => {
-      state.errorMessage = null;
     },
   },
 });

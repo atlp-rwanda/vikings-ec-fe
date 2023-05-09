@@ -61,10 +61,11 @@ const SingProductPage = () => {
           )}
           toggle={(
             <ProductOperationButton
-              className="mt-[20px] hover:bg-[#22f122] bg-[#f6f4f4] h-[32px] w-[32px] rounded-full flex justify-center items-center "
+              className={`mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center ${product.isAvailable ? '' : 'hover:bg-[#D9F2D9]'}`}
               icon={shopIcon}
-              title="Shop product"
+              title={product.isAvailable ? 'Shop product' : 'Product is not available'}
               alt="shop"
+              disabled={!product.isAvailable}
             />
           )}
         >
