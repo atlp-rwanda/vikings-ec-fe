@@ -1,10 +1,23 @@
-import React from 'react';
-import DashboardHeader from '../../components/DashboardHeader';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../../components/Loader';
+import BuyerOrders from '../../components/orders/BuyerOrders';
+import { getBuyerOrders } from '../../features/order/getBuyerOrderslice';
 
-const Orders = () => (
-  <div>
-    <h1 className="px-24">Orders Page</h1>
-  </div>
-);
+function OrderDashboard() {
+  const dispatch = useDispatch();
+  const {isLoading} = useSelector((state) => state.fetchOrders);
+  const data = useSelector((state) => state.fetchOrders);
+  useEffect(() => {
+    dispatch(getBuyerOrders({ page: 1 }));
+  }, []);
 
-export default Orders;
+  return (
+    <div>
+       {isLoading ? <Loader/> : <BuyerOrders data={data} />}
+    </div>
+
+  );
+}
+
+export default OrderDashboard;

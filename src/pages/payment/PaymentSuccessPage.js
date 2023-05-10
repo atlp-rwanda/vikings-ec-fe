@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ticked from '../../assets/images/tick-1.png';
-import Order from '../../components/order/order';
+import Order from '../../components/orders/BuyerOrders';
 import { getOrderDetails } from '../../features/order/orderSlice';
 import Loader from '../../components/Loader';
 

@@ -17,6 +17,8 @@ import { orderHandler } from './order.handler';
 import { getSalesHandler, updateSalesHandler } from './sales.handler';
 import { getNotificationsHandler, markOneNotificationHandler, markAllNotificationHandler } from './notifications.handler';
 import { createCategoryHandler } from './createCategory.handler';
+import { ordersHandler } from './orders.handler';
+import {singleOrderHandler} from './singleOrder.handler'
 
 const handlers = [
   ...loginHandler,
@@ -46,6 +48,8 @@ const handlers = [
   ...markOneNotificationHandler,
   ...markAllNotificationHandler,
   ...createCategoryHandler,
+  ...ordersHandler,
+  ...singleOrderHandler,
 ];
 
 export default handlers;
