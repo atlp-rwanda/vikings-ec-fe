@@ -11,12 +11,13 @@ import shopIcon from '../../public/images/black-add-cart.svg';
 import hoveredHurt from '../../public/images/hoveredHurt.svg';
 import PageCount from '../components/products/PageCount';
 import Loader from '../components/Loader';
-import { showErrorMessage } from '../utils/toast';
+import { showSuccessMessage, showErrorMessage } from '../utils/toast';
 import Modal from '../components/Modal';
 import SetCartQuantity from '../components/cart/SetCartQuantity';
 import ChatIcon from '../../public/images/icons/comment.svg';
 import Chat from '../components/chat/chats';
 import getUserInfo from '../utils/getUserInfo';
+import { addToWishlist } from '../features/wishlist/wishlistslice';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -56,6 +57,16 @@ const HomePage = () => {
     dispatch(getProductList({ pageNumber: 1 }));
   }, [dispatch]);
 
+  const addWishlist = async (productId) => {
+    try {
+      const response = await dispatch(addToWishlist({
+        productId}
+        )).unwrap();
+      showSuccessMessage('Product added successfully');
+    } catch (error) {
+      showErrorMessage(error.data.message);
+    }
+  };
   const productNotFound = true
     ? (!isLoading && Array.isArray(productsList.rows) && productsList.rows.length === 0) : false;
 
@@ -86,12 +97,10 @@ const HomePage = () => {
           product={row}
           wish={(
             <ProductOperationButton
+            onClick={() => {addWishlist(row.id)}}
               className="mt-[20px] bg-[#f6f4f4] h-[32px] hover:bg-[#099f09] w-[32px] rounded-full flex justify-center items-center"
               icon={hover ? hoveredHurt : wishIcon}
               title="Wish product"
-              alt="wish"
-              handleMouseEnter={handleMouseEnter}
-              handleMouseLeave={handleMouseLeave}
             />
           )}
           addCart={(

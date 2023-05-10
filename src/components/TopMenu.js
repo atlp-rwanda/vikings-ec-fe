@@ -5,6 +5,7 @@ import dashboardIcon from '../../public/images/icons/dashboard_icon.svg';
 import Search from './products/Search';
 import ShoppingCart from './cart/ShoppingCart';
 import Notifications from './Notification';
+import wish from '../../public/images/wish.svg';
 
 const TopMenu = () => (
   <div className="flex flex-row justify-between my-4 gap-2">
@@ -29,6 +30,9 @@ const TopMenu = () => (
       </a>
       <a href="/profile" className="flex flex-col align-middle h-fit">
         <img src={account} alt="Account Icon" />
+      </a>
+      <a href="/wishlist" className="flex flex-col align-middle h-fit">
+        <img src={wish} alt="wish Icon" />
       </a>
     </div>
   </div>
