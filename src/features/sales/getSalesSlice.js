@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../api/customAxios';
 
-export const getSales = createAsyncThunk('sales', async (_, { rejectWithValue }) => {
+export const getSales = createAsyncThunk('sales', async ({ page }, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get('/sales');
+    const { data } = await axios.get(`/sales?limit=${10}&page=${page}`);
     return data;
   } catch (err) {
     return rejectWithValue(err.message);
@@ -16,6 +16,13 @@ export const getSalesSlice = createSlice({
     data: null,
     error: null,
     isLoading: false,
+    pagination: {
+      totalItems: 0,
+      itemCount: 0,
+      itemsPerPage: '10',
+      totalPages: 1,
+      currentPage: '1',
+    },
   },
   reducers: {
     updateStatusField(state, { payload }) {
@@ -43,6 +50,7 @@ export const getSalesSlice = createSlice({
           state.isLoading = false;
           state.data = payload;
           state.error = null;
+          state.pagination = payload.meta;
         },
       )
       .addCase(getSales.rejected, (state, { payload }) => {

@@ -28,7 +28,7 @@ describe('SignupForm', () => {
     });
     fireEvent.change(getByPlaceholderText('Password'), { target: { value: 'password' } });
 
-    const btn = screen.getByRole('button', { label: 'Signin' });
+    const btn = screen.getByRole('button', { label: 'Signup' });
     userEvent.click(btn);
 
     expect(mockSubmit).toBeDefined();

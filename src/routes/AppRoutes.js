@@ -27,6 +27,7 @@ import UpdateProductForm from '../components/products/updateProduct';
 import SingleProductPage from '../pages/SingleProductPage';
 import PaymentSuccessPage from '../pages/payment/PaymentSuccessPage';
 import Wishlist from '../components/wishlist/Wishlist';
+import RestrictTo from '../components/RestrictTo';
 
 export const getRoutes = () => [
   <Route key="key__" path="/" element={<HomeLayout />}>
@@ -64,21 +65,57 @@ export const getRoutes = () => [
     <Route index element={<CartPage />} />
   </Route>,
   <Route key="key__wishlist" path="/wishlist" element={<HomeLayout />}>
-  <Route index element={<Wishlist />} />
-</Route>,
+    <Route index element={<Wishlist />} />
+  </Route>,
   <Route key="key__dashboard" path="/dashboard" element={<DashboardLayout />}>
-    <Route index element={<Dashboard />} />
+    <Route
+      index
+      element={(
+        <RestrictTo userRoles={['admin', 'seller']}>
+          <Dashboard />
+        </RestrictTo>
+    )}
+    />
     <Route path="orders" element={<Orders />} />
-    <Route path="products" element={<Products />} />
-    <Route path="users" element={<Users />} />
-    <Route path="sales" element={<Sales />} />
+    <Route
+      path="products"
+      element={(
+        <RestrictTo userRoles={['admin', 'seller']}>
+          <Products />
+        </RestrictTo>
+    )}
+    />
+    <Route
+      path="users"
+      element={(
+        <RestrictTo userRoles={['admin']}>
+          <Users />
+        </RestrictTo>
+    )}
+    />
+    <Route
+      path="sales"
+      element={(
+        <RestrictTo userRoles={['admin', 'seller']}>
+          <Sales />
+        </RestrictTo>
+    )}
+    />
     <Route
       path="products/create"
-      element={<CreateProductForm />}
+      element={(
+        <RestrictTo userRoles={['admin', 'seller']}>
+          <CreateProductForm />
+        </RestrictTo>
+      )}
     />
     <Route
       path="products/:id"
-      element={<UpdateProductForm />}
+      element={(
+        <RestrictTo userRoles={['admin', 'seller']}>
+          <UpdateProductForm />
+        </RestrictTo>
+      )}
     />
   </Route>,
   <Route key="key_general_path" path="*" element={<h2>Page Not Found</h2>} />,

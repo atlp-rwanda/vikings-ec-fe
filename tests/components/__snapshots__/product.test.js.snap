@@ -88,9 +88,11 @@ exports[`SingProductPage should render SingProductPage component correctly 1`] =
                   src=""
                 />
               </button>
-              <div
-                className="ease-linear transition-all duration-150"
+              <button
+                className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                disabled={true}
                 onClick={[Function]}
+                type="button"
               >
                 <button
                   className="mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center hover:bg-[#D9F2D9]"
@@ -103,7 +105,7 @@ exports[`SingProductPage should render SingProductPage component correctly 1`] =
                     src=""
                   />
                 </button>
-              </div>
+              </button>
             </div>
             <div
               className="flex justify-between h-fit overflow-clip items-center mt-7 gap-3"

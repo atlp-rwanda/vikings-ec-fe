@@ -70,13 +70,14 @@ const SingProductPage = () => {
               &nbsp;in the cart
             </h2>
           )}
+          disabled={!(product.isAvailable && !product.isExpired && (product.quantity > 0))}
           toggle={(
             <ProductOperationButton
-              className={`mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center ${product.isAvailable ? '' : 'hover:bg-[#D9F2D9]'}`}
+              className={`mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center ${(product.isAvailable && !product.isExpired && (product.quantity > 0)) ? '' : 'hover:bg-[#D9F2D9]'}`}
               icon={shopIcon}
-              title={product.isAvailable ? 'Shop product' : 'Product is not available'}
+              title={(product.isAvailable && !product.isExpired && (product.quantity > 0)) ? 'Shop product' : 'Product is not available'}
               alt="shop"
-              disabled={!product.isAvailable}
+              disabled={!(product.isAvailable && !product.isExpired && (product.quantity > 0))}
             />
           )}
         >
@@ -106,7 +107,7 @@ const SingProductPage = () => {
                 <img src={p.images[0]} className='h-40 w-48 xs:h-auto xs:w-full object-cover'/>
                 <div className='flex justify-between'>
                 <h1 className='text-indigo-900'>{p?.name}</h1>
-                <h1 className='text-green-600'>${p?.price}</h1>
+                <h1 className='text-green-600'>{p?.price} RWF</h1>
                 </div>
               </div>
             );

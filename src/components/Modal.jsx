@@ -8,6 +8,7 @@ const Modal = ({
   forceCloseOnChange,
   notifyOnClose,
   notifyOnOpen,
+  disabled,
 }) => {
   const [showModal, setShowModal] = React.useState(false);
 
@@ -26,12 +27,14 @@ const Modal = ({
     <>
       {/* eslint-disable-next-line max-len */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div
-        className="ease-linear transition-all duration-150"
+      <button
+        type="button"
+        disabled={disabled}
+        className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
         onClick={() => setShowModal(true)}
       >
         {toggle}
-      </div>
+      </button>
       {showModal ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden fixed inset-0 z-50 outline-none focus:outline-none">
@@ -60,6 +63,7 @@ Modal.defaultProps = {
   forceCloseOnChange: false,
   notifyOnClose: undefined,
   notifyOnOpen: undefined,
+  disabled: false,
 };
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
@@ -68,6 +72,7 @@ Modal.propTypes = {
   forceCloseOnChange: PropTypes.bool,
   notifyOnClose: PropTypes.func,
   notifyOnOpen: PropTypes.func,
+  disabled: PropTypes.bool,
 
 };
 
