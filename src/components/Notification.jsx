@@ -68,7 +68,7 @@ const Notifications = () => {
           notifications
         </span>
       </div>
-      <div className='shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9'>
+      <div className='shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9'>
         { isOpen && <><div className='flex justify-between items-center p-5'>
           <h2 className='text-xl font-extrabold text-[#266C00]'>
             Notifications

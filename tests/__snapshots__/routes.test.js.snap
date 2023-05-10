@@ -1476,11 +1476,7 @@ exports[`My app renders create product correctly 1`] = `
                   <input
                     className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
                     label="Expiry Date"
-<<<<<<< HEAD
-                    min="2023-05-09"
-=======
                     min="2023-05-10"
->>>>>>> feat: add products on wishlist
                     name="expiryDate"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -1729,11 +1725,7 @@ exports[`My app renders dashboard 1`] = `
         className="flex justify-around items-center mx-20 xs:w-screen xs:flex-col py-6 xs:mx-0 font-poppins font-bold md:gap-2"
       >
         <h1
-<<<<<<< HEAD
           className=""
-=======
-          className="sm:w-full"
->>>>>>> feat: add products on wishlist
         >
           Filter By Date
         </h1>
@@ -1754,13 +1746,8 @@ exports[`My app renders dashboard 1`] = `
             >
               <input
                 className="bg-white p-2 mt-5"
-<<<<<<< HEAD
-                defaultValue="2023-04-09"
-                max="2023-05-10"
-=======
                 defaultValue="2023-04-10"
                 max="2023-05-11"
->>>>>>> feat: add products on wishlist
                 onChange={[Function]}
                 type="date"
               />
@@ -1784,15 +1771,9 @@ exports[`My app renders dashboard 1`] = `
             >
               <input
                 className="bg-white p-2 mt-5"
-<<<<<<< HEAD
-                defaultValue="2023-05-10"
-                max="2023-05-09"
-                min="2023-04-09"
-=======
                 defaultValue="2023-05-11"
                 max="2023-05-10"
                 min="2023-04-10"
->>>>>>> feat: add products on wishlist
                 onChange={[Function]}
                 type="date"
               />
@@ -1871,15 +1852,9 @@ exports[`My app renders dashboard 1`] = `
                 <span
                   className="ml-3 text-sm"
                 >
-<<<<<<< HEAD
-                  April 9, 2023
-                   - 
-                  May 10, 2023
-=======
                   April 10, 2023
                    - 
                   May 11, 2023
->>>>>>> feat: add products on wishlist
                 </span>
               </div>
             </caption>
@@ -1932,15 +1907,9 @@ exports[`My app renders dashboard 1`] = `
                 <span
                   className="ml-3 text-sm"
                 >
-<<<<<<< HEAD
-                  April 9, 2023
-                   - 
-                  May 10, 2023
-=======
                   April 10, 2023
                    - 
                   May 11, 2023
->>>>>>> feat: add products on wishlist
                 </span>
               </div>
             </caption>
@@ -1988,15 +1957,9 @@ exports[`My app renders dashboard 1`] = `
                 <span
                   className="ml-3 text-sm"
                 >
-<<<<<<< HEAD
-                  April 9, 2023
-                   - 
-                  May 10, 2023
-=======
                   April 10, 2023
                    - 
                   May 11, 2023
->>>>>>> feat: add products on wishlist
                 </span>
               </div>
             </caption>
@@ -2043,15 +2006,9 @@ exports[`My app renders dashboard 1`] = `
                 <span
                   className="ml-3 text-sm"
                 >
-<<<<<<< HEAD
-                  April 9, 2023
-                   - 
-                  May 10, 2023
-=======
                   April 10, 2023
                    - 
                   May 11, 2023
->>>>>>> feat: add products on wishlist
                 </span>
               </div>
             </caption>
@@ -2632,18 +2589,6 @@ exports[`My app renders edit profile page correct 1`] = `
           </div>
         </a>
         <a
-<<<<<<< HEAD
-=======
-          className="flex flex-col align-middle h-fit"
-          href="/wishlist"
-        >
-          <img
-            alt="wish Icon"
-            src=""
-          />
-        </a>
-        <a
->>>>>>> feat: add products on wishlist
           className="flex flex-col align-middle h-fit"
           href="/profile"
         >
@@ -4707,11 +4652,7 @@ exports[`My app renders update product correctly 1`] = `
                 <input
                   className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
                   label="Expiry date"
-<<<<<<< HEAD
-                  min="2023-05-09"
-=======
                   min="2023-05-10"
->>>>>>> feat: add products on wishlist
                   name="expiryDate"
                   onBlur={[Function]}
                   onChange={[Function]}

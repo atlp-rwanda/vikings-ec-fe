@@ -37,8 +37,8 @@ describe('markOneNotificationSlice', () => {
     axios.patch.mockResolvedValueOnce({ data: response });
     store.dispatch(markOneNotification(id))
       .then(() => {
-        // const actions = store.getActions();
-        // expect(actions).toEqual(expectedActions);
+        const actions = store.getActions();
+        expect(actions).toEqual(expectedActions);
         expect(axios.patch).toHaveBeenCalledTimes(1);
         expect(axios.patch).toHaveBeenCalledWith(
           `${Endpoints.notifications}/${id}`,
