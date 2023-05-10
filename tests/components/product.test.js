@@ -338,10 +338,10 @@ describe('HomePage Component', () => {
     });
   });
 
-  it('should render product cards when products are available', () => {
+  it('should render product cards when products are available', async () => {
     store.dispatch(getMessage());
     store.dispatch(getProductList({ pageNumber: 1 }));
-    const { getByText } = render(
+    const { getByText } = await render(
       <Provider store={store}>
         <MemoryRouter>
           <HomePage />
@@ -356,9 +356,9 @@ describe('HomePage Component', () => {
     expect(getByText('Product 1')).toBeInTheDocument();
   });
 
-  it('should render HomePage', () => {
+  it('should render HomePage', async () => {
     store.getState().product.isLoading = true;
-    const { getAllByTestId } = render(
+    const { getAllByTestId } = await render(
       <Provider store={store}>
         <MemoryRouter>
           <HomePage />
