@@ -169,7 +169,7 @@ exports[`My app renders Users data correctly 1`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -372,7 +372,7 @@ exports[`My app renders Users data correctly 2`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -983,7 +983,7 @@ exports[`My app renders auth correctly 2`] = `
                   onClick={[Function]}
                   type="submit"
                 >
-                  Signin
+                  Signup
                    
                 </button>
               </div>
@@ -1487,7 +1487,7 @@ exports[`My app renders create product correctly 1`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -1673,7 +1673,7 @@ exports[`My app renders create product correctly 1`] = `
                   <input
                     className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none h-8"
                     label="Expiry Date"
-                    min="2023-05-10"
+                    min="2023-05-11"
                     name="expiryDate"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -1730,512 +1730,451 @@ exports[`My app renders create product correctly 1`] = `
 
 exports[`My app renders dashboard 1`] = `
 <div
-  className="flex"
+  className="flex flex-col min-h-screen w-full"
 >
   <div
-    className="flex bg-[#F8F7FC] h-[100vh] md:sticky top-0 shadow-sm mb-2"
-    data-testid="sidebar"
+    className=" bg-[#64B937] w-full justify-start py-4 hidden sm:flex "
   >
     <div
-      className="bg-white xs:hidden"
+      className="ml-24 text-white"
     >
-      <div
-        className="flex p-14 xs:p-6 "
-      >
-        <div
-          className="logo"
-        >
-          <a
-            className="flex items-center"
-            href="/"
-          >
-            <img
-              alt="Vikings Logo"
-              className="h-6 sm:h-9 mr-1  xs:hidden xs:m-0"
-              src=""
-            />
-            <span
-              className="self-center text-xl font-semibold whitespace-nowrap mr-6 xs:hidden "
-            >
-              Vikings
-            </span>
-          </a>
-        </div>
-        <button
-          aria-controls="navbar-default"
-          aria-expanded="false"
-          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 ml-3 xs:m-0 "
-          data-collapse-toggle="navbar-default"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            className="sr-only"
-          >
-            Open main menu
-          </span>
-          <svg
-            aria-hidden="true"
-            className="w-6 h-6"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clipRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              fillRule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
-      <div
-        className="px-14 py-4 hover:cursor-pointer  hover:bg-red-100"
-      >
-        <button
-          className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-transparent"
-          onClick={[Function]}
-        >
-           
-          <div
-            className="flex text-gray-600 "
-          >
-            <img
-              alt="Logout Icon"
-              className="w-[24px] h-[24px]"
-              src=""
-            />
-            <div
-              className="ml-2 "
-            >
-              Logout
-            </div>
-          </div>
-        </button>
-      </div>
-    </div>
-    <div
-      className="xs:flex hidden bg-white bottom-0 fixed w-full border border-t-2 justify-between p-4 z-50"
-    >
-      <div>
-        <button
-          className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] !my-0 !p-0 h-full !bg-transparent hover:text-[#ecffe7]"
-          onClick={[Function]}
-        >
-           
-          <div
-            className="flex text-gray-600 "
-          >
-            <img
-              alt="Logout Icon"
-              className="w-[24px] h-[24px]"
-              src=""
-            />
-            <div
-              className="hidden"
-            >
-              Logout
-            </div>
-          </div>
-        </button>
-      </div>
+      Welcome to our online shop
     </div>
   </div>
   <div
-    className="flex flex-col bg-[#F8F7FC] flex-grow mb-8"
+    className="px-24"
   >
-    <div
-      className="flex gap-2 p-4 md:px-24 xs:px-4 sm:px-4 items-center justify-between mb-8"
+    <nav
+      className="py-2.5 flex items-center justify-between w-full"
     >
-      <div
-        className="hidden xs:block"
-      >
-        <a
-          className="flex items-center gap-2"
-          href="/"
-        >
-          <img
-            alt="Vikings Logo"
-            className="h-6 sm:h-9"
-            src=""
-          />
-          <span
-            className="self-center text-xl font-semibold whitespace-nowrap text-[#555555]"
-          >
-            Vikings
-          </span>
-        </a>
-      </div>
       <a
-        aria-current="page"
-        className="text-green-400 xs:hidden font-bold active"
-        href="/dashboard"
-        onClick={[Function]}
+        className="flex items-center"
+        href="/"
       >
-        Dashboard
-      </a>
-      <div
-        className="flex gap-4"
-      >
-        <a
-          className="flex flex-col align-middle h-fit"
+        <img
+          alt="Vikings Logo"
+          className="h-6 sm:h-9"
+          src=""
+        />
+        <span
+          className="self-center text-xl font-semibold whitespace-nowrap"
         >
-          <div
-            className="relative font-bold flex justify-start items-start cursor-pointer"
-            data-testid="notifications-list"
+          Vikings
+        </span>
+      </a>
+      <button
+        aria-controls="navbar-default"
+        aria-expanded="false"
+        className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        data-collapse-toggle="navbar-default"
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Open main menu
+        </span>
+        <svg
+          aria-hidden="true"
+          className="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clipRule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            fillRule="evenodd"
+          />
+        </svg>
+      </button>
+      <ul
+        className="md:flex hidden flex-1 flex-col p-4 mt-4 justify-between max-w-[54rem] rounded-lg bg-inherit bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
+      >
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
             onClick={[Function]}
           >
-            <span
-              className="absolute top-0 -right-1 bg-[#7AC751] text-white text-xs  px-1 rounded-full"
-            >
-              0
-            </span>
-            <span
-              className="material-symbols-outlined text-[#7AC751] text-3xl"
-            >
-              notifications
-            </span>
-          </div>
-          <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
+            onClick={[Function]}
           >
-            <div
-              className="flex flex-col gap-3"
-            />
-          </div>
-        </a>
-        <a
-          href="/profile"
-        >
-          <img
-            alt="Profile Icon"
-            className="w-8 h-8"
-            src=""
-          />
-        </a>
-      </div>
-    </div>
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
+            onClick={[Function]}
+          >
+            Pages
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/"
+            onClick={[Function]}
+          >
+            Contact
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/auth/signin"
+            onClick={[Function]}
+          >
+            SignIn
+          </a>
+        </li>
+        <li>
+          <a
+            className="py-2 pl-3 pr-4 text-gray-700 text-[20px] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#338E03] md:p-0 "
+            href="/auth/signup"
+            onClick={[Function]}
+          >
+            Register
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div
+    className="min-h-72"
+  >
     <div
-      className="-mt-8 overflow-scroll pb-16"
+      className=" fixed bottom-[80px] px-4 md:px-0 md:right-5 max-w-[400px] top-[50px] z-50 bg-white w-full flex flex-col xs:justify-center rounded-t-[20px] rounded-bl-[20px] hidden"
     >
       <div
-        className="flex justify-around items-center mx-20 xs:w-screen xs:flex-col py-6 xs:mx-0 font-poppins font-bold md:gap-2"
+        className="bg-[#ABEC89] w-full flex justify-between h-[50px] py-[15px] px-[20px] rounded-t-[20px]"
       >
-        <h1
-          className="sm:w-full"
-        >
-          Filter By Date
-        </h1>
-        <div
-          className="flex items-center justify-between md:p-2 md:w-full"
-        >
-          <p>
-            From
-          </p>
-          <div
-            className="h-[80px] undefined"
-          >
-            <label
-              className="undefined sr-only""
-            />
-            <div
-              className="w-full"
-            >
-              <input
-                className="bg-white p-2 mt-5"
-                defaultValue="2023-04-10"
-                max="2023-05-11"
-                onChange={[Function]}
-                type="date"
-              />
-            </div>
-          </div>
+        <div>
+           Chat 
         </div>
-        <div
-          className="flex items-center justify-between md:p-2 md:w-full"
-        >
-          <p>
-            To
-          </p>
-          <div
-            className="h-[80px] undefined"
+        <div>
+          <button
+            onClick={[Function]}
           >
-            <label
-              className="undefined sr-only""
-            />
-            <div
-              className="w-full"
-            >
-              <input
-                className="bg-white p-2 mt-5"
-                defaultValue="2023-05-11"
-                max="2023-05-10"
-                min="2023-04-10"
-                onChange={[Function]}
-                type="date"
-              />
-            </div>
-          </div>
+            X
+          </button>
         </div>
       </div>
       <div
-        className="flex md:px-20 justify-around xs:grid grid-cols-1 xs:w-full gap-8 font-poppins font-bold xs:text-sm xs:px-4 text-xl text-white"
+        className="p-[20px] border md:mx-22 flex flex-col h-full xs:justify-center rounded-bl-[20px]"
       >
         <div
-          className="bg-gradient-to-r w-1/4 xs:w-full from-[#54dce6] to-[#92d96c] p-2 "
+          className="h-[540px] flex justify-center"
         >
-          <p>
-            Created Products
-          </p>
-          <span
-            className="flex justify-end"
-          />
-        </div>
-        <div
-          className="bg-gradient-to-r w-1/4 xs:w-full from-[#67abd2] to-[#92d96c] p-2"
-        >
-          <p>
-            New Sales
-          </p>
-          <span
-            className="flex justify-end"
-          />
-        </div>
-        <div
-          className="bg-gradient-to-r w-1/4 xs:w-full from-[#d36b80] to-[#92d96c] p-2"
-        >
-          <p>
-            Expired Products
-          </p>
-          <span
-            className="flex justify-end"
-          />
-        </div>
-        <div
-          className="bg-gradient-to-r w-1/4 xs:w-full from-[#ae57c1] to-[#92d96c] p-2"
-        >
-          <p>
-            Wished Products
-          </p>
-          <span
-            className="flex justify-end"
-          />
-        </div>
-      </div>
-      <div
-        className="grid grid-cols-2 xs:grid-cols-1 gap-8 max-w-[100%] md:mx-20 mt-10 px-6"
-      >
-        <div
-          className=" font-poppins font-normal"
-        >
-          <table
-            className="w-full bg-white overflow-x-auto"
+          <div
+            className="flex justify-center mt-24 py-16"
           >
-            <caption
-              className="w-full table-caption border-b py-2 px-4"
-            >
-              <p
-                className="inline-block float-left font-bold"
-              >
-                Expired Products
-              </p>
-              <div
-                className="float-right flex"
-              >
-                <img
-                  className="cursor-pointer"
-                  src=""
-                />
-                <span
-                  className="ml-3 text-sm"
-                >
-                  April 10, 2023
-                   - 
-                  May 11, 2023
-                </span>
-              </div>
-            </caption>
-            <thead>
-              <tr
-                className="border-b py-2 text-left"
-              >
-                <th />
-                <th
-                  className="py-2 px-4 font-normal"
-                >
-                  Name
-                </th>
-                <th
-                  className="font-normal"
-                >
-                  Unit Price
-                </th>
-                <th
-                  className="font-normal"
-                >
-                  Quantity
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
+            <img
+              alt="Loader Spinner"
+              className="text-green-500 animate-spin w-[30px] text-center"
+              data-testid="spinner"
+              src=""
+            />
+          </div>
         </div>
         <div
-          className="font-poppins"
+          className="h-[90px]"
         >
-          <table
-            className="w-full bg-white h-[50%] overflow-scroll"
+          <form
+            onSubmit={[Function]}
           >
-            <caption
-              className="w-full table-caption border-b py-2 px-2"
+            <div
+              className="relative"
             >
-              <p
-                className="inline-block float-left font-bold"
-              >
-                Wished Products
-              </p>
               <div
-                className="float-right flex"
+                className="h-[80px] undefined"
               >
-                <img
-                  className="cursor-pointer"
-                  src=""
+                <label
+                  className="undefined sr-only""
+                  htmlFor="message"
                 />
-                <span
-                  className="ml-3 text-sm"
+                <div
+                  className="w-full"
                 >
-                  April 10, 2023
-                   - 
-                  May 11, 2023
-                </span>
+                  <input
+                    className=" w-full h-[55px]  rounded-[15px] px-2 py-3 text-[16px] placeholder:text-gray-400 sm:text-[12px] my-2 focus:bg-[#EAF0F7] bg-[#EAF0F7] whitespace-normal"
+                    name="message"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Type message"
+                    type="text"
+                  />
+                </div>
               </div>
-            </caption>
-            <thead>
-              <tr
-                className="border-b text-left"
-              >
-                <th />
-                <th
-                  className="py-2 px-4 font-normal"
-                >
-                  Name
-                </th>
-                <th
-                  className="py-2 font-normal"
-                >
-                  Wishes
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
-        </div>
-        <div
-          className="font-poppins"
-        >
-          <table
-            className="w-full bg-white"
-          >
-            <caption
-              className="w-full table-caption border-b py-2 px-4"
-            >
-              <p
-                className="inline-block float-left font-bold"
-              >
-                Category Sales
-              </p>
               <div
-                className="float-right flex"
+                className=" absolute right-0 top-0"
               >
-                <img
-                  className="cursor-pointer"
-                  src=""
-                />
-                <span
-                  className="ml-3 text-sm"
-                >
-                  April 10, 2023
-                   - 
-                  May 11, 2023
-                </span>
+                <div>
+                  <button
+                    className=" w-full my-2 h-[45px] rounded-md bg-[#338E03] py-2 px-3 text-sm font-semibold text-white hover:bg-[#64B937] bg-inherit hover:bg-[#F3F3F3] hover:rounded-r-[15px] h-[55px]"
+                    onClick={[Function]}
+                    type="submit"
+                  >
+                     
+                    <img
+                      alt="Send Icon"
+                      className="w-[90%] m-auto"
+                      src=""
+                    />
+                  </button>
+                </div>
               </div>
-            </caption>
-            <thead>
-              <tr
-                className="border-b text-left"
-              >
-                <th
-                  className="py-2 px-4 font-normal"
-                >
-                  Category
-                </th>
-                <th
-                  className="py-2 font-normal"
-                >
-                  Sales
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
-        </div>
-        <div
-          className="font-poppins font-normal"
-        >
-          <table
-            className="w-full bg-white text-left h-[50%] overflow-y-auto"
-          >
-            <caption
-              className="w-full table-caption border-b py-2 px-4"
-            >
-              <p
-                className="inline-block float-left font-bold"
-              >
-                Products sold
-              </p>
-              <div
-                className="float-right flex"
-              >
-                <img
-                  className="cursor-pointer"
-                  src=""
-                />
-                <span
-                  className="ml-3 text-sm"
-                >
-                  April 10, 2023
-                   - 
-                  May 11, 2023
-                </span>
-              </div>
-            </caption>
-            <thead>
-              <tr
-                className="border-b py-2"
-              >
-                <th />
-                <th
-                  className="py-2 px-4 font-normal"
-                >
-                  Name
-                </th>
-                <th
-                  className="font-normal"
-                >
-                  Unit Price
-                </th>
-                <th
-                  className="font-normal"
-                >
-                  Quantity
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+    <h1
+      className="pb-8 text-center pt-8 font-bold text-[25px] text-gray-600"
+    >
+      OUR PRODUCTS
+    </h1>
+    <div
+      className="flex justify-center mt-24 py-16"
+    >
+      <img
+        alt="Loader Spinner"
+        className="text-green-500 animate-spin w-[30px] text-center"
+        data-testid="spinner"
+        src=""
+      />
+    </div>
+    <br />
+    <div
+      className="pb-4"
+    />
+    <div>
+      <button
+        className="w-[50px] h-[50px] rounded-l-[25px] rounded-tr-[25px] fixed bottom-[80px] right-[50px] z-10 bg-[#ABEC89] hover:bg-[#099f09] px-[12px] comment "
+        onClick={[Function]}
+        type="submit"
+      >
+        <img
+          alt="Send Icon"
+          className=" mx-auto "
+          src=""
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="px-24 flex mt-12 justify-between xs:flex-col xs:px-2"
+  >
+    <div
+      className="w-[400px] xs:w-full mb-10"
+    >
+      <a
+        className="flex items-center mb-3"
+        href="/"
+      >
+        <img
+          alt="Vikings Logo"
+          className="h-6 sm:h-9"
+          src=""
+        />
+        <span
+          className="self-center text-xl font-semibold whitespace-nowrap text-gray-600"
+        >
+          Vikings
+        </span>
+      </a>
+      <p
+        className="mb-2"
+      >
+        Viking is the a popular Ecommerce site. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor
+      </p>
+      <ul
+        className="flex"
+      >
+        <li>
+          <a
+            href="#"
+          >
+            <img
+              alt="Social network icon"
+              src=""
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            <img
+              alt="Social network icon"
+              src=""
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            <img
+              alt="Social network icon"
+              src=""
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            <img
+              alt="Social network icon"
+              src=""
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="mb-10"
+    >
+      <h1
+        className="mb-3 font-bold text-gray-600"
+      >
+        Help
+      </h1>
+      <ul>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Privacy Policy
+          </a>
+        </li>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Shipping & Delivery
+          </a>
+        </li>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Refund Policy
+          </a>
+        </li>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Track your order
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="mb-10"
+    >
+      <h1
+        className="mb-3 font-bold text-gray-600"
+      >
+        Supports
+      </h1>
+      <ul>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Feedback
+          </a>
+        </li>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Contact us
+          </a>
+        </li>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Download app
+          </a>
+        </li>
+        <li
+          className="mb-2"
+        >
+          <a
+            href="#"
+          >
+            Terms and conditions
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="px-24 xs:px-2"
+  >
+    <hr
+      className="h-px my-2 bg-gray-200 border-0"
+    />
+  </div>
+  <div
+    className="px-24 xs:p-2 flex justify-between xs:flex-col my-4"
+  >
+    <p>
+      © 2023 Vikings - All rights reserved
+    </p>
+    <ul
+      className="flex gap-4 xs:flex-col xs:mt-2 xs:gap-0"
+    >
+      <li>
+        <a
+          href="#"
+        >
+          Privacy
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          Security
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          Terms
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -2409,7 +2348,7 @@ exports[`My app renders dashboard 2`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -2663,7 +2602,7 @@ exports[`My app renders dashboard 3`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -2834,7 +2773,7 @@ exports[`My app renders edit profile page correct 1`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -4404,7 +4343,7 @@ exports[`My app renders orders data correctly 1`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -4515,16 +4454,18 @@ exports[`My app renders orders data correctly 1`] = `
               <td
                 className="text-center"
               >
-                <div
-                  className="ease-linear transition-all duration-150"
+                <button
+                  className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                  disabled={false}
                   onClick={[Function]}
+                  type="button"
                 >
                   <button
                     className="px-5 py-1 bg-slate-400 text-white rounded-2xl text-center mx-auto hover:bg-slate-600"
                   >
                     view
                   </button>
-                </div>
+                </button>
               </td>
             </tr>
             <tr
@@ -4563,16 +4504,18 @@ exports[`My app renders orders data correctly 1`] = `
               <td
                 className="text-center"
               >
-                <div
-                  className="ease-linear transition-all duration-150"
+                <button
+                  className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                  disabled={false}
                   onClick={[Function]}
+                  type="button"
                 >
                   <button
                     className="px-5 py-1 bg-slate-400 text-white rounded-2xl text-center mx-auto hover:bg-slate-600"
                   >
                     view
                   </button>
-                </div>
+                </button>
               </td>
             </tr>
             <tr
@@ -4611,16 +4554,18 @@ exports[`My app renders orders data correctly 1`] = `
               <td
                 className="text-center"
               >
-                <div
-                  className="ease-linear transition-all duration-150"
+                <button
+                  className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                  disabled={false}
                   onClick={[Function]}
+                  type="button"
                 >
                   <button
                     className="px-5 py-1 bg-slate-400 text-white rounded-2xl text-center mx-auto hover:bg-slate-600"
                   >
                     view
                   </button>
-                </div>
+                </button>
               </td>
             </tr>
             <tr
@@ -4659,16 +4604,18 @@ exports[`My app renders orders data correctly 1`] = `
               <td
                 className="text-center"
               >
-                <div
-                  className="ease-linear transition-all duration-150"
+                <button
+                  className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                  disabled={false}
                   onClick={[Function]}
+                  type="button"
                 >
                   <button
                     className="px-5 py-1 bg-slate-400 text-white rounded-2xl text-center mx-auto hover:bg-slate-600"
                   >
                     view
                   </button>
-                </div>
+                </button>
               </td>
             </tr>
             <tr
@@ -4707,16 +4654,18 @@ exports[`My app renders orders data correctly 1`] = `
               <td
                 className="text-center"
               >
-                <div
-                  className="ease-linear transition-all duration-150"
+                <button
+                  className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                  disabled={false}
                   onClick={[Function]}
+                  type="button"
                 >
                   <button
                     className="px-5 py-1 bg-slate-400 text-white rounded-2xl text-center mx-auto hover:bg-slate-600"
                   >
                     view
                   </button>
-                </div>
+                </button>
               </td>
             </tr>
             <tr
@@ -4755,16 +4704,18 @@ exports[`My app renders orders data correctly 1`] = `
               <td
                 className="text-center"
               >
-                <div
-                  className="ease-linear transition-all duration-150"
+                <button
+                  className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                  disabled={false}
                   onClick={[Function]}
+                  type="button"
                 >
                   <button
                     className="px-5 py-1 bg-slate-400 text-white rounded-2xl text-center mx-auto hover:bg-slate-600"
                   >
                     view
                   </button>
-                </div>
+                </button>
               </td>
             </tr>
             <tr
@@ -4803,16 +4754,18 @@ exports[`My app renders orders data correctly 1`] = `
               <td
                 className="text-center"
               >
-                <div
-                  className="ease-linear transition-all duration-150"
+                <button
+                  className="ease-linear transition-all duration-150 disabled:cursor-not-allowed"
+                  disabled={false}
                   onClick={[Function]}
+                  type="button"
                 >
                   <button
                     className="px-5 py-1 bg-slate-400 text-white rounded-2xl text-center mx-auto hover:bg-slate-600"
                   >
                     view
                   </button>
-                </div>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -5302,7 +5255,7 @@ exports[`My app renders update product correctly 1`] = `
             </span>
           </div>
           <div
-            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-scroll rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
+            className="shadow-2xl max-h-96 md:w-96 max-w-xs overflow-auto rounded-xl absolute z-[9999999] bg-white md:top-28 md:right-36 top-20 right-9"
           >
             <div
               className="flex flex-col gap-3"
@@ -5511,7 +5464,7 @@ exports[`My app renders update product correctly 1`] = `
                 <input
                   className=" w-full px-2 py-2 sm:text-[12px] my-0 focus:bg-white bg-white"
                   label="Expiry date"
-                  min="2023-05-10"
+                  min="2023-05-11"
                   name="expiryDate"
                   onBlur={[Function]}
                   onChange={[Function]}

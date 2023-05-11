@@ -5,6 +5,7 @@ import LogoutIcon from '../../public/images/icons/sidebar/logout.svg';
 import Button from './forms/Button';
 import { logout } from '../features/auth/logoutSlice';
 import Search from './products/Search';
+import getUserInfo from '../utils/getUserInfo';
 
 const SubMenu = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const SubMenu = () => {
     </li>
   ));
 
+  const user = getUserInfo();
   return (
     <div className="w-full flex xs:mt-2 flex-row bg-gray-100 py-4 px-10 md:px-24 xl:px-60 xs:px-2 xs:z-40 justify-between">
       <ul className="hidden md:flex flex-row gap-4">
@@ -85,9 +87,10 @@ const SubMenu = () => {
           </svg>
         )}
       </div>
-      <div className="max-w-xs md:hidden">
+      {(user?.role !== 'seller') &&
+        (<div className="max-w-xs md:hidden">
         <Search />
-      </div>
+      </div>)}
       <Button
         onClick={async () => {
           await dispatch(logout()).unwrap();

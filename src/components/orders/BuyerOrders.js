@@ -40,12 +40,13 @@ function OrdersTable({ data }) {
 
         <tbody>
           {orders &&
-            orders.map((order) => (
+            orders
+              .map((order) => (
               <OrderRow key={order.id} order={order} />
             ))}
         </tbody>
       </table>
-      <div className="flex justify-center"> 
+      <div className="flex justify-center">
         <Pagination
           currentPage={parseInt(pagination.currentPage, 10)}
           pageCount={pagination.totalPages}

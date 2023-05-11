@@ -8,7 +8,7 @@ const Sales = () => {
   const dispatch = useDispatch();
   const { isLoading, data } = useSelector((state) => state.sales);
   useEffect(() => {
-    dispatch(getSales());
+    dispatch(getSales({ page: 1 }));
   }, [dispatch]);
   return (
     <div>

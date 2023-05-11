@@ -59,9 +59,7 @@ const HomePage = () => {
 
   const addWishlist = async (productId) => {
     try {
-      const response = await dispatch(addToWishlist({
-        productId}
-        )).unwrap();
+      const response = await dispatch(addToWishlist({ productId })).unwrap();
       showSuccessMessage('Product added successfully');
     } catch (error) {
       showErrorMessage(error.data.message);
@@ -97,7 +95,7 @@ const HomePage = () => {
           product={row}
           wish={(
             <ProductOperationButton
-            onClick={() => {addWishlist(row.id)}}
+              onClick={() => { addWishlist(row.id); }}
               className="mt-[20px] bg-[#f6f4f4] h-[32px] hover:bg-[#099f09] w-[32px] rounded-full flex justify-center items-center"
               icon={hover ? hoveredHurt : wishIcon}
               title="Wish product"
@@ -123,14 +121,14 @@ const HomePage = () => {
                   setPersistCart(true);
                 }
               }}
+              disabled={!(row.isAvailable && !row.isExpired && (row.quantity > 0))}
               toggle={(
                 <ProductOperationButton
-                  className={`mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center ${row.isAvailable ? '' : 'hover:bg-[#D9F2D9]'}`}
+                  className={`mt-[20px] bg-[#f6f4f4] hover:bg-[#099f09] h-[32px] w-[32px] rounded-full flex justify-center items-center ${(row.isAvailable && !row.isExpired && (row.quantity > 0)) ? '' : 'hover:bg-[#D9F2D9]'}`}
                   icon={hoverAddCart ? HoveredShopIcon : shopIcon}
-                  title={row.isAvailable ? 'Shop product' : 'Product is not available'}
+                  title={(row.isAvailable && !row.isExpired && (row.quantity > 0)) ? 'Shop product' : 'Product is not available'}
                   testId="add-to-cart"
                   alt="shop"
-                  disabled={!row.isAvailable}
                   handleMouseEnter={handleAddTocartMouseEnter}
                   handleMouseLeave={handleAddTocartMouseLeave}
                 />

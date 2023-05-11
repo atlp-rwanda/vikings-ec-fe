@@ -16,7 +16,7 @@ describe('Sales slice', () => {
       { type: 'sales/fulfilled', payload: { data: 'mocked data' } },
     ];
 
-    return jestStore.dispatch(getSales()).then(() => {
+    return jestStore.dispatch(getSales({ page: 1 })).then(() => {
       expect(
         jestStore
           .getActions()
