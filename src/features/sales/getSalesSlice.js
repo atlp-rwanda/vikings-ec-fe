@@ -26,8 +26,8 @@ export const getSalesSlice = createSlice({
   },
   reducers: {
     updateStatusField(state, { payload }) {
-      if (state.data.sellerSales) {
-        state.data.sellerSales = state.data.sellerSales.map((each) => {
+      if (state.data.sales) {
+        state.data.sales = state.data.sales.map((each) => {
           if (payload.saleId !== each.id) {
             return each;
           }
